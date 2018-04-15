@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import {Avatar,Button,Icon,Layout,Menu,Breadcrumb} from 'antd';
 import './index.css';
 import avatar from '../image/avatar.jpg';
-import Top from '../components/header.js'
+import Top from '../components/header.js';
+import Bottom from '../components/footer.js';
 const{Header,Footer,Sider,Content} = Layout;
 const SubMenu = Menu.SubMenu;
 class Container extends Component{
@@ -93,9 +94,7 @@ class Container extends Component{
 						Bill is a cat.
 						</div>
 					</Content>
-					<Footer style={{ textAlign: 'center' }}>
-						React Manage System ©️2018 Created By Kayson
-					</Footer>
+					<Bottom/>
 					</Layout>
 				</Layout>
 		)

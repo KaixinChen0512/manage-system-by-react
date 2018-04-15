@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import {Avatar,Button,Icon,Layout,Menu,Breadcrumb} from 'antd';
 // import './App.css';
 import './style/home.css';
 import avatar from './image/avatar.jpg';
+import Top from './components/header.js'
 const{Header,Footer,Sider,Content} = Layout;
 const SubMenu = Menu.SubMenu;
 class App extends Component{
 	state={
-		collapsed:false,
+		collapsed:false
 	};
 	toggle = () => {
 		this.setState({
 		  collapsed: !this.state.collapsed,
+		  mode: this.state.collapsed ? 'inline' : 'vertical'
 		});
 	};
 	render(){
@@ -30,7 +33,7 @@ class App extends Component{
 						shape="circle"
 						src={avatar}
 						/>
-						<span style={{color:'#FFFFFF',marginLeft:'15px'}}>管道工程管理系统</span>
+						{ this.state.collapsed===false ? <span style={{color:'#FFFFFF',marginLeft:'15px'}}>管道工程管理系统</span>:''}
 					</div>
 						<Menu 
 						theme="dark" 
@@ -82,13 +85,7 @@ class App extends Component{
 						</Menu>
 					</Sider>
 					<Layout>
-					<Header style={{ background: '#fff', padding: 0 }}>
-						<Icon 
-						className="trigger"
-						type={this.state.collapsed?'menu-unfold':'menu-fold'}
-						onClick={this.toggle}
-						/>
-					</Header>
+					<Top toggle={this.toggle} collapsed={this.state.collapsed} clear={this.clear}/>
 					<Content style={{ margin: '0 16px' }}>
 						<Breadcrumb style={{ margin: '16px 0' }}>
 							<Breadcrumb.Item>User</Breadcrumb.Item>

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {Avatar,Icon,Layout,Menu,Breadcrumb} from 'antd';
-import './index.css';
-import avatar from '../image/avatar.jpg';
-import Top from '../components/header.js';
-import Bottom from '../components/footer.js';
-import Content from '../components/content.js';
+import './container.css';
+import avatar from './image/avatar.jpg';
+import Top from './components/header.js';
+import Bottom from './components/footer.js';
+import Contents from './components/content.js';
 const{Sider,Content} = Layout;
 const SubMenu = Menu.SubMenu;
 class Container extends Component{
@@ -85,7 +85,7 @@ class Container extends Component{
 					</Sider>
 					<Layout>
 					<Top toggle={this.toggle} collapsed={this.state.collapsed} clear={this.clear}/>
-					<Content/>
+					<Contents/>
 					<Bottom/>
 					</Layout>
 				</Layout>

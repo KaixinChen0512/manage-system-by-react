@@ -72,7 +72,7 @@ export default class index extends React.Component {
                     <Col span={16}>
                         <div className="cloud-box">
                             <Card className={'no-padding'}>
-                                <EchartsProjects />
+                                
                             </Card>
                         </div>
                     </Col>
@@ -158,7 +158,7 @@ export default class index extends React.Component {
                                     <small>最近7天用户访问量</small>
                                 </div>
                                 <a className="card-tool"><Icon type="sync" /></a>
-                                <EchartsViews />
+                                
                             </Card>
                         </div>
                     </Col>

@@ -1,104 +1,169 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import {Avatar,Button,Icon,Layout,Menu,Breadcrumb} from 'antd';
-import './index.css';
-import avatar from '../image/avatar.jpg';
-import Top from '../components/header.js';
-import Bottom from '../components/footer.js';
-const{Header,Footer,Sider,Content} = Layout;
-const SubMenu = Menu.SubMenu;
-class Container extends Component{
-	state={
-		collapsed:false
-	};
-	toggle = () => {
-		this.setState({
-		  collapsed: !this.state.collapsed,
-		  mode: this.state.collapsed ? 'inline' : 'vertical'
-		});
-	};
-	render(){
-		return (
-				<Layout className="container">
-					<Sider 
-					trigger={null}
-					collapsible
-					collapsed={this.state.collapsed}
-					style={{backgroundColor:'#404040'}}
-					>
-					<div className="logo" >
-						<Avatar
-						size="large"
-						shape="circle"
-						src={avatar}
-						/>
-						{ this.state.collapsed===false ? <span style={{color:'#FFFFFF',marginLeft:'15px'}}>管道工程管理系统</span>:''}
-					</div>
-						<Menu 
-						theme="dark" 
-						defaultSelectedKeys={['1']} 
-						mode="inline"
-						style={{backgroundColor:'#404040'}}
-						>
-							<Menu.Item key="1">
-								<Icon type="home" />
-								<span>首页</span>
-							</Menu.Item>
-							<SubMenu
-							key="sub1"
-							title={<span><Icon type="database"/><span>数据管理</span></span>}
-							>
-								<Menu.Item key="2-1">工人列表</Menu.Item>
-								<Menu.Item key="2-2">管道列表</Menu.Item>
-								<Menu.Item key="2-3">项目列表</Menu.Item>
-								<Menu.Item key="2-4">管理员列表</Menu.Item>
-							</SubMenu>
-							<SubMenu
-							key="sub2"
-							title={<span><Icon type="file-add"/><span>添加数据</span></span>}
-							>
-								<Menu.Item key="3-1">添加工人</Menu.Item>
-								<Menu.Item key="3-2">添加管道</Menu.Item>
-								<Menu.Item key="3-3">添加项目</Menu.Item>
-							</SubMenu>
-							<SubMenu
-							key="sub3"
-							title={<span><Icon type="area-chart"/><span>可视化分析</span></span>}
-							>
-								<Menu.Item key="4-1">管道分布</Menu.Item>
-								<Menu.Item key="4-2">项目进度</Menu.Item>
-								<Menu.Item key="4-3">自定义分析</Menu.Item>
-							</SubMenu>
-							<SubMenu
-							key="sub4"
-							title={<span><Icon type="setting"/><span>设置</span></span>}
-							>
-								<Menu.Item key="5-1">管理员设置</Menu.Item>
-							</SubMenu>
-							<SubMenu
-							key="sub5"
-							title={<span><Icon type="profile"/><span>说明</span></span>}
-							>
-								<Menu.Item key="13">项目说明</Menu.Item>
-							</SubMenu>
-						</Menu>
-					</Sider>
-					<Layout>
-					<Top toggle={this.toggle} collapsed={this.state.collapsed} clear={this.clear}/>
-					<Content style={{ margin: '0 16px' }}>
-						<Breadcrumb style={{ margin: '16px 0' }}>
-							<Breadcrumb.Item>User</Breadcrumb.Item>
-							<Breadcrumb.Item>Bill</Breadcrumb.Item>
-						</Breadcrumb>
-						<div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-						Bill is a cat.
-						</div>
-					</Content>
-					<Bottom/>
-					</Layout>
-				</Layout>
-		)
-	}
-}
+import React from 'react';
+import { Row, Col, Card, Timeline, Icon } from 'antd';
+// import EchartsViews from './EchartsViews';
+// import EchartsProjects from './EchartsProjects';
+// import b1 from 'images/kayson.jpg';
+// import b2 from 'images/kayson.jpg';
+// import b3 from 'images/kayson.jpg';
+// import b4 from 'images/kayson.jpg';
+import './index.css'
 
-export default Container;
+export default class index extends React.Component {
+    render() {
+        return (
+            <div>
+                <Row gutter={16}>
+                    <Col span={4}>
+                        <div className="cloud-box">
+                            <Card>
+                                <div className="clear y-center">
+                                    <div className="pull-left mr-m">
+                                        <Icon type="file-text" className="text-2x text-danger" style={{color:'#08c'}}/>
+                                    </div>
+                                    <div className="clear">
+                                        <div className="text-muted">项目数量</div>
+                                        <h2>68</h2>
+                                    </div>
+                                </div>
+                            </Card>
+                        </div>
+                        <div className="cloud-box">
+                            <Card>
+                                <div className="clear y-center">
+                                    <div className="pull-left mr-m">
+                                        <Icon type="cloud" className="text-2x" />
+                                    </div>
+                                    <div className="clear">
+                                        <div className="text-muted">云端数据</div>
+                                        <h2>1024</h2>
+                                    </div>
+                                </div>
+                            </Card>
+                        </div>
+                    </Col>
+                    <Col span={4}>
+                        <div className="cloud-box">
+                            <Card>
+                                <div className="clear y-center">
+                                    <div className="pull-left mr-m">
+                                        <Icon type="camera" className="text-2x text-info" />
+                                    </div>
+                                    <div className="clear">
+                                        <div className="text-muted">项目照片</div>
+                                        <h2>866</h2>
+                                    </div>
+                                </div>
+                            </Card>
+                        </div>
+                        <div className="cloud-box">
+                            <Card>
+                                <div className="clear y-center">
+                                    <div className="pull-left mr-m">
+                                        <Icon type="mail" className="text-2x text-success" />
+                                    </div>
+                                    <div className="clear">
+                                        <div className="text-muted">邮件通知</div>
+                                        <h2>96</h2>
+                                    </div>
+                                </div>
+                            </Card>
+                        </div>
+                    </Col>
+                    <Col span={16}>
+                        <div className="cloud-box">
+                            <Card className={'no-padding'}>
+                                <EchartsProjects />
+                            </Card>
+                        </div>
+                    </Col>
+                    <Col span={8}>
+                        <div className="cloud-box">
+                            <Card>
+                                <div className="pb-m">
+                                    <h3>项目日志</h3>
+                                    <small>4个已完成，2个正在进行中</small>
+                                </div>
+                                <a className="card-tool"><Icon type="sync" /></a>
+                                <Timeline pending={<a href="#">更多项目</a>}>
+                                    <Timeline.Item color="red">
+                                        <p>鄂州市项目</p>
+                                    </Timeline.Item>
+                                    <Timeline.Item color="red">
+                                        <p>黄岗市项目</p>
+                                    </Timeline.Item>
+                                    <Timeline.Item dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />} color="red">仙桃市项目试运行</Timeline.Item>
+                                    <Timeline.Item color="green">
+                                    <p>襄阳市一期项目</p>
+                                    <p>襄阳市二期项目</p>
+                                    </Timeline.Item>
+                                    <Timeline.Item color="green">十堰市项目</Timeline.Item>
+                                    <Timeline.Item color="green">武汉市项目</Timeline.Item>
+                                </Timeline>
+                            </Card>
+                        </div>
+                    </Col>
+                    <Col span={8}>
+                        <div className="cloud-box">
+                            <Card>
+                                <div className="pb-m">
+                                    <h3>消息栏</h3>
+                                </div>
+                                <a className="card-tool"><Icon type="sync" /></a>
+                                <ul className="list-group no-border">
+                                    <li className="list-group-item">
+                                        <a className="pull-left w-40 mr-m">
+                                            <img className="img-responsive img-circle" alt="test" />
+                                        </a>
+                                        <div className="clear">
+                                            <a className="block">陈凯鑫</a>
+                                            <span className="text-muted">项目已完成！请及时验收！</span>
+                                        </div>
+                                    </li>
+                                    <li className="list-group-item">
+                                        <a className="pull-left w-40 mr-m">
+                                            <img className="img-responsive img-circle" alt="test" />
+                                        </a>
+                                        <div className="clear">
+                                            <a className="block">王昊</a>
+                                            <span className="text-muted">襄阳市项目第二期已完成！</span>
+                                        </div>
+                                    </li>
+                                    <li className="list-group-item">
+                                        <a className="pull-left w-40 mr-m">
+                                            <img className="img-responsive img-circle" alt="test" />
+                                        </a>
+                                        <div className="clear">
+                                            <a className="block">罗林溢</a>
+                                            <span className="text-muted">黄冈市项目资金情况已上传！</span>
+                                        </div>
+                                    </li>
+                                    <li className="list-group-item">
+                                        <a className="pull-left w-40 mr-m">
+                                            <img className="img-responsive img-circle" alt="test" />
+                                        </a>
+                                        <div className="clear">
+                                            <a className="block">夏腾</a>
+                                            <span className="text-muted">鄂州市项目正式启动！</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </Card>
+                        </div>
+                    </Col>
+                    <Col span={8}>
+                        <div className="cloud-box">
+                            <Card>
+                                <div className="pb-m">
+                                    <h3>管理系统访问量统计</h3>
+                                    <small>最近7天用户访问量</small>
+                                </div>
+                                <a className="card-tool"><Icon type="sync" /></a>
+                                <EchartsViews />
+                            </Card>
+                        </div>
+                    </Col>
+                </Row>
+            </div>
+        )
+    }
+}

@@ -20,7 +20,7 @@ class index extends Component {
                                     <div className="pull-left mr-m">
                                         <Icon type="file-text" style={{fontSize:32}}/>
                                     </div>
-                                    <div className="clear">
+                                    <div className="clear" style={{padding:'0 0 0 20px'}}>
                                         <div className="text-muted">项目数量</div>
                                         <h2>68</h2>
                                     </div>
@@ -33,7 +33,7 @@ class index extends Component {
                                     <div className="pull-left mr-m">
                                         <Icon type="cloud" style={{fontSize:32}} />
                                     </div>
-                                    <div className="clear">
+                                    <div className="clear" style={{padding:'0 0 0 20px'}}>
                                         <div className="text-muted">云端数据</div>
                                         <h2>1024</h2>
                                     </div>
@@ -48,7 +48,7 @@ class index extends Component {
                                     <div className="pull-left mr-m">
                                         <Icon type="camera" style={{fontSize:32}} />
                                     </div>
-                                    <div className="clear">
+                                    <div className="clear" style={{padding:'0 0 0 20px'}}>
                                         <div className="text-muted">项目照片</div>
                                         <h2>866</h2>
                                     </div>
@@ -61,7 +61,7 @@ class index extends Component {
                                     <div className="pull-left mr-m">
                                         <Icon type="mail" style={{fontSize:32}} />
                                     </div>
-                                    <div className="clear">
+                                    <div className="clear" style={{padding:'0 0 0 20px'}}>
                                         <div className="text-muted">邮件通知</div>
                                         <h2>96</h2>
                                     </div>
@@ -71,7 +71,7 @@ class index extends Component {
                     </Col>
                     <Col span={16}>
                         <div className="cloud-box" style={{padding:'0'}}>
-                            <Card className={'no-padding'}>
+                            <Card style={{padding:'0'}}>
                                 <EchartsProjects />
                             </Card>
                         </div>

@@ -18,7 +18,7 @@ class index extends Component {
                             <Card>
                                 <div className="clear y-center">
                                     <div className="pull-left mr-m">
-                                        <Icon type="file-text" className="text-2x text-danger" style={{color:'#08c'}}/>
+                                        <Icon type="file-text" style={{fontSize:16,color:'#1790FF'}}/>
                                     </div>
                                     <div className="clear">
                                         <div className="text-muted">项目数量</div>

@@ -62,7 +62,7 @@ class index extends Component {
                                         <Icon type="mail" style={{fontSize:32}} />
                                     </div>
                                     <div className="clear" style={{padding:'0 0 0 20px'}}>
-                                        <div className="text-muted">邮件通知</div>
+                                        <div className="text-muted">消息通知</div>
                                         <h2>96</h2>
                                     </div>
                                 </div>

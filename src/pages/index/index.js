@@ -1,14 +1,14 @@
-import React from 'react';
+import React,{Component} from 'react';
 import { Row, Col, Card, Timeline, Icon } from 'antd';
-// import EchartsViews from './EchartsViews';
-// import EchartsProjects from './EchartsProjects';
-// import b1 from 'images/kayson.jpg';
-// import b2 from 'images/kayson.jpg';
-// import b3 from 'images/kayson.jpg';
-// import b4 from 'images/kayson.jpg';
+import EchartsViews from './EchartsViews';
+import EchartsProjects from './EchartsProjects';
+import b1 from '../../image/kayson.jpg';
+import b2 from '../../image/kayson.jpg';
+import b3 from '../../image/kayson.jpg';
+import b4 from '../../image/kayson.jpg';
 import './index.css'
 
-export default class index extends React.Component {
+class index extends Component {
     render() {
         return (
             <div>
@@ -72,7 +72,7 @@ export default class index extends React.Component {
                     <Col span={16}>
                         <div className="cloud-box">
                             <Card className={'no-padding'}>
-                                
+                                <EchartsProjects />
                             </Card>
                         </div>
                     </Col>
@@ -112,7 +112,7 @@ export default class index extends React.Component {
                                 <ul className="list-group no-border">
                                     <li className="list-group-item">
                                         <a className="pull-left w-40 mr-m">
-                                            <img className="img-responsive img-circle" alt="test" />
+                                            <img src={b1} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
                                             <a className="block">陈凯鑫</a>
@@ -121,7 +121,7 @@ export default class index extends React.Component {
                                     </li>
                                     <li className="list-group-item">
                                         <a className="pull-left w-40 mr-m">
-                                            <img className="img-responsive img-circle" alt="test" />
+                                            <img src={b2} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
                                             <a className="block">王昊</a>
@@ -130,7 +130,7 @@ export default class index extends React.Component {
                                     </li>
                                     <li className="list-group-item">
                                         <a className="pull-left w-40 mr-m">
-                                            <img className="img-responsive img-circle" alt="test" />
+                                            <img src={b3} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
                                             <a className="block">罗林溢</a>
@@ -139,7 +139,7 @@ export default class index extends React.Component {
                                     </li>
                                     <li className="list-group-item">
                                         <a className="pull-left w-40 mr-m">
-                                            <img className="img-responsive img-circle" alt="test" />
+                                            <img src={b4} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
                                             <a className="block">夏腾</a>
@@ -158,7 +158,7 @@ export default class index extends React.Component {
                                     <small>最近7天用户访问量</small>
                                 </div>
                                 <a className="card-tool"><Icon type="sync" /></a>
-                                
+                                <EchartsViews />
                             </Card>
                         </div>
                     </Col>
@@ -167,3 +167,4 @@ export default class index extends React.Component {
         )
     }
 }
+export default index;

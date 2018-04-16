@@ -1,37 +1,14 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.gutter-example .ant-row > div {
-  background: transparent;
-  border: 0;
-}
-.gutter-box {
-  background: #00A0E9;
-  padding: 5px 0;
-}
+  /* #components-layout-demo-custom-trigger  */
+  .logo {
+    height: 32px;
+    background: #404040;
+    margin: 16px;
+  }
+  .container{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+  }

@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
+// import rootReducer from 'reducers';
+// import { createStore } from 'redux';
 import './index.css';
 // import App from './App';
 import routes from './routes.js'
 import registerServiceWorker from './registerServiceWorker';
+// import createStore from 'antd/lib/table/createStore';
 
-ReactDOM.render(  <Provider>
+// const store = createStore()
+
+ReactDOM.render(  
+  <div>
     { routes }
-  </Provider>, document.getElementById('root'));
+  </div>
+  , document.getElementById('root'));
 registerServiceWorker();

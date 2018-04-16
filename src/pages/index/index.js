@@ -18,7 +18,7 @@ class index extends Component {
                             <Card>
                                 <div className="clear y-center">
                                     <div className="pull-left mr-m">
-                                        <Icon type="file-text" style={{fontSize:16,color:'#1790FF'}}/>
+                                        <Icon type="file-text" style={{fontSize:32}}/>
                                     </div>
                                     <div className="clear">
                                         <div className="text-muted">项目数量</div>
@@ -31,7 +31,7 @@ class index extends Component {
                             <Card>
                                 <div className="clear y-center">
                                     <div className="pull-left mr-m">
-                                        <Icon type="cloud" className="text-2x" />
+                                        <Icon type="cloud" style={{fontSize:32}} />
                                     </div>
                                     <div className="clear">
                                         <div className="text-muted">云端数据</div>
@@ -44,9 +44,9 @@ class index extends Component {
                     <Col span={4}>
                         <div className="cloud-box">
                             <Card>
-                                <div className="clear y-center">
+                                <div className="y-center">
                                     <div className="pull-left mr-m">
-                                        <Icon type="camera" className="text-2x text-info" />
+                                        <Icon type="camera" style={{fontSize:32}} />
                                     </div>
                                     <div className="clear">
                                         <div className="text-muted">项目照片</div>
@@ -59,7 +59,7 @@ class index extends Component {
                             <Card>
                                 <div className="clear y-center">
                                     <div className="pull-left mr-m">
-                                        <Icon type="mail" className="text-2x text-success" />
+                                        <Icon type="mail" style={{fontSize:32}} />
                                     </div>
                                     <div className="clear">
                                         <div className="text-muted">邮件通知</div>
@@ -70,7 +70,7 @@ class index extends Component {
                         </div>
                     </Col>
                     <Col span={16}>
-                        <div className="cloud-box">
+                        <div className="cloud-box" style={{padding:'0'}}>
                             <Card className={'no-padding'}>
                                 <EchartsProjects />
                             </Card>

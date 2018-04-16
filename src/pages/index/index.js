@@ -49,7 +49,7 @@ class index extends Component {
                                         <Icon type="camera" style={{fontSize:32}} />
                                     </div>
                                     <div className="clear" style={{padding:'0 0 0 20px'}}>
-                                        <div className="text-muted">项目照片</div>
+                                        <div className="text-muted">项目实景</div>
                                         <h2>866</h2>
                                     </div>
                                 </div>

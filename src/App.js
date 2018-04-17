@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import {Avatar,Icon,Layout,Menu} from 'antd';
+import {Link} from 'react-router-dom';
 import './App.css';
 import avatar from './image/avatar.jpg';
 import Top from './components/header.js';
 import Bottom from './components/footer.js';
 import Contents from './components/content.js';
+import allMenu from './utils/menu';
 const{Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 class App extends Component{
@@ -40,7 +42,27 @@ class App extends Component{
 						mode="inline"
 						style={{backgroundColor:'#404040'}}
 						>
-							<Menu.Item key="1">
+						{
+							allMenu.map((subMenu) => {
+							  if (subMenu.children && subMenu.children.length) {
+								return (
+								  <SubMenu key={subMenu.url} title={<span><Icon type={subMenu.icon} /><span>{subMenu.name}</span></span>}>
+									{subMenu.children.map(menu => (
+									  <Menu.Item key={menu.url}><Link to={`/${menu.url}`}>{menu.name}</Link></Menu.Item>
+									))}
+								  </SubMenu>
+								)
+							  }
+							  return (
+								<Menu.Item key={subMenu.url}>
+								  <Link to={`/${subMenu.url}`}>
+									<Icon type={subMenu.icon} /><span className="nav-text">{subMenu.name}</span>
+								  </Link>
+								</Menu.Item>
+							  )
+							})
+						  }
+							{/*<Menu.Item key="1">
 								<Icon type="home" />
 								<span>首页</span>
 							</Menu.Item>
@@ -48,7 +70,7 @@ class App extends Component{
 							key="sub1"
 							title={<span><Icon type="database"/><span>数据管理</span></span>}
 							>
-								<Menu.Item key="2-1">工人列表</Menu.Item>
+								<Menu.Item key="2-1"><Link to={'workersList'}>工人列表</Link></Menu.Item>
 								<Menu.Item key="2-2">管道列表</Menu.Item>
 								<Menu.Item key="2-3">项目列表</Menu.Item>
 								<Menu.Item key="2-4">管理员列表</Menu.Item>
@@ -80,7 +102,7 @@ class App extends Component{
 							title={<span><Icon type="profile"/><span>说明</span></span>}
 							>
 								<Menu.Item key="13">项目说明</Menu.Item>
-							</SubMenu>
+		</SubMenu>*/}
 						</Menu>
 					</Sider>
 					<Layout>

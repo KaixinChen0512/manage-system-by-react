@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import './content.css';
 import index from '../pages/index/index.js';
+import workerList from '../pages/workerlist';
 
 const { Content } = Layout
 
@@ -11,6 +12,7 @@ class Contents extends Component {
     return (
       <Content className="content">
         <Route path="/" component={index} />
+        <Route path="/workerList" component={workerList}/>
       </Content>
     );
   }

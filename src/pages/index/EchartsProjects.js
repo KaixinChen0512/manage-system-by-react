@@ -8,16 +8,16 @@ let xAxisData = [];
 let data = [];
 for (let i = 0; i < 50; i++) {
     xAxisData.push(i);
-    data.push(Math.ceil((Math.cos(i / 5) * (i / 5) + i / 6) * 5) + 10);
+    data.push(Math.ceil(Math.random()*70));
 }
 
 const option = {
     title: {
-        text: '最近50天每天项目完成情况',
+        text: '近50天每日管道焊接数量',
         left: 'center',
         textStyle: {
             color: '#ccc',
-            fontSize: 12,
+            fontSize: 18,
         },
         padding: 10,
     },

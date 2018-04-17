@@ -70,8 +70,8 @@ class index extends Component {
                         </div>
                     </Col>
                     <Col span={16}>
-                        <div className="cloud-box" style={{padding:'0'}}>
-                            <Card style={{padding:'0'}}>
+                        <div className="cloud-box">
+                            <Card className={'no-padding'} style={{margin:'15px 0 15px 0'}}>
                                 <EchartsProjects />
                             </Card>
                         </div>
@@ -79,7 +79,7 @@ class index extends Component {
                     <Col span={8}>
                         <div className="cloud-box">
                             <Card>
-                                <div className="pb-m">
+                                <div style={{marginBottom:'10px'}}>
                                     <h3>项目日志</h3>
                                     <small>4个已完成，2个正在进行中</small>
                                 </div>
@@ -105,7 +105,7 @@ class index extends Component {
                     <Col span={8}>
                         <div className="cloud-box">
                             <Card>
-                                <div className="pb-m">
+                                <div>
                                     <h3>消息栏</h3>
                                 </div>
                                 <a className="card-tool"><Icon type="sync" /></a>

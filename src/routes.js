@@ -12,7 +12,7 @@ const routes = (
     <div>
       <Route path="/" component={App} />
       <Route path="/login" component={Login}/>
-      <Redirect from='*' to='/login' />
+      
     </div>
   </HashRouter>
 )

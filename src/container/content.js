@@ -2,7 +2,7 @@ import React ,{Component}from 'react';
 import { Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import './content.css';
-import index from '../pages/index/index.js';
+import index from '../pages/index';
 import workerList from '../pages/workerlist';
 
 const { Content } = Layout

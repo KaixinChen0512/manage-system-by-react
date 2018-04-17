@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import {Avatar,Icon,Layout,Menu} from 'antd';
 import {Link} from 'react-router-dom';
-import './App.css';
-import avatar from './image/avatar.jpg';
-import Top from './components/header.js';
-import Bottom from './components/footer.js';
-import Contents from './components/content.js';
-import allMenu from './utils/menu';
+import './index.css';
+import avatar from '../image/avatar.jpg';
+import Top from './header.js';
+import Bottom from './footer.js';
+import Contents from './content.js';
+import allMenu from '../utils/menu';
 const{Sider} = Layout;
 const SubMenu = Menu.SubMenu;
-class App extends Component{
+class Container extends Component{
 	state={
 		collapsed:false
 	};
@@ -19,6 +19,11 @@ class App extends Component{
 		  mode: this.state.collapsed ? 'inline' : 'vertical'
 		});
 	};
+	clear = () => {
+    this.setState({
+      current: 'index',
+    });
+  };
 	render(){
 		return (
 				<Layout className="container">
@@ -115,4 +120,4 @@ class App extends Component{
 	}
 }
 
-export default App;
+export default Container;

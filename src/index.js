@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 // import rootReducer from 'reducers';
 // import { createStore } from 'redux';
 import './index.css';
-// import App from './App';
 import routes from './routes.js'
 import registerServiceWorker from './registerServiceWorker';
 // import createStore from 'antd/lib/table/createStore';

@@ -11,8 +11,17 @@ const{Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 class Container extends Component{
 	state={
+		current: 'index',
 		collapsed:false
 	};
+	componentDidMount() {
+    this.handleClick([], 'index')
+	};
+	handleClick = (e, special) => {
+    this.setState({
+      current: e.key || special,
+    });
+  };
 	toggle = () => {
 		this.setState({
 		  collapsed: !this.state.collapsed,
@@ -46,6 +55,8 @@ class Container extends Component{
 						defaultSelectedKeys={['1']} 
 						mode="inline"
 						style={{backgroundColor:'#404040'}}
+						selectedKeys={[this.state.current]}
+						onClick={this.handleClick}
 						>
 						{
 							allMenu.map((subMenu) => {

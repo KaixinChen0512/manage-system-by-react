@@ -45,9 +45,5 @@ const allMenu = [
       children: [
         { name: '项目说明', url: 'instruction' },
       ],
-    }, {
-      name: '项目地址',
-      url: 'follow',
-      icon: 'heart-o',
     }]
 export default allMenu;

@@ -11,7 +11,7 @@ const routes = (
   <HashRouter history={customHistory} >
     <div>
       <Route path="/" component={Container} />
-      <Route path="/login" component={Login}/>
+      <Route path="/login" component={Login} />
       
     </div>
   </HashRouter>

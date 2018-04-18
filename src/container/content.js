@@ -15,6 +15,8 @@ import projectProgress from '../pages/projectProgress';
 import customAnalysis from '../pages/customAnalysis';
 import adminSetting from '../pages/adminSetting';
 import instruction from '../pages/instruction';
+import photos from '../pages/photos';
+
 const { Content } = Layout
 
 class Contents extends Component {
@@ -34,6 +36,7 @@ class Contents extends Component {
         <Route path="/customAnalysis" component={customAnalysis}/>
         <Route path="/adminSetting" component={adminSetting}/>
         <Route path="/instruction" component={instruction}/>
+        <Route path="/photos" component={photos}/>
       </Content>
     );
   }

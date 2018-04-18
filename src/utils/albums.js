@@ -1,0 +1,38 @@
+const albums = [
+    [
+        'http://pms-img.oss-cn-beijing.aliyuncs.com/pipe-img/pipe%20%281%29.jpg?Expires=1512716856&OSSAccessKeyId=TMP.AQEosCqcsYrSo81JphBL5WaZeqpdnmVEnf4muUAn98TrBCugjfTaiD88-9_-ADAtAhUAib6QIpeVdvW_ofpLUESHZyalNxYCFAK4GV4IbT-g6NwnlD0qY8wGbE1s&Signature=k2wVGYaQPWbsdYyTD20zcG1%2B7JY%3D',
+        'http://oudaz22af.bkt.clouddn.com/pipe%20%283%29.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a3.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a4.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a5.jpg'
+    ],
+    [
+        'http://oudaz22af.bkt.clouddn.com/a21.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a22.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a23.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a24.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a25.jpg'
+    ],
+    [
+        'http://oudaz22af.bkt.clouddn.com/a11.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a12.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a13.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a14.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a15.jpg'
+    ],
+    [
+        'http://oudaz22af.bkt.clouddn.com/a16.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a17.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a18.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a19.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a20.jpg'
+    ],
+    [
+        'http://oudaz22af.bkt.clouddn.com/a6.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a7.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a8.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a9.jpg',
+        'http://oudaz22af.bkt.clouddn.com/a10.jpg'
+    ]
+];
+export default albums;

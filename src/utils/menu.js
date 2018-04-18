@@ -30,6 +30,7 @@ const allMenu = [
         { name: '管道分布', url: 'pipeLocation' },
         { name: '项目进度', url: 'projectProgress' },
         { name: '自定义分析', url: 'customAnalysis' },
+        { name: '项目实景', url: 'photos' }
       ],
     }, {
       name: '设置',
@@ -38,7 +39,7 @@ const allMenu = [
       children: [
         { name: '管理员设置', url: 'adminSetting' },
       ],
-    }, {
+    },{
       name: '说明',
       url: '',
       icon: 'profile',

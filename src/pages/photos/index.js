@@ -51,9 +51,9 @@ export default class Gallery extends React.Component {
                         <div>
                             <img onClick={() => this.openGallery(v2)} alt="example" width="100%" src={v2} />
                         </div>
-                        <div className="pa-m" style={{margin:'0 auto'}}>
-                            <h3>项目实景</h3>
-                            <small><a href="http://chenkaixin.cn" target="_blank" rel='noopener noreferrer'>http://chenkaixin.cn</a></small>
+                        <div className="pa-m" style={{textAlign:'center'}}>
+                            <h3 style={{display:'inline-block'}}>项目实景</h3>
+                            {/*<small><a href="http://chenkaixin.cn" target="_blank" rel='noopener noreferrer'>http://chenkaixin.cn</a></small>*/}
                         </div>
                     </Card>
                 </div>

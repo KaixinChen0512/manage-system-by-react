@@ -23,20 +23,20 @@ class Contents extends Component {
   render() {
     return (
       <Content className="content">
-        <Route path="/index" component={index} />
-        <Route path="/workerList" component={workerList}/>
-        <Route path="/pipeList" component={pipeList}/>
-        <Route path="/projectList" component={projectList}/>
-        <Route path="/adminList" component={adminList}/>
-        <Route path="/addWorker" component={addWorker}/>
-        <Route path="/addPipe" component={addPipe}/>
-        <Route path="/addProject" component={addProject}/>
-        <Route path="/pipeLocation" component={pipeLocation}/>
-        <Route path="/projectProgress" component={projectProgress}/>
-        <Route path="/customAnalysis" component={customAnalysis}/>
-        <Route path="/adminSetting" component={adminSetting}/>
-        <Route path="/instruction" component={instruction}/>
-        <Route path="/photos" component={photos}/>
+        <Route path="/app/index" component={index} />
+        <Route path="/app/workerList" component={workerList}/>
+        <Route path="/app/pipeList" component={pipeList}/>
+        <Route path="/app/projectList" component={projectList}/>
+        <Route path="/app/adminList" component={adminList}/>
+        <Route path="/app/addWorker" component={addWorker}/>
+        <Route path="/app/addPipe" component={addPipe}/>
+        <Route path="/app/addProject" component={addProject}/>
+        <Route path="/app/pipeLocation" component={pipeLocation}/>
+        <Route path="/app/projectProgress" component={projectProgress}/>
+        <Route path="/app/customAnalysis" component={customAnalysis}/>
+        <Route path="/app/adminSetting" component={adminSetting}/>
+        <Route path="/app/instruction" component={instruction}/>
+        <Route path="/app/photos" component={photos}/>
       </Content>
     );
   }

@@ -1,20 +1,22 @@
 import React from 'react'
-import { HashRouter } from 'react-router-dom'
-import { Route, Redirect } from 'react-router'
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Container from './container'
 import Login from './pages/login'
 import createBrowserHistory from 'history/createBrowserHistory'
+import notFound from './pages/notFound';
 
 const customHistory = createBrowserHistory()
 
 const routes = (
-  <HashRouter history={customHistory} >
-    <div>
-      <Route path="/" component={Container} />
-      <Route path="/login" component={Login} />
-      {/*<Redirect from='*' to='/login' />*/}
-    </div>
-  </HashRouter>
+  <HashRouter>
+        <Switch>
+            <Route exact path="/" render={() => <Redirect to="/app/index" push />} />        
+            <Route path="/app" component={Container} />
+            <Route path="/404" component={notFound} />
+            <Route path="/login" component={Login} />
+            <Route component={notFound} />
+        </Switch>
+    </HashRouter>
 )
 
 export default routes;

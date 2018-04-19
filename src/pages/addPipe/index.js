@@ -150,7 +150,7 @@ class RegistrationForm extends Component {
           )}
         </FormItem>
         <FormItem {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">确认添加</Button>
+          <Button type="primary" htmlType="submit" >确认添加</Button>
         </FormItem>
       </Form>
     );

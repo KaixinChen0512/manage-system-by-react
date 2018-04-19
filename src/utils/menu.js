@@ -1,7 +1,7 @@
 const allMenu = [
     {
       name: '首页',
-      url: 'index',
+      url: 'app/index',
       icon: 'home',
     }, {
       name: '数据管理',

@@ -1,11 +1,9 @@
-import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete,DatePicker, TimePicker } from 'antd';
+import { Form, Input, Cascader, Checkbox, Button, AutoComplete,DatePicker} from 'antd';
 import React ,{Component} from 'react';
 import './index.css';
 import address from './address.js';
 const FormItem = Form.Item;
-const MonthPicker = DatePicker.MonthPicker;
 const RangePicker = DatePicker.RangePicker;
-const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
 
 const addresses = address;
@@ -67,15 +65,7 @@ class RegistrationForm extends Component {
         },
       },
     };
-    const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '86',
-    })(
-      <Select style={{ width: 70 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    );
-
+    
     const departmentOptions = autoCompleteResult.map(department => (
       <AutoCompleteOption key={department}>{department}</AutoCompleteOption>
     ));

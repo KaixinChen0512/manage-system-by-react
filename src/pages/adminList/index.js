@@ -77,11 +77,18 @@ class workerList extends Component {
     this.setState({ selectedRowKeys });
   };
   render() {
-    const columns = [{
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      sorter: (a, b) => a.name.length - b.name.length,
+    const columns = [
+      {
+        title: '管理员编号',
+        dataIndex: 'adminNumber',
+        key: 'adminNumber',
+        sorter: (a, b) => a.adminNumber - b.adminNumber
+      },
+      {
+      title: '管理员账号',
+      dataIndex: 'adminAccount',
+      key: 'adminAccount',
+      sorter: (a, b) => a.adminAccount.length - b.adminAccount.length,
       filterDropdown: (
         <div className="custom-filter-dropdown">
           <Input
@@ -101,25 +108,20 @@ class workerList extends Component {
           filterDropdownVisible: visible,
         }, () => this.searchInput && this.searchInput.focus());
       },
-    }, {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
-      sorter: (a, b) => a.age - b.age
-    }, {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
-      filters: [{
-        text: '筛选条件1',
-        value: '筛选条件1',
-      }, {
-        text: '筛选条件2',
-        value: '筛选条件2',
-      }],
-      onFilter: (value, record) => record.address.indexOf(value) === 0,
-      sorter: (a, b) => a.address.length - b.address.length
-    }];
+    }, 
+    {
+      title: '邮箱',
+      dataIndex: 'email',
+      key: 'email',
+      sorter: (a, b) => a.email - b.email
+    },
+    {
+      title: '所属部门',
+      dataIndex: 'department',
+      key: 'department',
+      sorter: (a, b) => a.department - b.department
+    }
+    ];
     const { loading, selectedRowKeys } = this.state;
     const rowSelection = {
       selectedRowKeys,
@@ -150,9 +152,12 @@ const data = [];
 for(let i=1;i<=100;i++){
     data.push({
         key:i,
-        name:`kayson ${i}`,
-        age:Math.ceil(Math.random()*10)+20,
-        address:`China ${i}`
+        adminNumber:i,
+        adminAccount:`kayson ${i}`,
+        email:'********@163.com',
+        department:'XX事业部',
+
+        
     })
 }
 

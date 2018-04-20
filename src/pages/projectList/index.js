@@ -77,11 +77,18 @@ class workerList extends Component {
     this.setState({ selectedRowKeys });
   };
   render() {
-    const columns = [{
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      sorter: (a, b) => a.name.length - b.name.length,
+    const columns = [
+      {
+        title: '项目编号',
+        dataIndex: 'projectNumber',
+        key: 'projectNumber',
+        sorter: (a, b) => a.projectNumber - b.projectNumber
+      },
+      {
+      title: '项目名称',
+      dataIndex: 'projectName',
+      key: 'projectName',
+      sorter: (a, b) => a.projectName.length - b.projectName.length,
       filterDropdown: (
         <div className="custom-filter-dropdown">
           <Input
@@ -102,12 +109,7 @@ class workerList extends Component {
         }, () => this.searchInput && this.searchInput.focus());
       },
     }, {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
-      sorter: (a, b) => a.age - b.age
-    }, {
-      title: 'Address',
+      title: '项目所在地区',
       dataIndex: 'address',
       key: 'address',
       filters: [{
@@ -119,7 +121,14 @@ class workerList extends Component {
       }],
       onFilter: (value, record) => record.address.indexOf(value) === 0,
       sorter: (a, b) => a.address.length - b.address.length
-    }];
+    },
+    {
+      title: '项目预计完成时间',
+      dataIndex: 'deadLine',
+      key: 'deadLine',
+      sorter: (a, b) => a.deadLine - b.deadLine
+    },
+    ];
     const { loading, selectedRowKeys } = this.state;
     const rowSelection = {
       selectedRowKeys,
@@ -150,9 +159,10 @@ const data = [];
 for(let i=1;i<=100;i++){
     data.push({
         key:i,
-        name:`kayson ${i}`,
-        age:Math.ceil(Math.random()*10)+20,
-        address:`China ${i}`
+        projectNumber:`WH${i}`,
+        projectName:'XXX项目',
+        address:'XXX省XX市',
+        deadLine:'XXXX年XX月XX日',
     })
 }
 

@@ -77,8 +77,15 @@ class workerList extends Component {
     this.setState({ selectedRowKeys });
   };
   render() {
-    const columns = [{
-      title: 'Name',
+    const columns = [
+      {
+        title: '工号',
+        dataIndex: 'jobNumber',
+        key: 'jobNumber',
+        sorter: (a, b) => a.jobNumber - b.jobNumber
+      },
+      {
+      title: '姓名',
       dataIndex: 'name',
       key: 'name',
       sorter: (a, b) => a.name.length - b.name.length,
@@ -102,12 +109,19 @@ class workerList extends Component {
         }, () => this.searchInput && this.searchInput.focus());
       },
     }, {
-      title: 'Age',
+      title: '年龄',
       dataIndex: 'age',
       key: 'age',
       sorter: (a, b) => a.age - b.age
-    }, {
-      title: 'Address',
+    }, 
+    {
+      title: '邮箱',
+      dataIndex: 'email',
+      key: 'email',
+      sorter: (a, b) => a.email - b.email
+    },
+    {
+      title: '居住地址',
       dataIndex: 'address',
       key: 'address',
       filters: [{
@@ -119,7 +133,20 @@ class workerList extends Component {
       }],
       onFilter: (value, record) => record.address.indexOf(value) === 0,
       sorter: (a, b) => a.address.length - b.address.length
-    }];
+    },
+    {
+      title: '联系方式',
+      dataIndex: 'phoneNumber',
+      key: 'phoneNumber',
+      sorter: (a, b) => a.phoneNumber - b.phoneNumber
+    },
+    {
+      title: '所属部门',
+      dataIndex: 'department',
+      key: 'department',
+      sorter: (a, b) => a.department - b.department
+    }
+    ];
     const { loading, selectedRowKeys } = this.state;
     const rowSelection = {
       selectedRowKeys,
@@ -150,9 +177,15 @@ const data = [];
 for(let i=1;i<=100;i++){
     data.push({
         key:i,
+        jobNumber:`2018WH${i}`,
         name:`kayson ${i}`,
         age:Math.ceil(Math.random()*10)+20,
-        address:`China ${i}`
+        email:'********@163.com',
+        address:'XX省XX市',
+        phoneNumber:'13XXXXXXXXX',
+        department:'XX事业部',
+
+        
     })
 }
 

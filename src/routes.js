@@ -2,10 +2,10 @@ import React from 'react'
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Container from './container'
 import Login from './pages/login'
-import createBrowserHistory from 'history/createBrowserHistory'
+// import createBrowserHistory from 'history/createBrowserHistory'
 import notFound from './pages/notFound';
 
-const customHistory = createBrowserHistory()
+// const customHistory = createBrowserHistory()
 
 const routes = (
   <HashRouter>

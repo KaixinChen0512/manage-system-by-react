@@ -6,6 +6,7 @@ import b1 from '../../image/kayson.jpg';
 import b2 from '../../image/kayson.jpg';
 import b3 from '../../image/kayson.jpg';
 import b4 from '../../image/kayson.jpg';
+import { Link } from 'react-router-dom';
 import './index.css'
 
 class index extends Component {
@@ -84,7 +85,7 @@ class index extends Component {
                                     <small>4个已完成，2个正在进行中</small>
                                 </div>
                                 <a className="card-tool"><Icon type="sync" /></a>
-                                <Timeline pending={<a href="#">更多项目</a>}>
+                                <Timeline pending={<Link to="/app/projectList">更多项目</Link>}>
                                     <Timeline.Item color="red">
                                         <p>鄂州市项目</p>
                                     </Timeline.Item>

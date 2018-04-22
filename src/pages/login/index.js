@@ -17,7 +17,7 @@ class LoginPage extends Component {
         let password = this.props.form.getFieldsValue().password;
         if (username === '123' && password === '123') {
             // 表单的路由处理
-            history.push('/index');
+            history.push('/app/index');
         } else {
             this.openNotificationWithIcon('info');
         }

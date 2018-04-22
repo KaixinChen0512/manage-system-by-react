@@ -4,6 +4,7 @@ import Container from './container'
 import Login from './pages/login'
 // import createBrowserHistory from 'history/createBrowserHistory'
 import notFound from './pages/notFound';
+import customAnalysis from './pages/customAnalysis';
 
 // const customHistory = createBrowserHistory()
 
@@ -12,6 +13,7 @@ const routes = (
         <Switch>
             <Route exact path="/" render={() => <Redirect to="/app/index" push />} />        
             <Route path="/app" component={Container} />
+            <Route path="/app/customAnalysis" component={customAnalysis} />
             <Route path="/404" component={notFound} />
             <Route path="/login" component={Login} />
             <Route component={notFound} />

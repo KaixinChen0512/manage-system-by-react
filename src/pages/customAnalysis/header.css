@@ -1,0 +1,41 @@
+.logOut {
+    float: right;
+    width: 100px;
+    margin-top: 8px;
+}
+
+/* #components-layout-demo-custom-trigger  */
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+/* #components-layout-demo-custom-trigger  */
+.trigger:hover {
+  color: #1890ff;
+}
+
+
+.screenFull {
+  font-size: 14px;
+  cursor: pointer;
+  transition: color .3s;
+  float: right;
+  margin-top: 13px;
+  padding: 10px;
+
+}
+.screenFull :hover{
+    color: #108ee9;
+}
+
+.ant-layout-header {
+  height: 58px!important;
+  padding: 0 20px;
+}
+.Top{
+  margin: 0 0 0 16px;
+}

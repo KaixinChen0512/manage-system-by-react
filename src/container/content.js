@@ -33,7 +33,7 @@ class Contents extends Component {
         <Route path="/app/addProject" component={addProject}/>
         <Route path="/app/pipeLocation" component={pipeLocation}/>
         <Route path="/app/projectProgress" component={projectProgress}/>
-        {/*<Route path="/app/customAnalysis" component={customAnalysis}/>*/}
+        <Route path="/app/customAnalysis" component={customAnalysis}/>
         <Route path="/app/adminSetting" component={adminSetting}/>
         <Route path="/app/instruction" component={instruction}/>
         <Route path="/app/photos" component={photos}/>

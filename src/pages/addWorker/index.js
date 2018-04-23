@@ -92,7 +92,7 @@ class RegistrationForm extends Component {
     ));
 
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit} style={{marginRight:'200px'}}>
       <FormItem
           {...formItemLayout}
           label="工号"

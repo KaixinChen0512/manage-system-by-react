@@ -1,7 +1,7 @@
-import React from 'react'
+import React ,{Component}from 'react'
 import './index.css'
 
-export default class follow extends React.Component {
+class follow extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,3 +38,4 @@ export default class follow extends React.Component {
         )
     }
 }
+export default follow;

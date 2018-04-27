@@ -5,34 +5,31 @@ const albums = [
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%283%29.png',
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%284%29.png',
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%285%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%286%29.png',
     ],
     [
-        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%286%29.png',
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%287%29.png',
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%288%29.png',
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%289%29.png',
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2810%29.png',
-    ],
-    [
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2811%29.png',
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2812%29.png',
+    ],
+    [
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2813%29.png',
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2814%29.png',
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2815%29.png',
-    ],
-    [
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2816%29.png',
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2817%29.png',
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2818%29.png',
-        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2819%29.png',
-        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2820%29.png',
     ],
     [
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2819%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2820%29.png',
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2821%29.png',
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2822%29.png',
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2823%29.png',
         'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2824%29.png',
-        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2825%29.png',
     ]
 ];
 export default albums;

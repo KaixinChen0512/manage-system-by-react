@@ -62,20 +62,17 @@ export default class Gallery extends React.Component {
         return (
             <div>
                 <Row gutter={10}>
-                    <Col span={5}>
+                    <Col span={6}>
                         {imgsTag[0]}
                     </Col>
-                    <Col span={5}>
+                    <Col span={6}>
                         {imgsTag[1]}
                     </Col>
-                    <Col span={5}>
+                    <Col span={6}>
                         {imgsTag[2]}
                     </Col>
-                    <Col span={5}>
+                    <Col span={6}>
                         {imgsTag[3]}
-                    </Col>
-                    <Col span={4}>
-                        {imgsTag[4]}
                     </Col>
                 </Row>
                 <div className="pswp" tabIndex="-1" role="dialog" aria-hidden="true" ref={(div) => {this.pswpElement = div;} }>

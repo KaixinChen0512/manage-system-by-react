@@ -50,6 +50,12 @@ class Top extends Component{
                 <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E8%BD%AE%E6%92%AD%E5%88%97%E8%A1%A8.png" /><span className="menuItemText">轮播列表</span></Menu.Item>
                 <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E9%94%AE%E5%80%BC%E8%A1%A8%E6%A0%BC.png" /><span className="menuItemText">键值表格</span></Menu.Item>
             </Menu>
+        ),
+        utilMenu:(
+            <Menu>
+                <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E9%A2%84%E8%A7%88.png" /><span className="menuItemText">预览</span></Menu.Item>
+                <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E5%8F%91%E5%B8%83.png" /><span className="menuItemText">发布</span></Menu.Item>
+            </Menu>
         )
     };
     render() {
@@ -74,6 +80,11 @@ class Top extends Component{
                     <Dropdown.Button overlay={this.menu.textMenu} style={{marginLeft:'20px'}}>
                         <a className="ant-dropdown-link">
                         文字图表
+                        </a>
+                    </Dropdown.Button>
+                    <Dropdown.Button overlay={this.menu.utilMenu} style={{float:'right'}}>
+                        <a className="ant-dropdown-link">
+                        完成
                         </a>
                     </Dropdown.Button>
                 </Header>

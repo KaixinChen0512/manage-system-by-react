@@ -1,38 +1,38 @@
 const albums = [
     [
-        'http://oudaz22af.bkt.clouddn.com/a1.jpg',
-        'http://oudaz22af.bkt.clouddn.com/a2.jpg',
-        'http://oudaz22af.bkt.clouddn.com/a3.jpg',
-        'http://oudaz22af.bkt.clouddn.com/a4.jpg',
-        'http://oudaz22af.bkt.clouddn.com/a5.jpg'
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%281%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%282%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%283%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%284%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%285%29.png',
     ],
     [
-        'http://oudaz22af.bkt.clouddn.com/a6.jpg',
-        'http://oudaz22af.bkt.clouddn.com/a7.jpg',
-        'http://oudaz22af.bkt.clouddn.com/a8.jpg',
-        'http://oudaz22af.bkt.clouddn.com/a9.jpg',
-        'http://oudaz22af.bkt.clouddn.com/a10.jpg'
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%286%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%287%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%288%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%289%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2810%29.png',
     ],
     [
-        'http://oudaz22af.bkt.clouddn.com/a11.jpg',
-        'http://oudaz22af.bkt.clouddn.com/a12.jpg',
-        'http://oudaz22af.bkt.clouddn.com/a13.jpg',
-        'http://oudaz22af.bkt.clouddn.com/a14.jpg',
-        'http://oudaz22af.bkt.clouddn.com/a15.jpg'
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2811%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2812%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2813%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2814%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2815%29.png',
     ],
     [
-        'http://oudaz22af.bkt.clouddn.com/a16.jpg',
-        'http://oudaz22af.bkt.clouddn.com/a17.jpg',
-        'http://oudaz22af.bkt.clouddn.com/a18.jpg',
-        // 'http://oudaz22af.bkt.clouddn.com/a19.jpg',
-        // 'http://oudaz22af.bkt.clouddn.com/a20.jpg'
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2816%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2817%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2818%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2819%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2820%29.png',
     ],
     [
-        // 'http://oudaz22af.bkt.clouddn.com/a21.jpg',
-        // 'http://oudaz22af.bkt.clouddn.com/a22.jpg',
-        // 'http://oudaz22af.bkt.clouddn.com/a23.jpg',
-        // 'http://oudaz22af.bkt.clouddn.com/a24.jpg',
-        // 'http://oudaz22af.bkt.clouddn.com/a25.jpg'
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2821%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2822%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2823%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2824%29.png',
+        'http://oudaz22af.bkt.clouddn.com/image/PMS/pipeAlbums/img-pipe%20%2825%29.png',
     ]
 ];
 export default albums;

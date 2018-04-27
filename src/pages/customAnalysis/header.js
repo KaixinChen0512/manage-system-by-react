@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import { Menu, Icon, Layout, Dropdown, Button, Avatar } from 'antd'
+import {Link} from 'react-router-dom'
 import './header.css'
 const { Header } = Layout
 const SubMenu = Menu.SubMenu;
@@ -8,7 +9,7 @@ class Top extends Component{
         normalMenu:(
             <Menu>
                 <SubMenu title="柱形图">
-                    <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E5%9F%BA%E6%9C%AC%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">基本柱图</span></Menu.Item>
+                    <Menu.Item><Link to="/app/customAnalysis/1"><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E5%9F%BA%E6%9C%AC%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">基本柱图</span></Link></Menu.Item>
                     <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E6%B0%B4%E5%B9%B3%E5%9F%BA%E6%9C%AC%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">水平基本柱图</span></Menu.Item>
                     <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E6%A2%AF%E5%BD%A2%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">梯形柱图</span></Menu.Item>
                     <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E6%8A%98%E7%BA%BF%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">折线柱图</span></Menu.Item>
@@ -60,8 +61,8 @@ class Top extends Component{
     };
     render() {
         return (
-            <div className="Top">
-                <Header style={{ background: '#404040'}}>
+            <div>
+                <Header style={{ background: '#F7F8FA'}}>
                     <Dropdown.Button overlay={this.menu.normalMenu}>
                         <a className="ant-dropdown-link">
                         常规图表

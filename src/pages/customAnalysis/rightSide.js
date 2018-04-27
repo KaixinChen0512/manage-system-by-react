@@ -1,31 +1,25 @@
 import React,{Component} from 'react';
-import {List} from 'antd';
+import {List,Tabs,Icon} from 'antd';
 import './rightSide.css';
 
+const TabPane = Tabs.TabPane;
 class rightSide extends Component{
-    data=[
-        'XXX图表',
-        'XXX图表',
-        'XXX图表',
-        'XXX图表',
-        'XXX图表',
-        'XXX图表',
-    ]
-    len=this.data.length
     render(){
         return(
             <div className="rightContainer">
-                <h3 style={{ margin: '16px 0' }}>图表列表</h3>
-                <List
-                size="large"
-                header="已启用图表"
-                footer={`共计${this.len}个图表`}
-                bordered
-                dataSource={this.data}
-                renderItem={item => (<List.Item>{item}</List.Item>)}
-                />
+                <Tabs defaultActiveKey="1">
+                    <TabPane tab={<span><Icon type="code-o" />样式</span>} key="1">
+                        样式
+                    </TabPane>
+                    <TabPane tab={<span><Icon type="file-text" />数据</span>} key="2">
+                        数据
+                    </TabPane>
+                    <TabPane tab={<span><Icon type="tool" />交互</span>} key="3">
+                        交互
+                    </TabPane>
+                </Tabs>
             </div>
-        )
+        );
     }
 }
 export default rightSide;

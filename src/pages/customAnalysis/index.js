@@ -7,8 +7,6 @@ import Bottom from './footer.js';
 import Contents from './content.js';
 import LeftSide from './leftSide.js';
 import RightSide from './rightSide.js';
-import leftSide from './leftSide.js';
-import rightSide from './rightSide.js';
 const{Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 class Container extends Component{
@@ -19,14 +17,14 @@ class Container extends Component{
 					<Row>
 						<Top/>
 					</Row>
-					<Row>
-						<Col span={4} style={{background:'#F7F8FA'}}>
+					<Row gutter={16}>
+						<Col span={3} style={{background:'#F7F8FA'}}>
 							<LeftSide/>
 						</Col>
-						<Col span={16}>
+						<Col span={14}>
 							<Contents/>
 						</Col>
-						<Col span={4} style={{background:'#F7F8FA'}}>
+						<Col span={7} style={{background:'#F7F8FA'}}>
 							<RightSide/>
 						</Col>
 					</Row>

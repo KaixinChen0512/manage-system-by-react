@@ -2,7 +2,7 @@ import React ,{Component}from 'react';
 import { Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import './content.css';
-import normalChart1 from './chartPages/normalChart1.js';
+import normalChart1_1_1 from './chartPages/normalChart1_1_1.js';
 // import workerList from '../pages/workerlist';
 // import pipeList from '../pages/pipeList';
 // import projectList from '../pages/projectList';
@@ -23,7 +23,7 @@ class Contents extends Component {
   render() {
     return (
       <Content className="content">
-        <Route exact path="/app/customAnalysis/1" component={normalChart1} />
+        <Route exact path="/app/customAnalysis/1_1_1" component={normalChart1_1_1} />
         {/*<Route path="/app/workerList" component={workerList}/>
         <Route path="/app/pipeList" component={pipeList}/>
         <Route path="/app/projectList" component={projectList}/>

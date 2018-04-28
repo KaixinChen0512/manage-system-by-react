@@ -9,7 +9,7 @@ class Top extends Component{
         normalMenu:(
             <Menu>
                 <SubMenu title="柱形图">
-                    <Menu.Item><Link to="/app/customAnalysis/1"><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E5%9F%BA%E6%9C%AC%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">基本柱图</span></Link></Menu.Item>
+                    <Menu.Item><Link to="/app/customAnalysis/1_1_1"><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E5%9F%BA%E6%9C%AC%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">基本柱图</span></Link></Menu.Item>
                     <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E6%B0%B4%E5%B9%B3%E5%9F%BA%E6%9C%AC%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">水平基本柱图</span></Menu.Item>
                     <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E6%A2%AF%E5%BD%A2%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">梯形柱图</span></Menu.Item>
                     <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E6%8A%98%E7%BA%BF%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">折线柱图</span></Menu.Item>

@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {List,Tabs,Icon,Card,Button,Form,Input,Checkbox,Collapse,Select,Row,Col,Slider,InputNumber,Divider,Modal} from 'antd';
+import {List,Tabs,Icon,Card,Button,Form,Input,Checkbox,Collapse,Select,Row,Col,Slider,InputNumber,Divider,Modal,Upload,message} from 'antd';
 import { Scrollbars} from 'react-custom-scrollbars';
 import './normalChart1_1_1.css';
 
@@ -8,6 +8,8 @@ const FormItem = Form.Item;
 const Panel = Collapse.Panel;
 const Option = Select.Option;
 const {TextArea} = Input;
+//拖拽上传
+// const Dragger = Upload.Dragger;
 
 
 class formNormalChart1_1_1 extends Component{
@@ -45,8 +47,16 @@ class formNormalChart1_1_1 extends Component{
         "y": 130
     }
 ]`,
+        //弹出框
         loading: false,
         visible: false,
+        //上传CSV文件
+        fileList: [{
+            uid: -1,
+            name: 'initialData.csv',
+            status: 'done',
+            url: '',
+        }],
     }
     changeXFontSize = (value) => {
         this.setState({
@@ -89,9 +99,43 @@ class formNormalChart1_1_1 extends Component{
             console.log(2);
         }
     }
+    //上传CSV文件
+    handleChange = (info) => {
+        let fileList = info.fileList;
+    
+        // 1. Limit the number of uploaded files
+        //    Only to show two recent uploaded files, and old ones will be replaced by the new
+        fileList = fileList.slice(-2);
+    
+        // 2. read from response and show file link
+        fileList = fileList.map((file) => {
+          if (file.response) {
+            // Component will show file.url as link
+            file.url = file.response.url;
+            }
+          return file;
+        });
+    
+        // 3. filter successfully uploaded files according to response from server
+        fileList = fileList.filter((file) => {
+          if (file.response) {
+            return file.response.status === 'success';
+          }
+          return true;
+        });
+    
+        this.setState({ fileList });
+    }
     render(){
         const { getFieldDecorator } = this.props.form;
+        //弹出框
         const { visible, loading } = this.state;
+        //上传CSV文件
+        const props = {
+            action: '//jsonplaceholder.typicode.com/posts/',
+            onChange: this.handleChange,
+            multiple: true,
+        };
         return(
             <div className="rightContainer">
                 <Tabs defaultActiveKey="1">
@@ -518,11 +562,11 @@ class formNormalChart1_1_1 extends Component{
                     </Button>,
                 ]}
                 >
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
+                    <Upload {...props} fileList={this.state.fileList}>
+                        <Button>
+                            <Icon type="upload" /> 上传
+                        </Button>
+                    </Upload>
                 </Modal>
             </div>
         );

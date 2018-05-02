@@ -47,9 +47,13 @@ class formNormalChart1_1_1 extends Component{
         "y": 130
     }
 ]`,
-        //弹出框
+        //csv弹出框
         loading: false,
-        visible: false,
+        csvVisible: false,
+        //api弹出框
+        apiVisible: false,
+        //数据库文件弹出框
+        databaseVisible:false,
         //上传CSV文件
         fileList: [{
             uid: -1,
@@ -77,27 +81,55 @@ class formNormalChart1_1_1 extends Component{
         });
     }
     //弹出框
-    showModal = () => {
-        this.setState({
-            visible: true,
-        });
+    showModal = (value) => {
+        switch(value){
+            case "CSV文件":
+                this.setState({
+                    csvVisible: true,
+                })
+                break;
+            case "API":
+                this.setState({
+                    apiVisible: true,
+                })
+                break;
+            case "数据库":
+                this.setState({
+                    databaseVisible: true,
+                })
+                break;
+            default:
+        }
     }
-    handleOk = () => {
+    csvHandleOk = () => {
         this.setState({ loading: true });
         setTimeout(() => {
-            this.setState({ loading: false, visible: false });
+            this.setState({ loading: false, csvVisible: false });
         }, 3000);
     }
-    handleCancel = () => {
-        this.setState({ visible: false });
+    csvHandleCancel = () => {
+        this.setState({ csvVisible: false });
+    }
+    apiHandleOk = () => {
+        this.setState({ loading: true });
+        setTimeout(() => {
+            this.setState({ loading: false, apiVisible: false });
+        }, 3000);
+    }
+    apiHandleCancel = () => {
+        this.setState({ apiVisible: false });
+    }
+    databaseHandleOk = () => {
+        this.setState({ loading: true });
+        setTimeout(() => {
+            this.setState({ loading: false, databaseVisible: false });
+        }, 3000);
+    }
+    databaseHandleCancel = () => {
+        this.setState({ databaseVisible: false });
     }
     dataTypeChange =(value) => {
-        if(value==='CSV文件'){
-            this.showModal();
-            console.log(1);
-        }else{
-            console.log(2);
-        }
+        this.showModal(value);
     }
     //上传CSV文件
     handleChange = (info) => {
@@ -129,7 +161,7 @@ class formNormalChart1_1_1 extends Component{
     render(){
         const { getFieldDecorator } = this.props.form;
         //弹出框
-        const { visible, loading } = this.state;
+        const { csvVisible,apiVisible,databaseVisible, loading } = this.state;
         //上传CSV文件
         const props = {
             action: '//jsonplaceholder.typicode.com/posts/',
@@ -341,7 +373,7 @@ class formNormalChart1_1_1 extends Component{
                                                 <Option value="静态数据">静态数据</Option>
                                                 <Option value="CSV文件">CSV文件</Option>
                                                 <Option value="API" >API</Option>
-                                                <Option value="数据库文件">数据库文件</Option>
+                                                <Option value="数据库">数据库</Option>
                                             </Select>
                                         )}
                                     </FormItem>
@@ -551,13 +583,55 @@ class formNormalChart1_1_1 extends Component{
                     </TabPane>
                 </Tabs>
                 <Modal
-                visible={visible}
+                visible={csvVisible}
                 title="请选择CSV文件"
-                onOk={this.handleOk}
-                onCancel={this.handleCancel}
+                onOk={this.csvHandleOk}
+                onCancel={this.csvHandleCancel}
                 footer={[
-                    <Button key="back" onClick={this.handleCancel}>返回</Button>,
-                    <Button key="submit" type="primary" loading={loading} onClick={this.handleOk}>
+                    <Button key="back1" onClick={this.csvHandleCancel}>返回</Button>,
+                    <Button key="submit1" type="primary" loading={loading} onClick={this.csvHandleOk}>
+                        确认
+                    </Button>,
+                ]}
+                >
+                    <Upload {...props} fileList={this.state.fileList}>
+                        <Button>
+                            <Icon type="upload" /> 上传
+                        </Button>
+                    </Upload>
+                </Modal>
+                <Modal
+                visible={apiVisible}
+                title="请填写API接口信息"
+                onOk={this.apiHandleOk}
+                onCancel={this.apiHandleCancel}
+                footer={[
+                    <Button key="back2" onClick={this.apiHandleCancel}>返回</Button>,
+                    <Button key="submit2" type="primary" loading={loading} onClick={this.apiHandleOk}>
+                        确认
+                    </Button>,
+                ]}
+                >
+                    <Row>
+                        <span>URL</span>
+                    </Row>
+                    <Row>
+                        <span>
+                            将回调参数配置到url中, 例: http://api.test?value=:value
+                        </span>
+                    </Row>
+                    <Row>
+                        <TextArea autosize={{minRows:6}}/>
+                    </Row>
+                </Modal>
+                <Modal
+                visible={databaseVisible}
+                title="请填写数据库信息"
+                onOk={this.databaseHandleOk}
+                onCancel={this.databaseHandleCancel}
+                footer={[
+                    <Button key="back3" onClick={this.databaseHandleCancel}>返回</Button>,
+                    <Button key="submit3" type="primary" loading={loading} onClick={this.databaseHandleOk}>
                         确认
                     </Button>,
                 ]}

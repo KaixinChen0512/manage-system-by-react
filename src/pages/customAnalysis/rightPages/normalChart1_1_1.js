@@ -452,48 +452,15 @@ class formNormalChart1_1_1 extends Component{
                                         </FormItem>
                                     </Panel>
                                     <Panel header="算法" key="2">
-                                        <FormItem
-                                            labelCol={{ span: 6 }}
-                                            wrapperCol={{ span: 18 }}
-                                            label={(
-                                                <span>
-                                                    文本颜色
-                                            </span>
-                                            )}
-                                        >
-                                            {getFieldDecorator('X轴文本颜色', {
-                                                initialValue: '#333333'
-                                            })(
-                                                <Input placeholder="请输入十六进制颜色码" />
-                                            )}
-                                        </FormItem>
-                                        <FormItem
-                                            labelCol={{ span: 6 }}
-                                            wrapperCol={{ span: 18 }}
-                                            label={(
-                                                <span>
-                                                    文本字号
-                                            </span>
-                                            )}
-                                        >
-                                            {getFieldDecorator('X轴文本字号', {
-                                                initialValue: this.state.XFontSize
-                                            })(
-                                                <Row>
-                                                    <Col span={12}>
-                                                        <Slider min={10} max={100} onChange={this.changeXFontSize} value={this.state.XFontSize} />
-                                                    </Col>
-                                                    <Col span={4}>
-                                                        <InputNumber
-                                                            min={10}
-                                                            max={100}
-                                                            style={{ marginLeft: 16 }}
-                                                            value={this.state.XFontSize}
-                                                            onChange={this.changeXFontSize}
-                                                        />
-                                                    </Col>
-                                                </Row>
-                                            )}
+                                        <FormItem>
+                                            <Row>
+                                                <Col span={12}>
+                                                    时间序列预测算法
+                                                </Col>
+                                                <Col span={12}>
+                                                    <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />
+                                                </Col>
+                                            </Row>
                                         </FormItem>
                                     </Panel>
                                 </Collapse>

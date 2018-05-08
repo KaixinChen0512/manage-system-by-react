@@ -1,6 +1,7 @@
 import "./index.css";
 import React,{Component} from 'react';
 import { Table, Icon,Button,Input } from 'antd';
+import axios from 'axios';
 // import Json2csvParser from 'json2csv;'
 class workerList extends Component {
   state = {
@@ -11,6 +12,29 @@ class workerList extends Component {
     selectedRowKeys:[],
     selectedRows:[],
     loading:false
+  };
+  componentDidMount = () => {
+    // axios.post('/events',{
+
+    // })
+    // .then((res)=>{
+    //   console.log(res);
+    // })
+    // .catch((error)=>{
+    //   console.log(error);
+    // })
+    fetch('http://localhost:3000/events',{
+      method:"POST"
+    })
+    .then((res)=>{
+      console.log(res.body)
+    })
+    // axios({
+    //   method: 'post',
+    //   url: 'http://localhost:3000/events',
+    // }).then(function (res) {
+    //   console.log(res);
+    // });
   };
   //自定义查找功能
   onInputChange = (e) => {
@@ -184,8 +208,6 @@ for(let i=1;i<=100;i++){
         address:'XX省XX市',
         phoneNumber:'13XXXXXXXXX',
         department:'XX事业部',
-
-        
     })
 }
 

@@ -18,10 +18,10 @@ class Container extends Component{
 						<Top />
 					</Row>
 					<Row gutter={16}>
-						<Col span={3} style={{background:'#F7F8FA'}}>
+						{/*<Col span={3} style={{background:'#F7F8FA'}}>
 							<LeftSide />
-						</Col>
-						<Col span={14}>
+						</Col>*/}
+						<Col span={17}>
 							<Contents />
 						</Col>
 						<Col span={7} style={{background:'#F7F8FA'}}>

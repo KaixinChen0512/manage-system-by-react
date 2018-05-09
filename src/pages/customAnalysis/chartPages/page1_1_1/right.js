@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {List,Tabs,Icon,Card,Button,Form,Input,Checkbox,Collapse,Select,Row,Col,Slider,InputNumber,Divider,Modal,Upload,message,Switch} from 'antd';
 import { Scrollbars} from 'react-custom-scrollbars';
-import './normalChart1_1_1.css';
+import './right.css';
 
 const TabPane = Tabs.TabPane;
 const FormItem = Form.Item;
@@ -12,10 +12,13 @@ const {TextArea} = Input;
 // const Dragger = Upload.Dragger;
 
 
-class formNormalChart1_1_1 extends Component{
+class chartForm extends Component{
     state = {
-        XFontSize: 40,
-        YFontSize: 40,
+        defaultGlobalFontFamily:{fontFamily:'Microsoft YaHei'},
+        XDefaultFontSize: {axisLabel:{fontSize:12}},
+        YDefaultFontSize: {axisLabel:{fontSize:12}},
+        XDefaultFontColor: {axisLabel:{color:'#333333'}},
+        YDefaultFontColor: {axisLabel:{color:'#333333'}},
         staticDataValue:
         `[
     {
@@ -65,19 +68,26 @@ class formNormalChart1_1_1 extends Component{
     }
     changeXFontSize = (value) => {
         this.setState({
-            XFontSize: value,
+            XDefaultFontSize: {axisLabel:{fontSize:value}}
         });
+    }
+    changeXFontColor=(value)=>{
+        this.setState({
+            XDefaultFontColor:{axisLabel:{color:value}}
+        })
     }
     changeYFontSize = (value) => {
         this.setState({
-            YFontSize: value,
+            YDefaultFontSize: {axisLabel:{fontSize:value}}
         });
     }
+    
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-            console.log('Received values of form: ', values);
+                console.log('values:',values)
+                this.props.changeOption(values)
             }
         });
     }
@@ -199,17 +209,17 @@ class formNormalChart1_1_1 extends Component{
                                                     label={(
                                                         <span>
                                                             字体
-                                                </span>
+                                                        </span>
                                                     )}
                                                 >
-                                                    {getFieldDecorator('字体', {
-                                                        initialValue: '微软雅黑'
+                                                    {getFieldDecorator('textStyle', {
+                                                        initialValue: this.state.defaultGlobalFontFamily
                                                     })(
                                                         <Select style={{ width: 120 }}>
-                                                            <Option value="微软雅黑">微软雅黑</Option>
-                                                            <Option value="宋体">宋体</Option>
-                                                            <Option value="黑体" >黑体</Option>
-                                                            <Option value="隶书">隶书</Option>
+                                                            <Option value={{fontFamily:'Microsoft YaHei'}}>微软雅黑</Option>
+                                                            <Option value={{fontFamily:'serif'}}>衬线体</Option>
+                                                            <Option value={{fontFamily:'monospace'}}>monospace</Option>
+                                                            <Option value={{fontFamily:'Courier New'}}>Courier New</Option>
                                                         </Select>
                                                     )}
                                                 </FormItem>
@@ -219,10 +229,10 @@ class formNormalChart1_1_1 extends Component{
                                                     label={(
                                                         <span>
                                                             背景颜色
-                                                </span>
+                                                        </span>
                                                     )}
                                                 >
-                                                    {getFieldDecorator('背景颜色', {
+                                                    {getFieldDecorator('backgroundColor', {
                                                         initialValue: '#FFFFFF'
                                                     })(
                                                         <Input placeholder="请输入十六进制颜色码" />
@@ -236,13 +246,13 @@ class formNormalChart1_1_1 extends Component{
                                                     label={(
                                                         <span>
                                                             文本颜色
-                                                    </span>
+                                                        </span>
                                                     )}
                                                 >
-                                                    {getFieldDecorator('X轴文本颜色', {
-                                                        initialValue: '#333333'
+                                                    {getFieldDecorator('xAxis', {
+                                                        initialValue: this.state.XDefaultFontColor.axisLabel.color
                                                     })(
-                                                        <Input placeholder="请输入十六进制颜色码" />
+                                                        <Input onChange={this.changeXFontColor} />
                                                     )}
                                                 </FormItem>
                                                 <FormItem
@@ -251,22 +261,22 @@ class formNormalChart1_1_1 extends Component{
                                                     label={(
                                                         <span>
                                                             文本字号
-                                                    </span>
+                                                        </span>
                                                     )}
                                                 >
-                                                    {getFieldDecorator('X轴文本字号', {
-                                                        initialValue: this.state.XFontSize
+                                                    {getFieldDecorator('xAxis', {
+                                                        initialValue: this.state.XDefaultFontSize
                                                     })(
                                                         <Row>
                                                             <Col span={12}>
-                                                                <Slider min={10} max={100} onChange={this.changeXFontSize} value={this.state.XFontSize} />
+                                                                <Slider min={0} max={60} onChange={this.changeXFontSize} value={this.state.XDefaultFontSize.axisLabel.fontSize} />
                                                             </Col>
                                                             <Col span={4}>
                                                                 <InputNumber
-                                                                    min={10}
-                                                                    max={100}
+                                                                    min={0}
+                                                                    max={60}
                                                                     style={{ marginLeft: 16 }}
-                                                                    value={this.state.XFontSize}
+                                                                    value={this.state.XDefaultFontSize.axisLabel.fontSize}
                                                                     onChange={this.changeXFontSize}
                                                                 />
                                                             </Col>
@@ -296,22 +306,22 @@ class formNormalChart1_1_1 extends Component{
                                                     label={(
                                                         <span>
                                                             文本字号
-                                                    </span>
+                                                        </span>
                                                     )}
                                                 >
                                                     {getFieldDecorator('Y轴文本字号', {
-                                                        initialValue: this.state.YFontSize
+                                                        initialValue: this.state.YDefaultFontSize.axisLabel.fontSize
                                                     })(
                                                         <Row>
                                                             <Col span={12}>
-                                                                <Slider min={10} max={100} onChange={this.changeYFontSize} value={this.state.YFontSize} />
+                                                                <Slider min={0} max={60} onChange={this.changeYFontSize} value={this.state.YDefaultFontSize.axisLabel.fontSize} />
                                                             </Col>
                                                             <Col span={4}>
                                                                 <InputNumber
-                                                                    min={10}
-                                                                    max={100}
+                                                                    min={0}
+                                                                    max={60}
                                                                     style={{ marginLeft: 16 }}
-                                                                    value={this.state.YFontSize}
+                                                                    value={this.state.YDefaultFontSize.axisLabel.fontSize}
                                                                     onChange={this.changeYFontSize}
                                                                 />
                                                             </Col>
@@ -420,47 +430,71 @@ class formNormalChart1_1_1 extends Component{
                         <FormItem>
                                 <Collapse bordered={false} defaultActiveKey={['1']}>
                                     <Panel header="可视化控件" key="1">
-                                        <FormItem>
-                                            <Row>
-                                                <Col span={12}>
-                                                    坐标轴指示器
-                                                </Col>
-                                                <Col span={12}>
-                                                    <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />
-                                                </Col>
-                                            </Row>
+                                        <FormItem
+                                        labelCol={{ span: 12 }}
+                                        wrapperCol={{ span: 12 }}
+                                        label={(
+                                            <span style={{marginRight:'35px'}}>
+                                                坐标轴指示器
+                                            </span>
+                                        )}
+                                        colon={false}
+                                        >
+                                            {getFieldDecorator('坐标轴指示器', {
+                                                initialValue:'false'
+                                            })(
+                                                <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />
+                                            )}
                                         </FormItem>
-                                        <FormItem>
-                                            <Row>
-                                                <Col span={12}>
-                                                    数据筛选
-                                                </Col>
-                                                <Col span={12}>
-                                                    <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />
-                                                </Col>
-                                            </Row>
+                                        <FormItem
+                                        labelCol={{ span: 12 }}
+                                        wrapperCol={{ span: 12 }}
+                                        label={(
+                                            <span style={{marginRight:'35px'}}>
+                                                数据筛选
+                                            </span>
+                                        )}
+                                        colon={false}
+                                        >
+                                            {getFieldDecorator('数据筛选', {
+                                                initialValue:'false'
+                                            })(
+                                                <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />
+                                            )}
                                         </FormItem>
-                                        <FormItem>
-                                            <Row>
-                                                <Col span={12}>
-                                                    参数回调
-                                                </Col>
-                                                <Col span={12}>
-                                                    <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />
-                                                </Col>
-                                            </Row>
+                                        <FormItem
+                                        labelCol={{ span: 12 }}
+                                        wrapperCol={{ span: 12 }}
+                                        label={(
+                                            <span style={{marginRight:'35px'}}>
+                                                参数回调
+                                            </span>
+                                        )}
+                                        colon={false}
+                                        >
+                                            {getFieldDecorator('参数回调', {
+                                                initialValue:'false'
+                                            })(
+                                                <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />
+                                            )}
                                         </FormItem>
                                     </Panel>
                                     <Panel header="算法" key="2">
-                                        <FormItem>
-                                            <Row>
-                                                <Col span={12}>
-                                                    时间序列预测算法
-                                                </Col>
-                                                <Col span={12}>
-                                                    <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />
-                                                </Col>
-                                            </Row>
+                                        <FormItem
+                                        labelCol={{ span: 12 }}
+                                        wrapperCol={{ span: 12 }}
+                                        label={(
+                                            <span style={{marginRight:'35px'}}>
+                                                时间序列预测算法
+                                            </span>
+                                        )}
+                                        colon={false}
+                                        >
+                                            {getFieldDecorator('时间序列预测算法', {
+                                                initialValue:'false'
+                                            })(
+                                                <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />
+                                            )}
                                         </FormItem>
                                     </Panel>
                                 </Collapse>
@@ -564,6 +598,6 @@ class formNormalChart1_1_1 extends Component{
         );
     }
 }
-const normalChart1_1_1 = Form.create()(formNormalChart1_1_1);
+const rightForm = Form.create()(chartForm);
 
-export default normalChart1_1_1;
+export default rightForm;

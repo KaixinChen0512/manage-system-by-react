@@ -2,10 +2,11 @@ import React,{Component} from 'react';
 import { Row, Col, Card, Timeline, Icon } from 'antd';
 import EchartsViews from './EchartsViews';
 import EchartsProjects from './EchartsProjects';
-import b1 from '../../image/kayson.jpg';
-import b2 from '../../image/kayson.jpg';
-import b3 from '../../image/kayson.jpg';
-import b4 from '../../image/kayson.jpg';
+// import b1 from '../../image/kayson.jpg';
+// import b2 from '../../image/kayson.jpg';
+// import b3 from '../../image/kayson.jpg';
+// import b4 from '../../image/kayson.jpg';
+import avatar from '../../image/defaultUserAvatar.png';
 import { Link } from 'react-router-dom';
 import './index.css'
 
@@ -113,7 +114,7 @@ class index extends Component {
                                 <ul className="list-group no-border">
                                     <li className="list-group-item">
                                         <a className="pull-left w-40 mr-m">
-                                            <img src={b1} className="img-responsive img-circle" alt="test" />
+                                            <img src={avatar} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
                                             <a className="block">陈凯鑫</a>
@@ -122,7 +123,7 @@ class index extends Component {
                                     </li>
                                     <li className="list-group-item">
                                         <a className="pull-left w-40 mr-m">
-                                            <img src={b2} className="img-responsive img-circle" alt="test" />
+                                            <img src={avatar} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
                                             <a className="block">王昊</a>
@@ -131,7 +132,7 @@ class index extends Component {
                                     </li>
                                     <li className="list-group-item">
                                         <a className="pull-left w-40 mr-m">
-                                            <img src={b3} className="img-responsive img-circle" alt="test" />
+                                            <img src={avatar} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
                                             <a className="block">罗林溢</a>
@@ -140,7 +141,7 @@ class index extends Component {
                                     </li>
                                     <li className="list-group-item">
                                         <a className="pull-left w-40 mr-m">
-                                            <img src={b4} className="img-responsive img-circle" alt="test" />
+                                            <img src={avatar} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
                                             <a className="block">夏腾</a>

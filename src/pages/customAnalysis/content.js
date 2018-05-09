@@ -1,8 +1,8 @@
-import React ,{Component}from 'react';
+import React, {Component} from 'react';
 import { Route } from 'react-router-dom';
-import { Layout } from 'antd';
+// import { Layout } from 'antd';
 import './content.css';
-import normalChart1_1_1 from './chartPages/normalChart1_1_1.js';
+import chart1_1_1 from './chartPages/page1_1_1/index.js';
 // import workerList from '../pages/workerlist';
 // import pipeList from '../pages/pipeList';
 // import projectList from '../pages/projectList';
@@ -17,13 +17,13 @@ import normalChart1_1_1 from './chartPages/normalChart1_1_1.js';
 // import instruction from '../pages/instruction';
 // import photos from '../pages/photos';
 
-const { Content } = Layout
+// const { Content } = Layout
 
 class Contents extends Component {
   render() {
     return (
-      <Content className="content">
-        <Route exact path="/app/customAnalysis/1_1_1" component={normalChart1_1_1} />
+      <div>
+        <Route exact path="/app/customAnalysis/1_1_1" component={chart1_1_1} />
         {/*<Route path="/app/workerList" component={workerList}/>
         <Route path="/app/pipeList" component={pipeList}/>
         <Route path="/app/projectList" component={projectList}/>
@@ -36,8 +36,9 @@ class Contents extends Component {
         <Route path="/app/customAnalysis" component={customAnalysis}/>
         <Route path="/app/adminSetting" component={adminSetting}/>
         <Route path="/app/instruction" component={instruction}/>
-    <Route path="/app/photos" component={photos}/>*/}
-      </Content>
+        <Route path="/app/photos" component={photos}/>*/}
+      </div>
+
     );
   }
 }

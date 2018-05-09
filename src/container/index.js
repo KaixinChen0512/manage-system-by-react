@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Avatar,Icon,Layout,Menu} from 'antd';
 import {Link} from 'react-router-dom';
 import './index.css';
-import avatar from '../image/avatar.jpg';
+import logo from '../image/logo.png';
 import Top from './header.js';
 import Bottom from './footer.js';
 import Contents from './content.js';
@@ -46,7 +46,7 @@ class Container extends Component{
 						<Avatar
 						size="large"
 						shape="circle"
-						src={avatar}
+						src={logo}
 						/>
 						{ this.state.collapsed===false ? <span style={{color:'#FFFFFF',marginLeft:'15px'}}>管道工程管理系统</span>:''}
 					</div>

@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import ReactEcharts from 'echarts-for-react';
 import echarts from 'echarts';
-import './normalChart1_1_1.css';
+import './middle.css';
 
 // let base = +new Date(2008, 8, 0);
 // let oneDay = 24 * 3600 * 1000;
@@ -15,30 +15,19 @@ import './normalChart1_1_1.css';
 //     data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
 // }
 
-const option = {
-    xAxis: {
-        type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-    },
-    yAxis: {
-        type: 'value'
-    },
-    series: [{
-        data: [120, 200, 150, 80, 70, 110, 130],
-        type: 'bar'
-    }]
-};
 
-class normalChart1 extends Component {
+
+class chart extends Component {
+
     render() {
         return (
             <ReactEcharts
-                option={option}
-                style={{height: '520px', width: '600px'}}
+                option={this.props.option}
+                style={{height: '610px', width: '850px'}}
                 className={'react_for_echarts'}
             />
         )
     }
 }
 
-export default normalChart1;
+export default chart;

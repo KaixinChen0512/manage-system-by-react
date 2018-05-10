@@ -23,7 +23,7 @@ class chart extends Component {
         return (
             <ReactEcharts
                 option={this.props.option}
-                style={{height: '610px', width: '850px'}}
+                style={{height: `${this.props.chartHeight}px`, width: `${this.props.chartWidth}px`}}
                 className={'react_for_echarts'}
             />
         )

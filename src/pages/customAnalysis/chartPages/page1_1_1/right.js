@@ -14,11 +14,24 @@ const {TextArea} = Input;
 
 class chartForm extends Component{
     state = {
-        defaultGlobalFontFamily:{fontFamily:'Microsoft YaHei'},
-        XDefaultFontSize: {axisLabel:{fontSize:12}},
-        YDefaultFontSize: {axisLabel:{fontSize:12}},
-        XDefaultFontColor: {axisLabel:{color:'#333333'}},
-        YDefaultFontColor: {axisLabel:{color:'#333333'}},
+        options:{
+            xAxis:{
+                axisLabel:{
+                    fontSize:'12',
+                    color:'#333333'
+                }
+            },
+            yAxis:{
+                axisLabel:{
+                    fontSize:'12',
+                    color:'#333333'
+                }
+            },
+            textStyle:{
+                fontFamily:'Microsoft YaHei'
+            },
+            backgroundColor:'#FFFFFF' 
+        },
         staticDataValue:
         `[
     {
@@ -66,31 +79,80 @@ class chartForm extends Component{
             url: '',
         }],
     }
-    changeXFontSize = (value) => {
-        this.setState({
-            XDefaultFontSize: {axisLabel:{fontSize:value}}
-        });
-    }
-    changeXFontColor=(value)=>{
-        this.setState({
-            XDefaultFontColor:{axisLabel:{color:value}}
-        })
-    }
-    changeYFontSize = (value) => {
-        this.setState({
-            YDefaultFontSize: {axisLabel:{fontSize:value}}
-        });
-    }
-    
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
-                console.log('values:',values)
-                this.props.changeOption(values)
-            }
-        });
-    }
+
+    // //修改全局字体样式
+    // changeGlobalFontFamily = (value) =>{
+    //     this.setState({
+    //         options: Object.assign({},this.state.options,{
+    //             textStyle:{
+    //                 fontFamily:value
+    //         }})
+    //     });
+    // }
+
+    // //修改全局背景颜色
+    // changeBackgroundColor = (value) => {
+    //     this.setState({
+    //         options: Object.assign({},this.state.options,{
+    //             backgroundColor:value
+    //         })
+    //     });
+    // }
+    //修改X轴字体大小
+    // changeXFontSize = (value) => {
+    //     this.setState({
+    //         options: Object.assign({},this.state.options,{xAxis:{
+    //             axisLabel:{
+    //                 fontSize:value,
+    //             }
+    //         }})
+    //     });
+    // }
+
+    // //修改X轴字体颜色
+    // changeXFontColor=(value)=>{
+    //     this.setState({
+    //         options: Object.assign({},this.state.options,{xAxis:{
+    //             axisLabel:{
+    //                 color:value,
+    //             }
+    //         }})
+    //     });
+    // }
+
+    // //修改Y轴字体大小
+    // changeYFontSize = (value) => {
+    //     this.setState({
+    //         options: Object.assign({},this.state.options,{yAxis:{
+    //             axisLabel:{
+    //                 fontSize:value,
+    //             }
+    //         }})
+    //     });
+    // }
+
+    // //修改Y轴字体颜色
+    // changeYFontColor = (value) => {
+    //     this.setState({
+    //         options: Object.assign({},this.state.options,{yAxis:{
+    //             axisLabel:{
+    //                 color:value,
+    //             }
+    //         }})
+    //     });
+    // }
+
+    // //表单提交事件
+    // handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     this.props.form.validateFields((err, values) => {
+    //         if (!err) {
+    //             console.log('values:',values)
+    //             this.props.changeOption(this.state.options)
+    //         }
+    //     });
+    // }
+
     //弹出框
     showModal = (value) => {
         switch(value){
@@ -204,169 +266,141 @@ class chartForm extends Component{
                                         <Collapse bordered={false} defaultActiveKey={['1']}>
                                             <Panel header="全局样式" key="1">
                                                 <FormItem
-                                                    labelCol={{ span: 6 }}
-                                                    wrapperCol={{ span: 18 }}
-                                                    label={(
-                                                        <span>
-                                                            字体
-                                                        </span>
-                                                    )}
+                                                labelCol={{ span: 6 }}
+                                                wrapperCol={{ span: 18 }}
+                                                label={(
+                                                    <span>
+                                                        字体
+                                                    </span>
+                                                )}
                                                 >
-                                                    {getFieldDecorator('textStyle', {
-                                                        initialValue: this.state.defaultGlobalFontFamily
-                                                    })(
-                                                        <Select style={{ width: 120 }}>
-                                                            <Option value={{fontFamily:'Microsoft YaHei'}}>微软雅黑</Option>
-                                                            <Option value={{fontFamily:'serif'}}>衬线体</Option>
-                                                            <Option value={{fontFamily:'monospace'}}>monospace</Option>
-                                                            <Option value={{fontFamily:'Courier New'}}>Courier New</Option>
-                                                        </Select>
-                                                    )}
+                                                <Select style={{ width: 120 }} onSelect={this.props.changeGlobalFontFamily} defaultValue={this.props.option.textStyle.fontFamily}>
+                                                    <Option value="Microsoft YaHei">微软雅黑</Option>
+                                                    <Option value="serif">衬线体</Option>
+                                                    <Option value="monospace">monospace</Option>
+                                                    <Option value="Courier New">Courier New</Option>
+                                                </Select>
                                                 </FormItem>
                                                 <FormItem
-                                                    labelCol={{ span: 6 }}
-                                                    wrapperCol={{ span: 18 }}
-                                                    label={(
-                                                        <span>
-                                                            背景颜色
-                                                        </span>
-                                                    )}
+                                                labelCol={{ span: 6 }}
+                                                wrapperCol={{ span: 18 }}
+                                                label={(
+                                                    <span>
+                                                        背景颜色 
+                                                    </span>
+                                                )}
                                                 >
-                                                    {getFieldDecorator('backgroundColor', {
-                                                        initialValue: '#FFFFFF'
-                                                    })(
-                                                        <Input placeholder="请输入十六进制颜色码" />
-                                                    )}
+                                                <Input defaultValue={this.props.option.backgroundColor} onChange={this.props.changeBackgroundColor} />
                                                 </FormItem>
                                             </Panel>
                                             <Panel header="X轴" key="2">
                                                 <FormItem
-                                                    labelCol={{ span: 6 }}
-                                                    wrapperCol={{ span: 18 }}
-                                                    label={(
-                                                        <span>
-                                                            文本颜色
-                                                        </span>
-                                                    )}
+                                                labelCol={{ span: 6 }}
+                                                wrapperCol={{ span: 18 }}
+                                                label={(
+                                                    <span>
+                                                        文本颜色
+                                                    </span>
+                                                )}
                                                 >
-                                                    {getFieldDecorator('xAxis', {
-                                                        initialValue: this.state.XDefaultFontColor.axisLabel.color
-                                                    })(
-                                                        <Input onChange={this.changeXFontColor} />
-                                                    )}
+                                                    <Input defaultValue={this.props.option.xAxis.axisLabel.color} onChange={this.props.changeXFontColor} />
                                                 </FormItem>
                                                 <FormItem
-                                                    labelCol={{ span: 6 }}
-                                                    wrapperCol={{ span: 18 }}
-                                                    label={(
-                                                        <span>
-                                                            文本字号
-                                                        </span>
-                                                    )}
+                                                labelCol={{ span: 6 }}
+                                                wrapperCol={{ span: 18 }}
+                                                label={(
+                                                    <span>
+                                                        文本字号
+                                                    </span>
+                                                )}
                                                 >
-                                                    {getFieldDecorator('xAxis', {
-                                                        initialValue: this.state.XDefaultFontSize
-                                                    })(
-                                                        <Row>
-                                                            <Col span={12}>
-                                                                <Slider min={0} max={60} onChange={this.changeXFontSize} value={this.state.XDefaultFontSize.axisLabel.fontSize} />
-                                                            </Col>
-                                                            <Col span={4}>
-                                                                <InputNumber
-                                                                    min={0}
-                                                                    max={60}
-                                                                    style={{ marginLeft: 16 }}
-                                                                    value={this.state.XDefaultFontSize.axisLabel.fontSize}
-                                                                    onChange={this.changeXFontSize}
-                                                                />
-                                                            </Col>
-                                                        </Row>
-                                                    )}
+                                                    <Row>
+                                                        <Col span={12}>
+                                                            <Slider min={0} max={60} onChange={this.props.changeXFontSize} value={this.props.option.xAxis.axisLabel.fontSize}/>
+                                                        </Col>
+                                                        <Col span={4}>
+                                                            <InputNumber
+                                                                min={0}
+                                                                max={60}
+                                                                style={{ marginLeft: 16 }}
+                                                                value={this.props.option.xAxis.axisLabel.fontSize}
+                                                                onChange={this.props.changeXFontSize}
+                                                            />
+                                                        </Col>
+                                                    </Row>
                                                 </FormItem>
                                             </Panel>
                                             <Panel header="Y轴" key="3">
                                                 <FormItem
-                                                    labelCol={{ span: 6 }}
-                                                    wrapperCol={{ span: 18 }}
-                                                    label={(
-                                                        <span>
-                                                            文本颜色
+                                                labelCol={{ span: 6 }}
+                                                wrapperCol={{ span: 18 }}
+                                                label={(
+                                                    <span>
+                                                        文本颜色
                                                     </span>
-                                                    )}
+                                                )}
                                                 >
-                                                    {getFieldDecorator('Y轴文本颜色', {
-                                                        initialValue: '#333333'
-                                                    })(
-                                                        <Input placeholder="请输入十六进制颜色码" />
-                                                    )}
+                                                    <Input defaultValue={this.props.option.yAxis.axisLabel.color} onChange={this.props.changeYFontColor} />
                                                 </FormItem>
                                                 <FormItem
-                                                    labelCol={{ span: 6 }}
-                                                    wrapperCol={{ span: 18 }}
-                                                    label={(
-                                                        <span>
-                                                            文本字号
-                                                        </span>
-                                                    )}
+                                                labelCol={{ span: 6 }}
+                                                wrapperCol={{ span: 18 }}
+                                                label={(
+                                                    <span>
+                                                        文本字号
+                                                    </span>
+                                                )}
                                                 >
-                                                    {getFieldDecorator('Y轴文本字号', {
-                                                        initialValue: this.state.YDefaultFontSize.axisLabel.fontSize
-                                                    })(
-                                                        <Row>
-                                                            <Col span={12}>
-                                                                <Slider min={0} max={60} onChange={this.changeYFontSize} value={this.state.YDefaultFontSize.axisLabel.fontSize} />
-                                                            </Col>
-                                                            <Col span={4}>
-                                                                <InputNumber
-                                                                    min={0}
-                                                                    max={60}
-                                                                    style={{ marginLeft: 16 }}
-                                                                    value={this.state.YDefaultFontSize.axisLabel.fontSize}
-                                                                    onChange={this.changeYFontSize}
-                                                                />
-                                                            </Col>
-                                                        </Row>
-                                                    )}
+                                                    <Row>
+                                                        <Col span={12}>
+                                                            <Slider min={0} max={60} onChange={this.props.changeYFontSize} value={this.props.option.yAxis.axisLabel.fontSize} />
+                                                        </Col>
+                                                        <Col span={4}>
+                                                            <InputNumber
+                                                                min={0}
+                                                                max={60}
+                                                                style={{ marginLeft: 16 }}
+                                                                value={this.props.option.yAxis.axisLabel.fontSize}
+                                                                onChange={this.props.changeYFontSize}
+                                                            />
+                                                        </Col>
+                                                    </Row>
                                                 </FormItem>
                                             </Panel>
                                             <Panel header="图表尺寸" key="4">
                                                 <FormItem
-                                                    labelCol={{ span: 6 }}
-                                                    wrapperCol={{ span: 18 }}
-                                                    label={(
-                                                        <span>
-                                                            宽度
-                                                    </span>
-                                                    )}
+                                                labelCol={{ span: 6 }}
+                                                wrapperCol={{ span: 18 }}
+                                                label={(
+                                                    <span>
+                                                        宽度
+                                                </span>
+                                                )}
                                                 >
-                                                    {getFieldDecorator('图表宽度', {
-                                                        initialValue: '500'
-                                                    })(
-                                                        <InputNumber
-                                                            min={0}
-                                                            max={600}
-                                                            style={{ marginLeft: 16 }}
-                                                        />
-                                                    )}
+                                                    <InputNumber
+                                                        min={0}
+                                                        max={1000}
+                                                        style={{ marginLeft: 16 }}
+                                                        defaultValue={this.props.chartWidth}
+                                                        onChange={this.props.changeWidth}
+                                                    />
                                                 </FormItem>
                                                 <FormItem
-                                                    labelCol={{ span: 6 }}
-                                                    wrapperCol={{ span: 18 }}
-                                                    label={(
-                                                        <span>
-                                                            高度
-                                                    </span>
-                                                    )}
+                                                labelCol={{ span: 6 }}
+                                                wrapperCol={{ span: 18 }}
+                                                label={(
+                                                    <span>
+                                                        高度
+                                                </span>
+                                                )}
                                                 >
-                                                    {getFieldDecorator('图表高度', {
-                                                        initialValue: '500'
-                                                    })(
-                                                        <InputNumber
-                                                            min={0}
-                                                            max={600}
-                                                            style={{ marginLeft: 16 }}
-                                                        />
-                                                    )}
+                                                    <InputNumber
+                                                        min={0}
+                                                        max={800}
+                                                        style={{ marginLeft: 16 }}
+                                                        defaultValue={this.props.chartHeight}
+                                                        onChange={this.props.changeHeight}
+                                                    />
                                                 </FormItem>
                                             </Panel>
                                         </Collapse>

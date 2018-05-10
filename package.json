@@ -9,6 +9,7 @@
     "echarts-for-react": "^2.0.8",
     "json2csv": "^4.1.2",
     "moment": "^2.22.1",
+    "papaparse": "^4.4.0",
     "photoswipe": "^4.1.2",
     "react": "^16.3.1",
     "react-custom-scrollbars": "^4.2.1",

@@ -10,7 +10,7 @@ class page1_1_1 extends Component{
             option : {
                 xAxis: {
                     type: 'category',
-                    data: this.state.data.x,
+                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                     name:'X轴',
                     axisLabel:{
                         color:'#000000',
@@ -26,9 +26,10 @@ class page1_1_1 extends Component{
                     }
                 },
                 series: [{
-                    data: this.state.data.y,
+                    data: [120, 200, 150, 80, 70, 110, 130],
                     type: 'bar'
-                }],
+                }
+                ],
                 textStyle:{
                     fontFamily:'Microsoft YaHei'
                 },
@@ -40,22 +41,22 @@ class page1_1_1 extends Component{
             
         }
     }
-    state={
-        data:{
-            x:['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            y:[120, 200, 150, 80, 70, 110, 130]
-        }
-    }
+
+    //修改图表配置
     changeOption=(newOption)=>{
         this.setState({
             option: Object.assign({},this.state.option,newOption)
         })
     }
+
+    //修改图表高度
     changeHeight=(newHeight)=>{
         this.setState({
             height:newHeight
         })
     }
+
+    //修改图表宽度
     changeWidth=(newWidth)=>{
         this.setState({
             width:newWidth
@@ -126,6 +127,39 @@ class page1_1_1 extends Component{
         });
     }
 
+    //修改静态数据X
+    changeDataX=(e)=>{
+        e.persist();
+        const data = e.target.value.split(',')
+        // console.log(data)
+        this.setState({
+            option: Object.assign({},this.state.option,{xAxis: {
+                type: this.state.option.xAxis.type,
+                data: data,
+                name:this.state.option.xAxis.name,
+                axisLabel:this.state.option.xAxis.axisLabel
+            }})
+        });
+    }
+
+    //修改静态数据Y
+    changeDataY=(e)=>{
+        e.persist();
+        const data = e.target.value.split(',')
+        // console.log(data)
+        this.setState({
+            option: Object.assign({},this.state.option,{series: [{
+                data: data,
+                type: this.state.option.series[0].type
+            }
+            ]})
+        });
+    }
+
+    //读取csv文件
+    readCsvFile=(file,fileList)=>{
+        console.log(file)
+    }
     //添加坐标轴指示器
     addAxisPointer=(flag)=>{
         if(flag){
@@ -148,6 +182,7 @@ class page1_1_1 extends Component{
             });
         }
     }
+
     render(){
         return (
             <div>
@@ -162,6 +197,7 @@ class page1_1_1 extends Component{
                     <Col span={7}>
                         <Right 
                         option={this.state.option}
+                        //样式部分
                         chartHeight={this.state.height} 
                         chartWidth={this.state.width}
                         changeOption={this.changeOption.bind(this)} 
@@ -173,6 +209,11 @@ class page1_1_1 extends Component{
                         changeXFontSize={this.changeXFontSize.bind(this)}
                         changeYFontColor={this.changeYFontColor.bind(this)}
                         changeYFontSize={this.changeYFontSize.bind(this)}
+                        //数据部分
+                        changeDataX={this.changeDataX.bind(this)}
+                        changeDataY={this.changeDataY.bind(this)}
+                        readCsvFile={this.readCsvFile.bind(this)}
+                        //交互部分
                         addAxisPointer={this.addAxisPointer.bind(this)}
                         />
                     </Col>

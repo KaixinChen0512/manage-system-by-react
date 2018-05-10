@@ -32,37 +32,7 @@ class chartForm extends Component{
         //     },
         //     backgroundColor:'#FFFFFF' 
         // },
-        staticDataValue:
-        `[
-    {
-        "x": "Mon",
-        "y": 120
-    },
-    {
-        "x": "Tue",
-        "y": 200
-    },
-    {
-        "x": "Wed",
-        "y": 150
-    },
-    {
-        "x": "Thu",
-        "y": 80
-    },
-    {
-        "x": "Fri",
-        "y": 70
-    },
-    {
-        "x": "Sat",
-        "y": 110
-    },
-    {
-        "x": "Sun",
-        "y": 130
-    }
-]`,
+        staticDataValue:this.props.option.xAxis.data,
         //csv弹出框
         loading: false,
         csvVisible: false,
@@ -79,7 +49,15 @@ class chartForm extends Component{
             url: '',
         }],
     }
-
+    componentDidMount=()=>{
+        const staticData = {
+            x:this.props.dataX,
+            y:this.props.dataY
+        }
+        this.setState({
+            staticData:staticData
+        })
+    }
     // //修改全局字体样式
     // changeGlobalFontFamily = (value) =>{
     //     this.setState({
@@ -246,6 +224,8 @@ class chartForm extends Component{
         this.setState({ fileList });
     }
     render(){
+        const dataX = this.props.option.xAxis.data;
+        const dataY = this.props.option.series[0].data;
         const { getFieldDecorator } = this.props.form;
         //弹出框
         const { csvVisible,apiVisible,databaseVisible,databaseVisible2, loading } = this.state;
@@ -257,12 +237,12 @@ class chartForm extends Component{
         };
         return(
             <div className="rightContainer">
-                <Tabs defaultActiveKey="1">
+                <Tabs defaultActiveKey="2">
                     <TabPane tab={<span><Icon type="code-o" />样式</span>} key="1">
                         <Card title="基本柱图" style={{ width: '100%',height:'550px' }}>
                             <Form onSubmit={this.handleSubmit} className="login-form">
                                 <FormItem>
-                                    <Scrollbars style={{ width: '350px', height: '390px' }}>
+                                    <Scrollbars style={{ width: '350px', height: '420px' }}>
                                         <Collapse bordered={false} defaultActiveKey={['1']}>
                                             <Panel header="全局样式" key="1">
                                                 <FormItem
@@ -377,13 +357,20 @@ class chartForm extends Component{
                                                 </span>
                                                 )}
                                                 >
-                                                    <InputNumber
-                                                        min={0}
-                                                        max={1000}
-                                                        style={{ marginLeft: 16 }}
-                                                        defaultValue={this.props.chartWidth}
-                                                        onChange={this.props.changeWidth}
-                                                    />
+                                                    <Row>
+                                                        <Col span={12}>
+                                                            <Slider min={0} max={1000} onChange={this.props.changeWidth} value={this.props.chartWidth} />
+                                                        </Col>
+                                                        <Col span={4}>
+                                                            <InputNumber
+                                                                min={0}
+                                                                max={1000}
+                                                                style={{ marginLeft: 16 }}
+                                                                value={this.props.chartWidth}
+                                                                onChange={this.props.changeWidth}
+                                                            />
+                                                        </Col>
+                                                    </Row>
                                                 </FormItem>
                                                 <FormItem
                                                 labelCol={{ span: 6 }}
@@ -394,20 +381,24 @@ class chartForm extends Component{
                                                 </span>
                                                 )}
                                                 >
-                                                    <InputNumber
-                                                        min={0}
-                                                        max={800}
-                                                        style={{ marginLeft: 16 }}
-                                                        defaultValue={this.props.chartHeight}
-                                                        onChange={this.props.changeHeight}
-                                                    />
+                                                    <Row>
+                                                        <Col span={12}>
+                                                            <Slider min={0} max={800} onChange={this.props.changeHeight} value={this.props.chartHeight} />
+                                                        </Col>
+                                                        <Col span={4}>
+                                                            <InputNumber
+                                                                min={0}
+                                                                max={800}
+                                                                style={{ marginLeft: 16 }}
+                                                                value={this.props.chartHeight}
+                                                                onChange={this.props.changeHeight}
+                                                            />
+                                                        </Col>
+                                                    </Row>
                                                 </FormItem>
                                             </Panel>
                                         </Collapse>
                                     </Scrollbars>
-                                </FormItem>
-                                <FormItem>
-                                    <Button type="primary" htmlType="submit" style={{marginLeft:'110px'}}>确认修改</Button>
                                 </FormItem>
                             </Form>
                         </Card>
@@ -415,7 +406,7 @@ class chartForm extends Component{
                     <TabPane tab={<span><Icon type="file-text" />数据</span>} key="2">
                         <Card title="基本柱图数据接口" style={{ width: '100%',height:'550px' }}>
                             <Form onSubmit={this.handleSubmit} className="login-form">
-                                <Scrollbars style={{ width: '350px', height: '390px' }}>
+                                <Scrollbars style={{ width: '350px', height: '420px' }}>
                                     <FormItem
                                     labelCol={{ span: 6 }}
                                     wrapperCol={{ span: 18 }}
@@ -436,25 +427,30 @@ class chartForm extends Component{
                                             </Select>
                                         )}
                                     </FormItem>
-                                    <FormItem
-                                    labelCol={{ span: 6 }}
-                                    wrapperCol={{ span: 20 }}
-                                    label={(
-                                        <span>
-                                            静态数据内容
-                                        </span>
-                                    )}
-                                    >
-                                        {getFieldDecorator('静态数据内容', {
-                                            initialValue: this.state.staticDataValue
-                                        })(
-                                            <TextArea autosize={{minRows:'18'}}/>
-                                        )}
+                                    <FormItem>
+                                        <Row>
+                                            <span>静态数据：</span>
+                                        </Row>
+                                        <Row>
+                                            <span>
+                                                X轴数据：
+                                            </span>
+                                            <TextArea autosize={{minRows:'6'}} defaultValue={dataX} onChange={this.props.changeDataX}/>
+                                           {/* <Input addonBefore="X轴数据：" defaultValue={dataX} onChange={this.props.changeDataX}/>
+                                            <Input addonBefore="Y轴数据：" defaultValue={dataY} onChange={this.props.changeDataY}/>
+                                            <TextArea autosize={{minRows:'18'}} defaultValue={dataX} onChange={this.props.changeData} />*/}
+                                        </Row>
+                                        <Row>
+                                            <span>
+                                                Y轴数据：
+                                            </span>
+                                            <TextArea autosize={{minRows:'6'}} defaultValue={dataY} onChange={this.props.changeDataY}/>
+                                           {/* <Input addonBefore="X轴数据：" defaultValue={dataX} onChange={this.props.changeDataX}/>
+                                            <Input addonBefore="Y轴数据：" defaultValue={dataY} onChange={this.props.changeDataY}/>
+                                            <TextArea autosize={{minRows:'18'}} defaultValue={dataX} onChange={this.props.changeData} />*/}
+                                        </Row>
                                     </FormItem>
                                 </Scrollbars>
-                                <FormItem>
-                                    <Button type="primary" htmlType="submit" style={{marginLeft:'110px'}}>确认修改</Button>
-                                </FormItem>
                             </Form>
                         </Card>
                     </TabPane>
@@ -489,7 +485,7 @@ class chartForm extends Component{
                                             {getFieldDecorator('数据筛选', {
                                                 initialValue:'false'
                                             })(
-                                                <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />
+                                                <Switch checkedChildren="开" unCheckedChildren="关" />
                                             )}
                                         </FormItem>
                                         <FormItem
@@ -505,7 +501,7 @@ class chartForm extends Component{
                                             {getFieldDecorator('参数回调', {
                                                 initialValue:'false'
                                             })(
-                                                <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />
+                                                <Switch checkedChildren="开" unCheckedChildren="关" />
                                             )}
                                         </FormItem>
                                     </Panel>
@@ -548,7 +544,7 @@ class chartForm extends Component{
                     </Button>,
                 ]}
                 >
-                    <Upload {...props} fileList={this.state.fileList}>
+                    <Upload {...props} fileList={this.state.fileList} beforeUpload={this.props.readCsvFile}>
                         <Button>
                             <Icon type="upload" /> 上传
                         </Button>

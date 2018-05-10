@@ -14,24 +14,24 @@ const {TextArea} = Input;
 
 class chartForm extends Component{
     state = {
-        options:{
-            xAxis:{
-                axisLabel:{
-                    fontSize:'12',
-                    color:'#333333'
-                }
-            },
-            yAxis:{
-                axisLabel:{
-                    fontSize:'12',
-                    color:'#333333'
-                }
-            },
-            textStyle:{
-                fontFamily:'Microsoft YaHei'
-            },
-            backgroundColor:'#FFFFFF' 
-        },
+        // options:{
+        //     xAxis:{
+        //         axisLabel:{
+        //             fontSize:'12',
+        //             color:'#333333'
+        //         }
+        //     },
+        //     yAxis:{
+        //         axisLabel:{
+        //             fontSize:'12',
+        //             color:'#333333'
+        //         }
+        //     },
+        //     textStyle:{
+        //         fontFamily:'Microsoft YaHei'
+        //     },
+        //     backgroundColor:'#FFFFFF' 
+        // },
         staticDataValue:
         `[
     {
@@ -474,11 +474,7 @@ class chartForm extends Component{
                                         )}
                                         colon={false}
                                         >
-                                            {getFieldDecorator('坐标轴指示器', {
-                                                initialValue:'false'
-                                            })(
-                                                <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />
-                                            )}
+                                            <Switch checkedChildren="开" unCheckedChildren="关" onChange={this.props.addAxisPointer} />
                                         </FormItem>
                                         <FormItem
                                         labelCol={{ span: 12 }}

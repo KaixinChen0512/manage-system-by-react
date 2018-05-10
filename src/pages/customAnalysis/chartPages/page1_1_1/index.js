@@ -10,7 +10,7 @@ class page1_1_1 extends Component{
             option : {
                 xAxis: {
                     type: 'category',
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    data: this.state.data.x,
                     name:'X轴',
                     axisLabel:{
                         color:'#000000',
@@ -26,7 +26,7 @@ class page1_1_1 extends Component{
                     }
                 },
                 series: [{
-                    data: [120, 200, 150, 80, 70, 110, 130],
+                    data: this.state.data.y,
                     type: 'bar'
                 }],
                 textStyle:{
@@ -36,7 +36,14 @@ class page1_1_1 extends Component{
                 
             },
             height:610,
-            width:850
+            width:850,
+            
+        }
+    }
+    state={
+        data:{
+            x:['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            y:[120, 200, 150, 80, 70, 110, 130]
         }
     }
     changeOption=(newOption)=>{
@@ -119,7 +126,28 @@ class page1_1_1 extends Component{
         });
     }
 
-
+    //添加坐标轴指示器
+    addAxisPointer=(flag)=>{
+        if(flag){
+            this.setState({
+                option: Object.assign({},this.state.option,{tooltip:{
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross'
+                    }
+                }})
+            });
+        }else{
+            this.setState({
+                option: Object.assign({},this.state.option,{tooltip:{
+                    trigger: '',
+                    axisPointer: {
+                        type: ''
+                    }
+                }})
+            });
+        }
+    }
     render(){
         return (
             <div>
@@ -145,6 +173,7 @@ class page1_1_1 extends Component{
                         changeXFontSize={this.changeXFontSize.bind(this)}
                         changeYFontColor={this.changeYFontColor.bind(this)}
                         changeYFontSize={this.changeYFontSize.bind(this)}
+                        addAxisPointer={this.addAxisPointer.bind(this)}
                         />
                     </Col>
                 </Row>

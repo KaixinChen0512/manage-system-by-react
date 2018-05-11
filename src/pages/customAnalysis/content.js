@@ -2,7 +2,10 @@ import React, {Component} from 'react';
 import { Route } from 'react-router-dom';
 // import { Layout } from 'antd';
 import './content.css';
+import chartDefault from './chartPages/pageDefault/index.js';
 import chart1_1_1 from './chartPages/page1_1_1/index.js';
+import chart1_1_2 from './chartPages/page1_1_2/index.js';
+import chart2_1 from './chartPages/page2_1/index.js';
 // import workerList from '../pages/workerlist';
 // import pipeList from '../pages/pipeList';
 // import projectList from '../pages/projectList';
@@ -23,20 +26,10 @@ class Contents extends Component {
   render() {
     return (
       <div>
+        <Route exact path="/app/customAnalysis" component={chartDefault} />
         <Route exact path="/app/customAnalysis/1_1_1" component={chart1_1_1} />
-        {/*<Route path="/app/workerList" component={workerList}/>
-        <Route path="/app/pipeList" component={pipeList}/>
-        <Route path="/app/projectList" component={projectList}/>
-        <Route path="/app/adminList" component={adminList}/>
-        <Route path="/app/addWorker" component={addWorker}/>
-        <Route path="/app/addPipe" component={addPipe}/>
-        <Route path="/app/addProject" component={addProject}/>
-        <Route path="/app/pipeLocation" component={pipeLocation}/>
-        <Route path="/app/projectProgress" component={projectProgress}/>
-        <Route path="/app/customAnalysis" component={customAnalysis}/>
-        <Route path="/app/adminSetting" component={adminSetting}/>
-        <Route path="/app/instruction" component={instruction}/>
-        <Route path="/app/photos" component={photos}/>*/}
+        <Route exact path="/app/customAnalysis/1_1_2" component={chart1_1_2} />
+        <Route exact path="/app/customAnalysis/2_1" component={chart2_1} />
       </div>
 
     );

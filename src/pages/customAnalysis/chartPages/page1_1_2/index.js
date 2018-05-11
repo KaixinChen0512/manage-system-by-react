@@ -10,31 +10,39 @@ class page1_1_1 extends Component{
         this.state={
             option : {
                 title:{
-                    text:'管道铺设情况一览',
+                    text:'湖北省管道总量',
                     subtext:'数据来源自中国化学工程第十六建设有限公司',
                     left:'center'
                 },
                 xAxis: {
-                    type: 'category',
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                    name:'日期',
+                    type: 'value',
+                    boundaryGap: [0, 0.01],
+                    name:'管道数量',
                     axisLabel:{
                         color:'#000000',
                         fontSize:'12'
                     }
                 },
                 yAxis: {
-                    type: 'value',
-                    name:'铺设数量',
+                    type: 'category',
+                    data: ['襄阳市','宜昌市','十堰市','黄石市','武汉市','湖北省（总）'],
+                    name:'区域（市）',
                     axisLabel:{
                         color:'#000000',
                         fontSize:'12'
                     }
                 },
-                series: [{
-                    data: [120, 200, 150, 80, 70, 110, 130],
-                    type: 'bar'
-                }
+                series: [
+                    {
+                        name: '2011年',
+                        type: 'bar',
+                        data: [382, 434, 560, 1049, 2317, 5302]
+                    },
+                    {
+                        name: '2012年',
+                        type: 'bar',
+                        data: [420, 484, 620, 1215, 2841, 5818]
+                    }
                 ],
                 textStyle:{
                     fontFamily:'Microsoft YaHei'
@@ -181,18 +189,39 @@ class page1_1_1 extends Component{
         });
     }
 
-    //修改静态数据X
-    changeDataX=(e)=>{
+    //修改静态数据X1
+    changeDataX1=(e)=>{
         e.persist();
         const data = e.target.value.split(',')
         // console.log(data)
         this.setState({
-            option: Object.assign({},this.state.option,{xAxis: {
-                type: this.state.option.xAxis.type,
+            option: Object.assign({},this.state.option,{series: [{
                 data: data,
-                name:this.state.option.xAxis.name,
-                axisLabel:this.state.option.xAxis.axisLabel
-            }})
+                type: this.state.option.series[0].type
+            },
+            {
+                data: this.state.option.series[1].data,
+                type: this.state.option.series[1].type
+            }
+            ]})
+        });
+    }
+
+    //修改静态数据X2
+    changeDataX2=(e)=>{
+        e.persist();
+        const data = e.target.value.split(',')
+        // console.log(data)
+        this.setState({
+            option: Object.assign({},this.state.option,{series: [{
+                data: this.state.option.series[0].data,
+                type: this.state.option.series[0].type
+            },
+            {
+                data: data,
+                type: this.state.option.series[1].type
+            }
+            ]})
         });
     }
 
@@ -202,11 +231,12 @@ class page1_1_1 extends Component{
         const data = e.target.value.split(',')
         // console.log(data)
         this.setState({
-            option: Object.assign({},this.state.option,{series: [{
+            option: Object.assign({},this.state.option,{yAxis: {
+                type: this.state.option.yAxis.type,
                 data: data,
-                type: this.state.option.series[0].type
-            }
-            ]})
+                name:this.state.option.yAxis.name,
+                axisLabel:this.state.option.yAxis.axisLabel
+            }})
         });
     }
 
@@ -260,6 +290,24 @@ class page1_1_1 extends Component{
         }
     }
 
+    //添加数据筛选功能
+    addDataFilter=(flag)=>{
+        if(flag){
+            this.setState({
+                option: Object.assign({},this.state.option,{legend:{
+                    data:[this.state.option.series[0].name,this.state.option.series[1].name],
+                    left:'right'
+                }})
+            });
+        }else{
+            this.setState({
+                option: Object.assign({},this.state.option,{legend:{
+                    data:null
+                }})
+            });
+        }
+    }
+
     //添加文本提示框功能
     addTextNotice=(flag)=>{
         if(flag){
@@ -275,7 +323,6 @@ class page1_1_1 extends Component{
             });
         }
     }
-
     render(){
         return (
             <div>
@@ -307,11 +354,13 @@ class page1_1_1 extends Component{
                         changeYFontSize={this.changeYFontSize.bind(this)}
                         changeYName={this.changeYName.bind(this)}
                         //数据部分
-                        changeDataX={this.changeDataX.bind(this)}
+                        changeDataX1={this.changeDataX1.bind(this)}
+                        changeDataX2={this.changeDataX2.bind(this)}
                         changeDataY={this.changeDataY.bind(this)}
                         readCsvFile={this.readCsvFile.bind(this)}
                         //交互部分
                         addAxisPointer={this.addAxisPointer.bind(this)}
+                        addDataFilter={this.addDataFilter.bind(this)}
                         addTextNotice={this.addTextNotice.bind(this)}
                         />
                     </Col>

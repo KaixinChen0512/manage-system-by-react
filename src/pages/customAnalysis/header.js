@@ -2,6 +2,9 @@ import React,{Component} from 'react'
 import { Menu, Icon, Layout, Dropdown, Button, Avatar } from 'antd'
 import {Link} from 'react-router-dom'
 import './header.css'
+import img1_1_1 from '../../image/chartImgs/1_1_1.png';
+import img1_1_2 from '../../image/chartImgs/1_1_2.png';
+import img2_1 from '../../image/chartImgs/2_1.png';
 const { Header } = Layout
 const SubMenu = Menu.SubMenu;
 class Top extends Component{
@@ -9,8 +12,8 @@ class Top extends Component{
         normalMenu:(
             <Menu>
                 <SubMenu title="柱形图">
-                    <Menu.Item><Link to="/app/customAnalysis/1_1_1"><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E5%9F%BA%E6%9C%AC%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">基本柱图</span></Link></Menu.Item>
-                    <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E6%B0%B4%E5%B9%B3%E5%9F%BA%E6%9C%AC%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">水平基本柱图</span></Menu.Item>
+                    <Menu.Item><Link to="/app/customAnalysis/1_1_1"><Avatar shape="square" size="large" src={img1_1_1} /><span className="menuItemText">基本柱图</span></Link></Menu.Item>
+                    <Menu.Item><Link to="/app/customAnalysis/1_1_2"><Avatar shape="square" size="large" src={img1_1_2} /><span className="menuItemText">水平基本柱图</span></Link></Menu.Item>
                     <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E6%A2%AF%E5%BD%A2%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">梯形柱图</span></Menu.Item>
                     <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E6%8A%98%E7%BA%BF%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">折线柱图</span></Menu.Item>
                 </SubMenu>
@@ -29,9 +32,9 @@ class Top extends Component{
                 </SubMenu>
             </Menu>
         ),
-        mapMenu:(
+        hierarchicalData:(
             <Menu>
-                <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis3D%E5%B9%B3%E9%9D%A2%E5%9F%BA%E7%A1%80%E5%9C%B0%E5%9B%BE.png" /><span className="menuItemText">3D平面基础地图</span></Menu.Item>
+                <Menu.Item><Link to="/app/customAnalysis/2_1"><Avatar shape="square" size="large" src={img2_1} /><span className="menuItemText">基本树图</span></Link></Menu.Item>
                 <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis3D%E5%B9%B3%E9%9D%A2%E4%B8%AD%E5%9B%BD%E5%9C%B0%E5%9B%BE.png" /><span className="menuItemText">3D平面中国地图</span></Menu.Item>
                 <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis3D%E7%90%83%E5%BD%A2%E5%9C%B0%E5%9B%BE.png" /><span className="menuItemText">3D球形地图</span></Menu.Item>
             </Menu>
@@ -68,9 +71,9 @@ class Top extends Component{
                         常规图表
                         </a>
                     </Dropdown.Button>
-                    <Dropdown.Button overlay={this.menu.mapMenu} style={{marginLeft:'20px'}}>
+                    <Dropdown.Button overlay={this.menu.hierarchicalData} style={{marginLeft:'20px'}}>
                         <a className="ant-dropdown-link">
-                        地图
+                            层次数据
                         </a>
                     </Dropdown.Button>
                     <Dropdown.Button overlay={this.menu.indexMenu} style={{marginLeft:'20px'}}>

@@ -9,38 +9,70 @@ class page1_1_1 extends Component{
         super(props);
         this.state={
             option : {
-                title:{
-                    text:'管道铺设情况一览',
+                title: {
+                    text:'自动焊接机焊接参数',
                     subtext:'数据来源自中国化学工程第十六建设有限公司',
                     left:'center'
                 },
-                xAxis: {
-                    type: 'category',
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                    name:'日期',
-                    axisLabel:{
-                        color:'#000000',
-                        fontSize:'12'
+                series: [
+                    {
+                        type: 'tree',
+                        data: [{
+                            "name": "自动焊参数",
+                            "children": [{
+                                "name": "基础记录部分",
+                                "children": [
+                                    {"name": "材质","value": '2'}, //碳钢=1、不锈钢=2、合金钢=3
+                                    { "name": "外径","value": '800'}, //Φ100mm～Φ1600mm
+                                    { "name": "壁厚","value": '26'}, //δ=3mm～30mm
+                                    { "name": "焊接选材","value": '0512' }, //焊材型号
+                                    { "name": "单线图号","value": '4116'}
+                                ]
+                            }, {
+                                "name": "焊接部分",
+                                "children": [
+                                    {"name": "焊接电流","value": '100'}, //75A-150A
+                                    { "name": "焊接电压","value": '12'}, //打底焊11-13V，填充焊20-28V
+                                    { "name": "送丝速度","value": '8'}, //6～17cm/min
+                                    { "name": "气体流量","value": '8'}, //8-15L/min
+                                    { "name": "焊枪位置","value": '160'}, //以角度标识，以平焊为0°为例
+                                    { "name": "焊枪摆动角度","value": '36'}, //按照焊缝坡口宽度考虑，焊枪沿焊缝宽度方向移动，3mm～45 mm）
+                                    { "name": "焊枪角度","value": '55'}, //沿焊缝方向30°～75°
+                                    { "name": "焊枪所处焊层","value": '3'} //打底=1、填充=2、盖面=3
+                                ]
+                            }]
+                        }],
+                        top: '1%',
+                        left: '11%',
+                        bottom: '1%',
+                        right: '20%',
+                        symbolSize: 12,
+                        label: {
+                            normal: {
+                                position: 'left',
+                                verticalAlign: 'middle',
+                                align: 'right',
+                                fontSize: 14
+                            }
+                        },
+                        leaves: {
+                            label: {
+                                normal: {
+                                    position: 'right',
+                                    verticalAlign: 'middle',
+                                    align: 'left'
+                                }
+                            }
+                        },
+                        expandAndCollapse: true,
+                        animationDuration: 550,
+                        animationDurationUpdate: 750
                     }
-                },
-                yAxis: {
-                    type: 'value',
-                    name:'铺设数量',
-                    axisLabel:{
-                        color:'#000000',
-                        fontSize:'12'
-                    }
-                },
-                series: [{
-                    data: [120, 200, 150, 80, 70, 110, 130],
-                    type: 'bar'
-                }
                 ],
                 textStyle:{
                     fontFamily:'Microsoft YaHei'
                 },
                 backgroundColor: '#FFFFFF',
-                
             },
             height:610,
             width:850,
@@ -110,106 +142,6 @@ class page1_1_1 extends Component{
         });
     }
 
-    //修改X轴字体颜色
-    changeXFontColor=(e)=>{
-        e.persist();//防止频繁触发
-        this.setState({
-            option: Object.assign({},this.state.option,{xAxis:{
-                axisLabel:{
-                    color:e.target.value,
-                }
-            }})
-        });
-    }
-
-    //修改X轴字体大小
-    changeXFontSize = (value) => {
-        this.setState({
-            option: Object.assign({},this.state.option,{xAxis:{
-                axisLabel:{
-                    fontSize:value,
-                }
-            }})
-        });
-    }
-
-    //修改X轴名称
-    changeXName=(e)=>{
-        e.persist();
-        this.setState({
-            option: Object.assign({},this.state.option,{xAxis: {
-                    type: this.state.option.xAxis.type,
-                    data: this.state.option.xAxis.data,
-                    name:e.target.value,
-                    axisLabel:this.state.option.xAxis.axisLabel
-                }})
-        });
-    }
-
-    //修改Y轴字体颜色
-    changeYFontColor = (e) => {
-        e.persist();//防止频繁触发
-        this.setState({
-            option: Object.assign({},this.state.option,{yAxis:{
-                axisLabel:{
-                    color:e.target.value,
-                }
-            }})
-        });
-    }
-
-    //修改Y轴字体大小
-    changeYFontSize = (value) => {
-        this.setState({
-            option: Object.assign({},this.state.option,{yAxis:{
-                axisLabel:{
-                    fontSize:value,
-                }
-            }})
-        });
-    }
-
-    //修改Y轴名称
-    changeYName=(e)=>{
-        e.persist();
-        this.setState({
-            option: Object.assign({},this.state.option,{yAxis: {
-                    type: this.state.option.yAxis.type,
-                    name: e.target.value,
-                    axisLabel:this.state.option.yAxis.axisLabel
-                }})
-        });
-    }
-
-    //修改静态数据X
-    changeDataX=(e)=>{
-        e.persist();
-        const data = e.target.value.split(',')
-        // console.log(data)
-        this.setState({
-            option: Object.assign({},this.state.option,{xAxis: {
-                type: this.state.option.xAxis.type,
-                data: data,
-                name:this.state.option.xAxis.name,
-                axisLabel:this.state.option.xAxis.axisLabel
-            }})
-        });
-    }
-
-    //修改静态数据Y
-    changeDataY=(e)=>{
-        e.persist();
-        const data = e.target.value.split(',')
-        // console.log(data)
-        this.setState({
-            option: Object.assign({},this.state.option,{series: [{
-                data: data,
-                type: this.state.option.series[0].type
-            }
-            ]})
-        });
-    }
-
     //读取csv文件
     readCsvFile=(file,fileList)=>{
         // console.log(file.name)
@@ -260,6 +192,24 @@ class page1_1_1 extends Component{
         }
     }
 
+    //添加数据筛选功能
+    addDataFilter=(flag)=>{
+        if(flag){
+            this.setState({
+                option: Object.assign({},this.state.option,{legend:{
+                    data:[this.state.option.series[0].name,this.state.option.series[1].name],
+                    left:'right'
+                }})
+            });
+        }else{
+            this.setState({
+                option: Object.assign({},this.state.option,{legend:{
+                    data:null
+                }})
+            });
+        }
+    }
+
     //添加文本提示框功能
     addTextNotice=(flag)=>{
         if(flag){
@@ -300,18 +250,11 @@ class page1_1_1 extends Component{
                         changeBackgroundColor={this.changeBackgroundColor.bind(this)}
                         changeTitle={this.changeTitle.bind(this)}
                         changeSubTitle={this.changeSubTitle.bind(this)}
-                        changeXFontColor={this.changeXFontColor.bind(this)}
-                        changeXFontSize={this.changeXFontSize.bind(this)}
-                        changeXName={this.changeXName.bind(this)}
-                        changeYFontColor={this.changeYFontColor.bind(this)}
-                        changeYFontSize={this.changeYFontSize.bind(this)}
-                        changeYName={this.changeYName.bind(this)}
                         //数据部分
-                        changeDataX={this.changeDataX.bind(this)}
-                        changeDataY={this.changeDataY.bind(this)}
                         readCsvFile={this.readCsvFile.bind(this)}
                         //交互部分
                         addAxisPointer={this.addAxisPointer.bind(this)}
+                        addDataFilter={this.addDataFilter.bind(this)}
                         addTextNotice={this.addTextNotice.bind(this)}
                         />
                     </Col>

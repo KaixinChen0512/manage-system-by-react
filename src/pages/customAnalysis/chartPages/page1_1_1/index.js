@@ -2,16 +2,22 @@ import Middle from './middle.js';
 import Right from './right.js';
 import React,{Component} from 'react';
 import {Row,Col} from 'antd';
+import papa from 'papaparse';
 
 class page1_1_1 extends Component{
     constructor(props){
         super(props);
         this.state={
             option : {
+                title:{
+                    text:'管道铺设情况一览',
+                    subtext:'最近一周情况',
+                    left:'center'
+                },
                 xAxis: {
                     type: 'category',
                     data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                    name:'X轴',
+                    name:'日期',
                     axisLabel:{
                         color:'#000000',
                         fontSize:'12'
@@ -19,7 +25,7 @@ class page1_1_1 extends Component{
                 },
                 yAxis: {
                     type: 'value',
-                    name:'Y轴',
+                    name:'铺设数量',
                     axisLabel:{
                         color:'#000000',
                         fontSize:'12'
@@ -38,7 +44,6 @@ class page1_1_1 extends Component{
             },
             height:610,
             width:850,
-            
         }
     }
 
@@ -81,6 +86,30 @@ class page1_1_1 extends Component{
         })
     };
 
+    //修改主标题
+    changeTitle=(e)=>{
+        e.persist();
+        this.setState({
+            option: Object.assign({},this.state.option,{title:{
+                    text:e.target.value,
+                    subtext:this.state.option.title.subtext,
+                    left:this.state.option.title.left
+                }})
+        });
+    }
+
+    //修改副标题
+    changeSubTitle=(e)=>{
+        e.persist();
+        this.setState({
+            option: Object.assign({},this.state.option,{title:{
+                    text:this.state.option.title.text,
+                    subtext:e.target.value,
+                    left:this.state.option.title.left
+                }})
+        });
+    }
+
     //修改X轴字体颜色
     changeXFontColor=(e)=>{
         e.persist();//防止频繁触发
@@ -104,6 +133,19 @@ class page1_1_1 extends Component{
         });
     }
 
+    //修改X轴名称
+    changeXName=(e)=>{
+        e.persist();
+        this.setState({
+            option: Object.assign({},this.state.option,{xAxis: {
+                    type: this.state.option.xAxis.type,
+                    data: this.state.option.xAxis.data,
+                    name:e.target.value,
+                    axisLabel:this.state.option.xAxis.axisLabel
+                }})
+        });
+    }
+
     //修改Y轴字体颜色
     changeYFontColor = (e) => {
         e.persist();//防止频繁触发
@@ -124,6 +166,18 @@ class page1_1_1 extends Component{
                     fontSize:value,
                 }
             }})
+        });
+    }
+
+    //修改Y轴名称
+    changeYName=(e)=>{
+        e.persist();
+        this.setState({
+            option: Object.assign({},this.state.option,{yAxis: {
+                    type: this.state.option.yAxis.type,
+                    name: e.target.value,
+                    axisLabel:this.state.option.yAxis.axisLabel
+                }})
         });
     }
 
@@ -158,7 +212,30 @@ class page1_1_1 extends Component{
 
     //读取csv文件
     readCsvFile=(file,fileList)=>{
-        console.log(file)
+        // console.log(file.name)
+        // console.log(fileList)
+        papa.parse(file, {
+            complete: function(results) {
+                // this.setState({
+                //     option: Object.assign({},this.state.option,{xAxis: {
+                //         type: this.state.option.xAxis.type,
+                //         data: results.data[0],
+                //         name:this.state.option.xAxis.name,
+                //         axisLabel:this.state.option.xAxis.axisLabel
+                //     }})
+                // });
+                // this.setState({
+                //     option: Object.assign({},this.state.option,{series: [{
+                //         data: results.data[1],
+                //         type: this.state.option.series[0].type
+                //         }
+                //     ]})
+                // });
+                console.log(results.data[0]);
+                console.log(results.data[1]);
+                
+            }
+        });
     }
     //添加坐标轴指示器
     addAxisPointer=(flag)=>{
@@ -205,10 +282,14 @@ class page1_1_1 extends Component{
                         changeWidth={this.changeWidth.bind(this)} 
                         changeGlobalFontFamily={this.changeGlobalFontFamily.bind(this)}
                         changeBackgroundColor={this.changeBackgroundColor.bind(this)}
+                        changeTitle={this.changeTitle.bind(this)}
+                        changeSubTitle={this.changeSubTitle.bind(this)}
                         changeXFontColor={this.changeXFontColor.bind(this)}
                         changeXFontSize={this.changeXFontSize.bind(this)}
+                        changeXName={this.changeXName.bind(this)}
                         changeYFontColor={this.changeYFontColor.bind(this)}
                         changeYFontSize={this.changeYFontSize.bind(this)}
+                        changeYName={this.changeYName.bind(this)}
                         //数据部分
                         changeDataX={this.changeDataX.bind(this)}
                         changeDataY={this.changeDataY.bind(this)}

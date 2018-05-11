@@ -33,12 +33,15 @@ class chartForm extends Component{
         //     backgroundColor:'#FFFFFF' 
         // },
         staticDataValue:this.props.option.xAxis.data,
-        //csv弹出框
+        
         loading: false,
+        //csv弹出框状态
         csvVisible: false,
-        //api弹出框
+        //txt弹出框状态
+        txtVisible:false,
+        //api弹出框状态
         apiVisible: false,
-        //数据库文件弹出框
+        //数据库文件弹出框状态
         databaseVisible:false,
         // databaseVisible2:false,
         //上传CSV文件
@@ -139,6 +142,11 @@ class chartForm extends Component{
                     csvVisible: true,
                 })
                 break;
+            case "TXT文件":
+            this.setState({
+                txtVisible: true,
+            })
+                break;
             case "API":
                 this.setState({
                     apiVisible: true,
@@ -157,6 +165,8 @@ class chartForm extends Component{
             default:
         }
     }
+
+    //选择csv文件操作
     csvHandleOk = () => {
         this.setState({ loading: true });
         setTimeout(() => {
@@ -166,6 +176,18 @@ class chartForm extends Component{
     csvHandleCancel = () => {
         this.setState({ csvVisible: false });
     }
+
+    //选择txt文件操作
+    txtHandleOk = () => {
+        this.setState({ loading: true });
+        setTimeout(() => {
+            this.setState({ loading: false, txtVisible: false });
+        }, 3000);
+    }
+    txtHandleCancel = () => {
+        this.setState({ txtVisible: false });
+    }
+    //选择api接口操作
     apiHandleOk = () => {
         this.setState({ loading: true });
         setTimeout(() => {
@@ -175,6 +197,8 @@ class chartForm extends Component{
     apiHandleCancel = () => {
         this.setState({ apiVisible: false });
     }
+
+
     databaseHandleOk = () => {
         this.setState({ loading: true });
         setTimeout(() => {
@@ -228,7 +252,7 @@ class chartForm extends Component{
         const dataY = this.props.option.series[0].data;
         const { getFieldDecorator } = this.props.form;
         //弹出框
-        const { csvVisible,apiVisible,databaseVisible,databaseVisible2, loading } = this.state;
+        const { csvVisible,apiVisible,txtVisible, databaseVisible,databaseVisible2, loading } = this.state;
         //上传CSV文件
         const props = {
             action: '//jsonplaceholder.typicode.com/posts/',
@@ -242,7 +266,7 @@ class chartForm extends Component{
                         <Card title="基本柱图" style={{ width: '100%',height:'550px' }}>
                             <Form onSubmit={this.handleSubmit} className="login-form">
                                 <FormItem>
-                                    <Scrollbars style={{ width: '350px', height: '420px' }}>
+                                    <Scrollbars style={{ width: '350px', height: '450px' }}>
                                         <Collapse bordered={false} defaultActiveKey={['1']}>
                                             <Panel header="全局样式" key="1">
                                                 <FormItem
@@ -271,6 +295,28 @@ class chartForm extends Component{
                                                 )}
                                                 >
                                                 <Input defaultValue={this.props.option.backgroundColor} onChange={this.props.changeBackgroundColor} />
+                                                </FormItem>
+                                                <FormItem
+                                                labelCol={{ span: 6 }}
+                                                wrapperCol={{ span: 18 }}
+                                                label={(
+                                                    <span>
+                                                        主标题
+                                                    </span>
+                                                )}
+                                                >
+                                                    <Input defaultValue={this.props.option.title.text} onChange={this.props.changeTitle} />
+                                                </FormItem>
+                                                <FormItem
+                                                labelCol={{ span: 6 }}
+                                                wrapperCol={{ span: 18 }}
+                                                label={(
+                                                    <span>
+                                                        副标题
+                                                    </span>
+                                                )}
+                                                >
+                                                    <Input defaultValue={this.props.option.title.subtext} onChange={this.props.changeSubTitle} />
                                                 </FormItem>
                                             </Panel>
                                             <Panel header="X轴" key="2">
@@ -309,6 +355,17 @@ class chartForm extends Component{
                                                         </Col>
                                                     </Row>
                                                 </FormItem>
+                                                <FormItem
+                                                labelCol={{ span: 6 }}
+                                                wrapperCol={{ span: 18 }}
+                                                label={(
+                                                    <span>
+                                                        坐标轴名称
+                                                    </span>
+                                                )}
+                                                >
+                                                    <Input defaultValue={this.props.option.xAxis.name} onChange={this.props.changeXName} />
+                                                </FormItem>
                                             </Panel>
                                             <Panel header="Y轴" key="3">
                                                 <FormItem
@@ -345,6 +402,17 @@ class chartForm extends Component{
                                                             />
                                                         </Col>
                                                     </Row>
+                                                </FormItem>
+                                                <FormItem
+                                                labelCol={{ span: 6 }}
+                                                wrapperCol={{ span: 18 }}
+                                                label={(
+                                                    <span>
+                                                        坐标轴名称
+                                                    </span>
+                                                )}
+                                                >
+                                                    <Input defaultValue={this.props.option.yAxis.name} onChange={this.props.changeYName} />
                                                 </FormItem>
                                             </Panel>
                                             <Panel header="图表尺寸" key="4">
@@ -406,7 +474,7 @@ class chartForm extends Component{
                     <TabPane tab={<span><Icon type="file-text" />数据</span>} key="2">
                         <Card title="基本柱图数据接口" style={{ width: '100%',height:'550px' }}>
                             <Form onSubmit={this.handleSubmit} className="login-form">
-                                <Scrollbars style={{ width: '350px', height: '420px' }}>
+                                <Scrollbars style={{ width: '350px', height: '450px' }}>
                                     <FormItem
                                     labelCol={{ span: 6 }}
                                     wrapperCol={{ span: 18 }}
@@ -422,6 +490,7 @@ class chartForm extends Component{
                                             <Select style={{ width: 120 }} onSelect={this.dataTypeChange}>
                                                 <Option value="静态数据">静态数据</Option>
                                                 <Option value="CSV文件">CSV文件</Option>
+                                                <Option value="TXT文件">TXT文件</Option>
                                                 <Option value="API" >API</Option>
                                                 <Option value="数据库">数据库</Option>
                                             </Select>
@@ -525,9 +594,6 @@ class chartForm extends Component{
                                     </Panel>
                                 </Collapse>
                         </FormItem>
-                        <FormItem>
-                            <Button type="primary" htmlType="submit" style={{marginLeft:'110px'}}>确认修改</Button>
-                        </FormItem>
                     </Form>
                 </Card>
                     </TabPane>
@@ -545,6 +611,24 @@ class chartForm extends Component{
                 ]}
                 >
                     <Upload {...props} fileList={this.state.fileList} beforeUpload={this.props.readCsvFile}>
+                        <Button>
+                            <Icon type="upload" /> 上传
+                        </Button>
+                    </Upload>
+                </Modal>
+                <Modal
+                visible={txtVisible}
+                title="请选择TXT文件"
+                onOk={this.txtHandleOk}
+                onCancel={this.txtHandleCancel}
+                footer={[
+                    <Button key="back1" onClick={this.txtHandleCancel}>返回</Button>,
+                    <Button key="submit1" type="primary" loading={loading} onClick={this.txtHandleOk}>
+                        确认
+                    </Button>,
+                ]}
+                >
+                    <Upload {...props} fileList={this.state.fileList} beforeUpload={this.props.readTxtFile}>
                         <Button>
                             <Icon type="upload" /> 上传
                         </Button>

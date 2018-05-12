@@ -6,6 +6,7 @@ import img1_1_1 from '../../image/chartImgs/1_1_1.png';
 import img1_1_2 from '../../image/chartImgs/1_1_2.png';
 import img2_1 from '../../image/chartImgs/2_1.png';
 import img2_2 from '../../image/chartImgs/2_2.png';
+import img3_2 from '../../image/chartImgs/3_2.png';
 const { Header } = Layout
 const SubMenu = Menu.SubMenu;
 class Top extends Component{
@@ -40,10 +41,10 @@ class Top extends Component{
                 <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis3D%E7%90%83%E5%BD%A2%E5%9C%B0%E5%9B%BE.png" /><span className="menuItemText">3D球形地图</span></Menu.Item>
             </Menu>
         ),
-        indexMenu:(
+        networkData:(
             <Menu>
-                <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E8%BF%9B%E5%BA%A6%E6%9D%A1.png" /><span className="menuItemText">进度条</span></Menu.Item>
-                <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E8%BD%AE%E6%92%AD%E5%9B%BE.png" /><span className="menuItemText">轮播图</span></Menu.Item>
+                <Menu.Item><Link to="/app/customAnalysis/3_1"><Avatar shape="square" size="large" src="" /><span className="menuItemText">力导向图</span></Link></Menu.Item>
+                <Menu.Item><Link to="/app/customAnalysis/3_2"><Avatar shape="square" size="large" src={img3_2} /><span className="menuItemText">桑基图</span></Link></Menu.Item>
                 <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E7%8A%B6%E6%80%81%E5%8D%A1%E7%89%87.png" /><span className="menuItemText">状态卡片</span></Menu.Item>
                 <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E6%96%87%E5%AD%97%E6%A0%87%E7%AD%BE.png" /><span className="menuItemText">文字标签</span></Menu.Item>
             </Menu>
@@ -77,9 +78,9 @@ class Top extends Component{
                             层次数据
                         </a>
                     </Dropdown.Button>
-                    <Dropdown.Button overlay={this.menu.indexMenu} style={{marginLeft:'20px'}}>
+                    <Dropdown.Button overlay={this.menu.networkData} style={{marginLeft:'20px'}}>
                         <a className="ant-dropdown-link">
-                        指标
+                            网络数据
                         </a>
                     </Dropdown.Button>
                     <Dropdown.Button overlay={this.menu.textMenu} style={{marginLeft:'20px'}}>

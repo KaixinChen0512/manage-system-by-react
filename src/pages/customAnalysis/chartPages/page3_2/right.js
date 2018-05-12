@@ -283,10 +283,16 @@ class chartForm extends Component{
                                     </FormItem>
                                     <FormItem>
                                         <Row>
-                                            <span>静态数据：</span>
+                                            <span>点数据：</span>
                                         </Row>
                                         <Row>
-                                            <TextArea autosize={{minRows:'6'}} defaultValue={JSON.stringify(this.props.option.series[0].data)} onChange={this.props.changeData}/>
+                                            <TextArea autosize={{minRows:'6'}} defaultValue={JSON.stringify(this.props.option.series[0].data)} onChange={this.props.changeData1}/>
+                                        </Row>
+                                        <Row>
+                                            <span>边数据：</span>
+                                        </Row>
+                                        <Row>
+                                            <TextArea autosize={{minRows:'6'}} defaultValue={JSON.stringify(this.props.option.series[0].links)} onChange={this.props.changeData2}/>
                                         </Row>
                                     </FormItem>
                                 </Scrollbars>
@@ -432,7 +438,7 @@ class chartForm extends Component{
                         <Button type="primary" onClick={this.dataTypeChange("database2")}>数据库连接配置</Button>
                     </Row>
                     <Row>
-                        <span style={{marginTop:"8px"}}>SQL:</span>
+                        <span style={{marginTop:"8px"}}>SQL:</span> 
                     </Row>
                     <Row>
                         <TextArea autosize={{minRows:8}} defaultValue="SELECT * FROM"/>

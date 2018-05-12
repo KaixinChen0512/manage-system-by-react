@@ -43,7 +43,7 @@ class page1_1_1 extends Component{
                 
             },
             height:610,
-            width:850,
+            width:830,
         }
     }
 
@@ -279,15 +279,15 @@ class page1_1_1 extends Component{
     render(){
         return (
             <div>
-                <Row gutter={16}>
-                    <Col span={17}>
+                <Row gutter={48}>
+                    <Col span={16}>
                         <Middle 
                         option={this.state.option} 
                         chartHeight={this.state.height} 
                         chartWidth={this.state.width}
                         />
                     </Col>
-                    <Col span={7}>
+                    <Col span={8}>
                         <Right 
                         option={this.state.option}
                         //样式部分

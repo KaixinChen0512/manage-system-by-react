@@ -286,7 +286,7 @@ class chartForm extends Component{
                                             <span>静态数据：</span>
                                         </Row>
                                         <Row>
-                                            <TextArea autosize={{minRows:'6'}} style={{width:'300px'}} defaultValue={JSON.stringify(this.props.option.series[0].data)} onChange={this.props.changeData} />
+                                            <TextArea autosize={{minRows:'6'}} style={{width:'300px'}} defaultValue={JSON.stringify(this.props.option.series[0].data)} onChange={this.props.changeData}/>
                                         </Row>
                                     </FormItem>
                                 </Scrollbars>

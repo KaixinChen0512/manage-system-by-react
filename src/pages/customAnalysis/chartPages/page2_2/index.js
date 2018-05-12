@@ -4,75 +4,140 @@ import React,{Component} from 'react';
 import {Row,Col} from 'antd';
 import papa from 'papaparse';
 
-class page1_1_1 extends Component{
+class page extends Component{
     constructor(props){
         super(props);
         this.state={
             option : {
                 title: {
-                    text:'自动焊接机焊接参数',
-                    subtext:'数据来源自中国化学工程第十六建设有限公司',
-                    left:'center'
+                    text:'湖北省管道分布',
+                        subtext:'数据来源自中国化学工程第十六建设有限公司',
+                        left:'center'
                 },
+                textStyle:{
+                            fontFamily:'Microsoft YaHei'
+                        },
+                backgroundColor: '#FFFFFF',
                 series: [
                     {
-                        type: 'tree',
-                        data: [{
-                            "name": "自动焊参数",
-                            "children": [{
-                                "name": "基础记录部分",
-                                "children": [
-                                    {"name": "材质","value": '2'}, //碳钢=1、不锈钢=2、合金钢=3
-                                    { "name": "外径","value": '800'}, //Φ100mm～Φ1600mm
-                                    { "name": "壁厚","value": '26'}, //δ=3mm～30mm
-                                    { "name": "焊接选材","value": '0512' }, //焊材型号
-                                    { "name": "单线图号","value": '4116'}
-                                ]
-                            }, {
-                                "name": "焊接部分",
-                                "children": [
-                                    {"name": "焊接电流","value": '100'}, //75A-150A
-                                    { "name": "焊接电压","value": '12'}, //打底焊11-13V，填充焊20-28V
-                                    { "name": "送丝速度","value": '8'}, //6～17cm/min
-                                    { "name": "气体流量","value": '8'}, //8-15L/min
-                                    { "name": "焊枪位置","value": '160'}, //以角度标识，以平焊为0°为例
-                                    { "name": "焊枪摆动角度","value": '36'}, //按照焊缝坡口宽度考虑，焊枪沿焊缝宽度方向移动，3mm～45 mm）
-                                    { "name": "焊枪角度","value": '55'}, //沿焊缝方向30°～75°
-                                    { "name": "焊枪所处焊层","value": '3'} //打底=1、填充=2、盖面=3
-                                ]
-                            }]
-                        }],
-                        top: '1%',
-                        left: '11%',
-                        bottom: '1%',
-                        right: '20%',
-                        symbolSize: 12,
+                        name:'管道分布',
+                        type:'treemap',
+                        visibleMin: 300,
                         label: {
+                            show: true,
+                            formatter: '{b}'
+                        },
+                        upperLabel: {
                             normal: {
-                                position: 'left',
-                                verticalAlign: 'middle',
-                                align: 'right',
-                                fontSize: 14
+                                show: true,
+                                height: 30
                             }
                         },
-                        leaves: {
-                            label: {
+                        itemStyle: {
+                            normal: {
+                                borderColor: '#fff'
+                            }
+                        },
+                        levels: [
+                        {
+                            itemStyle: {
                                 normal: {
-                                    position: 'right',
-                                    verticalAlign: 'middle',
-                                    align: 'left'
+                                    borderColor: '#777',
+                                    borderWidth: 0,
+                                    gapWidth: 1
+                                }
+                            },
+                            upperLabel: {
+                                normal: {
+                                    show: false
                                 }
                             }
                         },
-                        expandAndCollapse: true,
-                        animationDuration: 550,
-                        animationDurationUpdate: 750
+                        {
+                            itemStyle: {
+                                normal: {
+                                    borderColor: '#555',
+                                    borderWidth: 5,
+                                    gapWidth: 1
+                                },
+                                emphasis: {
+                                    borderColor: '#ddd'
+                                }
+                            }
+                        },
+                        {
+                            colorSaturation: [0.35, 0.5],
+                            itemStyle: {
+                                normal: {
+                                    borderWidth: 5,
+                                    gapWidth: 1,
+                                    borderColorSaturation: 0.6
+                                }
+                            }
+                        }
+                        ],
+                        data: [{
+                            "value": 1904,
+                            "name": "湖北省",
+                            "children": [{
+                                "value": 744,
+                                "name": "武汉市",
+                                "children": [{
+                                    "value": 300,
+                                    "name": "洪山区"
+                                }, {
+                                    "value": 450,
+                                    "name": "江汉区"
+                                }, {
+                                    "value": 400,
+                                    "name": "江岸区"
+                                }, {
+                                    "value": 680,
+                                    "name": "汉阳区"
+                                }]
+                            }, {
+                                "value": 200,
+                                "name": "黄石市",
+                                "children": [{
+                                    "value": 200,
+                                    "name": "大冶市"
+                                }, {
+                                    "value": 150,
+                                    "name": "阳新县"
+                                }, {
+                                    "value": 120,
+                                    "name": "黄石港区"
+                                }]
+                            }, {
+                                "value": 450,
+                                "name": "十堰市",
+                                "children": [{
+                                    "value": 400,
+                                    "name": "丹江口市"
+                                }, {
+                                    "value": 300,
+                                    "name": "张湾区"
+                                }, {
+                                    "value": 80,
+                                    "name": "竹山县"
+                                }]
+                            }, {
+                                "value": 600,
+                                "name": "宜昌市",
+                                "children": [{
+                                    "value": 400,
+                                    "name": "西陵区"
+                                }, {
+                                    "value": 500,
+                                    "name": "枝江市"
+                                }, {
+                                    "value": 200,
+                                    "name": "宜都市"
+                                }]
+                            }]
+                        }]
                     }
-                ],
-                textStyle:{
-                    fontFamily:'Microsoft YaHei'
-                },
-                backgroundColor: '#FFFFFF',
+                ]
             },
             height:610,
             width:850,
@@ -157,15 +222,7 @@ class page1_1_1 extends Component{
                     upperLabel: this.state.option.series[0].upperLabel,
                     itemStyle: this.state.option.series[0].itemStyle,
                     levels: this.state.option.series[0].levels,
-                    data: JSON.parse(e.target.value),
-                    top: this.state.option.series[0].top,
-                    left: this.state.option.series[0].left,
-                    bottom: this.state.option.series[0].bottom,
-                    right: this.state.option.series[0].right,
-                    symbolSize:this.state.option.series[0].symbolSize,
-                    expandAndCollapse: this.state.option.series[0].expandAndCollapse,
-                    animationDuration: this.state.option.series[0].animationDuration,
-                    animationDurationUpdate: this.state.option.series[0].animationDurationUpdate
+                    data: JSON.parse(e.target.value)
                 }
             ]})
         });
@@ -293,4 +350,4 @@ class page1_1_1 extends Component{
         )
     }
 }
-export default page1_1_1;
+export default page;

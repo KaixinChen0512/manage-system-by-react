@@ -10,6 +10,8 @@ import chart2_2 from './chartPages/page2_2/index.js';
 import chart3_1 from './chartPages/page3_1/index.js';
 import chart3_2 from './chartPages/page3_2/index.js';
 import chart4_1 from './chartPages/page4_1/index.js';
+import chart6_1 from './chartPages/page6_1/index.js';
+import chart6_2 from './chartPages/page6_2/index.js';
 // import workerList from '../pages/workerlist';
 // import pipeList from '../pages/pipeList';
 // import projectList from '../pages/projectList';
@@ -38,6 +40,8 @@ class Contents extends Component {
         <Route exact path="/app/customAnalysis/3_1" component={chart3_1} />
         <Route exact path="/app/customAnalysis/3_2" component={chart3_2} />
         <Route exact path="/app/customAnalysis/4_1" component={chart4_1} />
+        <Route exact path="/app/customAnalysis/6_1" component={chart6_1} />
+        <Route exact path="/app/customAnalysis/6_2" component={chart6_2} />
       </div>
 
     );

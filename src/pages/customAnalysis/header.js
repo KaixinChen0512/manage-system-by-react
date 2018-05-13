@@ -9,6 +9,7 @@ import img2_2 from '../../image/chartImgs/2_2.png';
 import img3_1 from '../../image/chartImgs/3_1.png';
 import img3_2 from '../../image/chartImgs/3_2.png';
 import img4_1 from '../../image/chartImgs/4_1.png';
+import img6_1 from '../../image/chartImgs/6_1.png';
 const { Header } = Layout
 const SubMenu = Menu.SubMenu;
 class Top extends Component{
@@ -59,10 +60,10 @@ class Top extends Component{
                 <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E9%94%AE%E5%80%BC%E8%A1%A8%E6%A0%BC.png" /><span className="menuItemText">键值表格</span></Menu.Item>
             </Menu>
         ),
-        utilMenu:(
+        mapData:(
             <Menu>
-                <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E9%A2%84%E8%A7%88.png" /><span className="menuItemText">预览</span></Menu.Item>
-                <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E5%8F%91%E5%B8%83.png" /><span className="menuItemText">发布</span></Menu.Item>
+                <Menu.Item><Link to="/app/customAnalysis/6_1"><Avatar shape="square" size="large" src={img6_1} /><span className="menuItemText">点地图</span></Link></Menu.Item>
+                <Menu.Item><Link to="/app/customAnalysis/6_2"><Avatar shape="square" size="large" src="" /><span className="menuItemText">线地图</span></Link></Menu.Item>
             </Menu>
         )
     };
@@ -72,7 +73,7 @@ class Top extends Component{
                 <Header style={{ background: '#F7F8FA'}}>
                     <Dropdown.Button overlay={this.menu.normalMenu}>
                         <a className="ant-dropdown-link">
-                        常规图表
+                            常规图表
                         </a>
                     </Dropdown.Button>
                     <Dropdown.Button overlay={this.menu.hierarchicalData} style={{marginLeft:'20px'}}>
@@ -90,9 +91,9 @@ class Top extends Component{
                             多维数据
                         </a>
                     </Dropdown.Button>
-                    <Dropdown.Button overlay={this.menu.utilMenu} style={{float:'right'}}>
+                    <Dropdown.Button overlay={this.menu.mapData} style={{marginLeft:'20px'}}>
                         <a className="ant-dropdown-link">
-                        完成
+                            基础地图数据
                         </a>
                     </Dropdown.Button>
                 </Header>

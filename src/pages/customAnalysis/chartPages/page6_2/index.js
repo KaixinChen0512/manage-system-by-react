@@ -3,149 +3,241 @@ import Right from './right.js';
 import React,{Component} from 'react';
 import {Row,Col} from 'antd';
 import papa from 'papaparse';
+import axios from 'axios';
+import { Button } from 'antd/lib/radio';
+import echarts from 'echarts';
+require('echarts/map/js/china.js');
 
 class page extends Component{
     constructor(props){
         super(props);
         this.state = {
-            option: {
-                title: {
-                    subtext: '三种材质管道焊接参数概览',
-                    left: 'center'
-                },
-                textStyle: {
-                    fontFamily: 'Microsoft YaHei'
-                },
-                backgroundColor: '#333',
-                legend: {
-                    bottom: 30,
-                    data: ['碳钢', '不锈钢', '合金钢'],
-                    itemGap: 20,
-                    textStyle: {
-                        color: '#fff',
-                        fontSize: 14
-                    }
-                },
-                tooltip: {
-                    padding: 10,
-                    backgroundColor: '#222',
-                    borderColor: '#777',
-                    borderWidth: 1,
-                },
-                parallelAxis: [{
-                    dim: 0,
-                    name: '外径'
-                },
-                {
-                    dim: 1,
-                    name: '壁厚'
-                },
-                {
-                    dim: 2,
-                    name: '焊接电流'
-                },
-                {
-                    dim: 3,
-                    name: '焊接电压'
-                },
-                {
-                    dim: 4,
-                    name: '送丝速度'
-                },
-                {
-                    dim: 5,
-                    name: '气体流量'
-                },
-                {
-                    dim: 6,
-                    name: '焊枪位置'
-                },
-                {
-                    dim: 7,
-                    name: '摆动角度'
-                }],
-                visualMap: {
-                    show: true,
-                    min: 0,
-                    max: 150,
-                    dimension: 2,
-                    inRange: {
-                        color: ['#d94e5d', '#eac736', '#50a3ba'].reverse(),
-                    }
-                },
-                parallel: {
-                    left: '5%',
-                    right: '18%',
-                    bottom: 100,
-                    top: 100,
-                    parallelAxisDefault: {
-                        type: 'value',
-                        name: 'AQI指数',
-                        nameLocation: 'end',
-                        nameGap: 20,
-                        nameTextStyle: {
-                            color: '#fff',
-                            fontSize: 12
-                        },
-                        axisLine: {
-                            lineStyle: {
-                                color: '#aaa'
-                            }
-                        },
-                        axisTick: {
-                            lineStyle: {
-                                color: '#777'
-                            }
-                        },
-                        splitLine: {
-                            show: false
-                        },
-                        axisLabel: {
-                            textStyle: {
-                                color: '#fff'
-                            }
-                        }
-                    }
-                },
-                series: [{
-                    name: '碳钢',
-                    type: 'parallel',
-                    lineStyle: {
-                        normal: {
-                            width: 1,
-                            opacity: 0.5
-                        }
-                    },
-                    data: [['757', '5.76', '110.69', '24.24', '12', '9.17', '82', '32'], ['760', '3.57', '130.15', '22.36', '13', '14.08', '110', '32'], ['653', '15.64', '126.81', '27.73', '14', '14.39', '138', '27'], ['467', '7.25', '76.76', '17.53', '7', '8.47', '344', '31'], ['1505', '4.77', '114.48', '22.92', '13', '10.77', '169', '32'], ['328', '29.76', '92.16', '11.93', '13', '12.89', '173', '11'], ['1577', '13.78', '110.60', '25.93', '8', '12.40', '326', '43'], ['565', '4.18', '92.23', '18.25', '14', '12.36', '223', '41'], ['1123', '12.07', '122.27', '18.22', '9', '10.20', '299', '40'], ['1183', '22.84', '136.82', '15.18', '11', '8.21', '30', '43']]
-                },
-                {
-                    name: '不锈钢',
-                    type: 'parallel',
-                    lineStyle: {
-                        normal: {
-                            width: 1,
-                            opacity: 0.5
-                        }
-                    },
-                    data: [['1279', '15.36', '91.33', '25.51', '10', '12.63', '48', '17'], ['615', '9.61', '83.32', '12.71', '14', '14.82', '248', '9'], ['776', '28.35', '118.46', '14.87', '12', '8.63', '134', '42'], ['921', '29.02', '113.36', '20.73', '8', '14.84', '355', '3'], ['1037', '8.05', '86.24', '13.65', '7', '14.31', '77', '41'], ['1549', '13.07', '111.73', '25.88', '16', '14.83', '226', '32'], ['882', '7.89', '133.40', '14.95', '13', '10.58', '255', '35'], ['874', '16.32', '80.51', '23.71', '15', '8.66', '105', '23'], ['357', '12.99', '129.90', '19.91', '7', '9.10', '220', '26'], ['415', '23.60', '85.51', '11.10', '16', '14.29', '256', '13']]
-                },
-                {
-                    name: '合金钢',
-                    type: 'parallel',
-                    lineStyle: {
-                        normal: {
-                            width: 1,
-                            opacity: 0.5
-                        }
-                    },
-                    data: [['375', '10.49', '80.20', '11.49', '8', '8.05', '114', '17'], ['442', '13.64', '98.49', '18.96', '15', '12.43', '262', '18'], ['1387', '7.95', '106.49', '18.30', '11', '9.00', '174', '44'], ['805', '18.22', '137.27', '25.00', '10', '13.81', '62', '39'], ['1126', '21.42', '124.47', '23.98', '9', '10.40', '140', '24'], ['962', '19.17', '132.40', '17.07', '15', '12.73', '258', '25'], ['552', '16.92', '148.43', '25.09', '12', '13.36', '237', '17'], ['115', '28.64', '138.31', '19.01', '12', '10.70', '301', '42'], ['1418', '28.47', '105.19', '16.37', '16', '10.89', '331', '41'], ['1566', '13.22', '86.99', '23.10', '12', '11.77', '291', '30']]
-                }]
-            },
+            option: {},
             height: 610,
             width: 830,
         }
     }
 
+    test=()=>{
+        // fetch('http://localhost:3000/events',{
+        //     method:"GET"
+        // })
+        // .then((res)=>{
+        //     console.log(res)
+        // })
+    axios.post('http://localhost:3000/events')
+    .then(function (response) {
+        // console.log('data=',response.data.data);
+        // console.log('type=',typeof(response.data.data));
+        var dataArray = response.data.data;
+
+        var hStep = 300 / (dataArray.length - 1);
+        var busLines = [].concat.apply([], dataArray.map(function (busLine, idx) {
+            var prevPt;
+            var points = [];
+            for (var i = 0; i < busLine.length; i += 2) {
+                var pt = [busLine[i], busLine[i + 1]];
+                if (i > 0) {
+                    pt = [
+                        prevPt[0] + pt[0],
+                        prevPt[1] + pt[1]
+                    ];
+                }
+                prevPt = pt;
+
+                points.push([pt[0] / 1e4, pt[1] / 1e4]);
+            }
+            return {
+                coords: points,
+                lineStyle: {
+                    normal: {
+                        color: echarts.color.modifyHSL('#5A94DF', Math.round(hStep * idx))
+                    }
+                }
+            };
+        }));
+        console.log('lines=',busLines)
+        var options = {
+            title: {
+                    subtext: '点地图范例',
+                    left: 'center'
+                },
+                textStyle: {
+                    fontFamily: 'Microsoft YaHei'
+                },
+                backgroundColor: '',
+            bmap: {
+                center: [116.46, 39.92],
+                zoom: 10,
+                roam: true,
+                mapStyle: {
+                  'styleJson': [
+                    {
+                      'featureType': 'water',
+                      'elementType': 'all',
+                      'stylers': {
+                        'color': '#031628'
+                      }
+                    },
+                    {
+                      'featureType': 'land',
+                      'elementType': 'geometry',
+                      'stylers': {
+                        'color': '#000102'
+                      }
+                    },
+                    {
+                      'featureType': 'highway',
+                      'elementType': 'all',
+                      'stylers': {
+                        'visibility': 'off'
+                      }
+                    },
+                    {
+                      'featureType': 'arterial',
+                      'elementType': 'geometry.fill',
+                      'stylers': {
+                        'color': '#000000'
+                      }
+                    },
+                    {
+                      'featureType': 'arterial',
+                      'elementType': 'geometry.stroke',
+                      'stylers': {
+                        'color': '#0b3d51'
+                      }
+                    },
+                    {
+                      'featureType': 'local',
+                      'elementType': 'geometry',
+                      'stylers': {
+                        'color': '#000000'
+                      }
+                    },
+                    {
+                      'featureType': 'railway',
+                      'elementType': 'geometry.fill',
+                      'stylers': {
+                        'color': '#000000'
+                      }
+                    },
+                    {
+                      'featureType': 'railway',
+                      'elementType': 'geometry.stroke',
+                      'stylers': {
+                        'color': '#08304b'
+                      }
+                    },
+                    {
+                      'featureType': 'subway',
+                      'elementType': 'geometry',
+                      'stylers': {
+                        'lightness': -70
+                      }
+                    },
+                    {
+                      'featureType': 'building',
+                      'elementType': 'geometry.fill',
+                      'stylers': {
+                        'color': '#000000'
+                      }
+                    },
+                    {
+                      'featureType': 'all',
+                      'elementType': 'labels.text.fill',
+                      'stylers': {
+                        'color': '#857f7f'
+                      }
+                    },
+                    {
+                      'featureType': 'all',
+                      'elementType': 'labels.text.stroke',
+                      'stylers': {
+                        'color': '#000000'
+                      }
+                    },
+                    {
+                      'featureType': 'building',
+                      'elementType': 'geometry',
+                      'stylers': {
+                        'color': '#022338'
+                      }
+                    },
+                    {
+                      'featureType': 'green',
+                      'elementType': 'geometry',
+                      'stylers': {
+                        'color': '#062032'
+                      }
+                    },
+                    {
+                      'featureType': 'boundary',
+                      'elementType': 'all',
+                      'stylers': {
+                        'color': '#465b6c'
+                      }
+                    },
+                    {
+                      'featureType': 'manmade',
+                      'elementType': 'all',
+                      'stylers': {
+                        'color': '#022338'
+                      }
+                    },
+                    {
+                      'featureType': 'label',
+                      'elementType': 'all',
+                      'stylers': {
+                        'visibility': 'off'
+                      }
+                    }
+                  ]
+                }
+            },
+            series: [{
+                type: 'lines',
+                coordinateSystem: 'bmap',
+                polyline: true,
+                data: busLines,
+                silent: true,
+                lineStyle: {
+                    normal: {
+                        // color: '#c23531',
+                        // color: 'rgb(200, 35, 45)',
+                        opacity: 0.2,
+                        width: 1
+                    }
+                },
+                progressiveThreshold: 500,
+                progressive: 200
+            }, {
+                type: 'lines',
+                coordinateSystem: 'bmap',
+                polyline: true,
+                data: busLines,
+                lineStyle: {
+                    normal: {
+                        width: 0
+                    }
+                },
+                effect: {
+                    constantSpeed: 20,
+                    show: true,
+                    trailLength: 0.1,
+                    symbolSize: 1.5
+                },
+                zlevel: 1
+            }]
+        };
+        this.setState({
+            option: Object.assign({},this.state.option,options)
+        })
+        console.log('new this.state.option=',this.state.option)
+    }.bind(this))
+    .catch(function (error) {
+        console.log(error);
+    });
+    }
     //修改图表配置
     changeOption=(newOption)=>{
         this.setState({
@@ -336,6 +428,7 @@ class page extends Component{
             <div>
                 <Row gutter={48}>
                     <Col span={16}>
+                        <Button onClick={this.test}>1111</Button>
                         <Middle 
                         option={this.state.option} 
                         chartHeight={this.state.height} 
@@ -364,7 +457,7 @@ class page extends Component{
                         addDataFilter={this.addDataFilter.bind(this)}
                         addTextNotice={this.addTextNotice.bind(this)}
                         />
-                    </Col>
+                    </Col> 
                 </Row>
             </div>
         )

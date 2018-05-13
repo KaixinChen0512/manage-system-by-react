@@ -281,20 +281,6 @@ class chartForm extends Component{
                                             </Select>
                                         )}
                                     </FormItem>
-                                    <FormItem>
-                                        <Row>
-                                            <span>点数据：</span>
-                                        </Row>
-                                        <Row>
-                                            <TextArea autosize={{minRows:'6'}} defaultValue={JSON.stringify(this.props.option.series[0].data)} onChange={this.props.changeData1}/>
-                                        </Row>
-                                        <Row>
-                                            <span>边数据：</span>
-                                        </Row>
-                                        <Row>
-                                            <TextArea autosize={{minRows:'6'}} defaultValue={JSON.stringify(this.props.option.series[0].links)} onChange={this.props.changeData2}/>
-                                        </Row>
-                                    </FormItem>
                                 </Scrollbars>
                             </Form>
                         </Card>

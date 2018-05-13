@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import ReactEcharts from 'echarts-for-react';
 import echarts from 'echarts';
 import './middle.css';
-
+require('echarts/map/js/china.js');
 // let base = +new Date(2008, 8, 0);
 // let oneDay = 24 * 3600 * 1000;
 // let date = [];

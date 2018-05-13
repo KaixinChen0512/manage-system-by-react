@@ -6,7 +6,9 @@ import img1_1_1 from '../../image/chartImgs/1_1_1.png';
 import img1_1_2 from '../../image/chartImgs/1_1_2.png';
 import img2_1 from '../../image/chartImgs/2_1.png';
 import img2_2 from '../../image/chartImgs/2_2.png';
+import img3_1 from '../../image/chartImgs/3_1.png';
 import img3_2 from '../../image/chartImgs/3_2.png';
+import img4_1 from '../../image/chartImgs/4_1.png';
 const { Header } = Layout
 const SubMenu = Menu.SubMenu;
 class Top extends Component{
@@ -43,15 +45,15 @@ class Top extends Component{
         ),
         networkData:(
             <Menu>
-                <Menu.Item><Link to="/app/customAnalysis/3_1"><Avatar shape="square" size="large" src="" /><span className="menuItemText">力导向图</span></Link></Menu.Item>
+                <Menu.Item><Link to="/app/customAnalysis/3_1"><Avatar shape="square" size="large" src={img3_1} /><span className="menuItemText">力导向图</span></Link></Menu.Item>
                 <Menu.Item><Link to="/app/customAnalysis/3_2"><Avatar shape="square" size="large" src={img3_2} /><span className="menuItemText">桑基图</span></Link></Menu.Item>
                 <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E7%8A%B6%E6%80%81%E5%8D%A1%E7%89%87.png" /><span className="menuItemText">状态卡片</span></Menu.Item>
                 <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E6%96%87%E5%AD%97%E6%A0%87%E7%AD%BE.png" /><span className="menuItemText">文字标签</span></Menu.Item>
             </Menu>
         ),
-        textMenu:(
+        multidimensionalData:(
             <Menu>
-                <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC.png" /><span className="menuItemText">多行文本</span></Menu.Item>
+                <Menu.Item><Link to="/app/customAnalysis/4_1"><Avatar shape="square" size="large" src={img4_1} /><span className="menuItemText">平行坐标</span></Link></Menu.Item>
                 <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E9%80%9A%E7%94%A8%E6%A0%87%E9%A2%98.png" /><span className="menuItemText">通用标题</span></Menu.Item>
                 <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E8%BD%AE%E6%92%AD%E5%88%97%E8%A1%A8.png" /><span className="menuItemText">轮播列表</span></Menu.Item>
                 <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E9%94%AE%E5%80%BC%E8%A1%A8%E6%A0%BC.png" /><span className="menuItemText">键值表格</span></Menu.Item>
@@ -83,9 +85,9 @@ class Top extends Component{
                             网络数据
                         </a>
                     </Dropdown.Button>
-                    <Dropdown.Button overlay={this.menu.textMenu} style={{marginLeft:'20px'}}>
+                    <Dropdown.Button overlay={this.menu.multidimensionalData} style={{marginLeft:'20px'}}>
                         <a className="ant-dropdown-link">
-                        文字图表
+                            多维数据
                         </a>
                     </Dropdown.Button>
                     <Dropdown.Button overlay={this.menu.utilMenu} style={{float:'right'}}>

@@ -7,6 +7,8 @@ import chart1_1_1 from './chartPages/page1_1_1/index.js';
 import chart1_1_2 from './chartPages/page1_1_2/index.js';
 import chart1_2_1 from './chartPages/page1_2_1/index.js';
 import chart1_2_2 from './chartPages/page1_2_2/index.js';
+import chart1_2_3 from './chartPages/page1_2_3/index.js';
+import chart1_3_1 from './chartPages/page1_3_1/index.js';
 import chart2_1 from './chartPages/page2_1/index.js';
 import chart2_2 from './chartPages/page2_2/index.js';
 import chart3_1 from './chartPages/page3_1/index.js';
@@ -39,6 +41,8 @@ class Contents extends Component {
         <Route exact path="/app/customAnalysis/1_1_2" component={chart1_1_2} />
         <Route exact path="/app/customAnalysis/1_2_1" component={chart1_2_1} />
         <Route exact path="/app/customAnalysis/1_2_2" component={chart1_2_2} />
+        <Route exact path="/app/customAnalysis/1_2_3" component={chart1_2_3} />
+        <Route exact path="/app/customAnalysis/1_3_1" component={chart1_3_1} />
         <Route exact path="/app/customAnalysis/2_1" component={chart2_1} />
         <Route exact path="/app/customAnalysis/2_2" component={chart2_2} />
         <Route exact path="/app/customAnalysis/3_1" component={chart3_1} />

@@ -19,8 +19,6 @@ class Top extends Component{
                 <SubMenu title="柱形图">
                     <Menu.Item><Link to="/app/customAnalysis/1_1_1"><Avatar shape="square" size="large" src={img1_1_1} /><span className="menuItemText">基本柱图</span></Link></Menu.Item>
                     <Menu.Item><Link to="/app/customAnalysis/1_1_2"><Avatar shape="square" size="large" src={img1_1_2} /><span className="menuItemText">水平基本柱图</span></Link></Menu.Item>
-                    <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E6%A2%AF%E5%BD%A2%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">梯形柱图</span></Menu.Item>
-                    <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E6%8A%98%E7%BA%BF%E6%9F%B1%E5%9B%BE.png" /><span className="menuItemText">折线柱图</span></Menu.Item>
                 </SubMenu>
                 <SubMenu title="折线图">
                     <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E5%9F%BA%E6%9C%AC%E6%8A%98%E7%BA%BF%E5%9B%BE.png" /><span className="menuItemText">基本折线图</span></Menu.Item>
@@ -41,23 +39,17 @@ class Top extends Component{
             <Menu>
                 <Menu.Item><Link to="/app/customAnalysis/2_1"><Avatar shape="square" size="large" src={img2_1} /><span className="menuItemText">基本树图</span></Link></Menu.Item>
                 <Menu.Item><Link to="/app/customAnalysis/2_2"><Avatar shape="square" size="large" src={img2_2} /><span className="menuItemText">矩型树图</span></Link></Menu.Item>
-                <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis3D%E7%90%83%E5%BD%A2%E5%9C%B0%E5%9B%BE.png" /><span className="menuItemText">3D球形地图</span></Menu.Item>
             </Menu>
         ),
         networkData:(
             <Menu>
                 <Menu.Item><Link to="/app/customAnalysis/3_1"><Avatar shape="square" size="large" src={img3_1} /><span className="menuItemText">力导向图</span></Link></Menu.Item>
                 <Menu.Item><Link to="/app/customAnalysis/3_2"><Avatar shape="square" size="large" src={img3_2} /><span className="menuItemText">桑基图</span></Link></Menu.Item>
-                <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E7%8A%B6%E6%80%81%E5%8D%A1%E7%89%87.png" /><span className="menuItemText">状态卡片</span></Menu.Item>
-                <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E6%96%87%E5%AD%97%E6%A0%87%E7%AD%BE.png" /><span className="menuItemText">文字标签</span></Menu.Item>
             </Menu>
         ),
         multidimensionalData:(
             <Menu>
                 <Menu.Item><Link to="/app/customAnalysis/4_1"><Avatar shape="square" size="large" src={img4_1} /><span className="menuItemText">平行坐标</span></Link></Menu.Item>
-                <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E9%80%9A%E7%94%A8%E6%A0%87%E9%A2%98.png" /><span className="menuItemText">通用标题</span></Menu.Item>
-                <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E8%BD%AE%E6%92%AD%E5%88%97%E8%A1%A8.png" /><span className="menuItemText">轮播列表</span></Menu.Item>
-                <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E9%94%AE%E5%80%BC%E8%A1%A8%E6%A0%BC.png" /><span className="menuItemText">键值表格</span></Menu.Item>
             </Menu>
         ),
         mapData:(

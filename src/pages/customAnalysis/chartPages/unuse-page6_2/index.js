@@ -35,14 +35,6 @@ class page extends Component{
     }
 
     componentDidMount=()=>{
-        axios.post('http://localhost:3000/proxy/')
-        .then(function(res){
-            console.log(res.data);
-        })
-        .catch(function(err){
-            console.log(err)
-        })
-
         axios.post('http://localhost:3000/mapData/data6_2')
         .then(function (response) {
             console.log('this.state.option=',this.state.option)
@@ -444,6 +436,7 @@ class page extends Component{
             <div>
                 <Row gutter={48}>
                     <Col span={16}>
+                        <Button onClick={this.test}>1111</Button>
                         <Middle 
                         option={this.state.option} 
                         chartHeight={this.state.height} 

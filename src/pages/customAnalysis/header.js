@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 import './header.css'
 import img1_1_1 from '../../image/chartImgs/1_1_1.png';
 import img1_1_2 from '../../image/chartImgs/1_1_2.png';
+import img1_2_1 from '../../image/chartImgs/1_2_1.png';
+import img1_2_2 from '../../image/chartImgs/1_2_2.png';
 import img2_1 from '../../image/chartImgs/2_1.png';
 import img2_2 from '../../image/chartImgs/2_2.png';
 import img3_1 from '../../image/chartImgs/3_1.png';
@@ -21,8 +23,8 @@ class Top extends Component{
                     <Menu.Item><Link to="/app/customAnalysis/1_1_2"><Avatar shape="square" size="large" src={img1_1_2} /><span className="menuItemText">水平基本柱图</span></Link></Menu.Item>
                 </SubMenu>
                 <SubMenu title="折线图">
-                    <Menu.Item><Link to="/app/customAnalysis/1_2_1"><Avatar shape="square" size="large" src="" /><span className="menuItemText">基本折线图</span></Link></Menu.Item>
-                    <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E5%8F%8C%E8%BD%B4%E6%8A%98%E7%BA%BF%E5%9B%BE.png" /><span className="menuItemText">双轴折线图</span></Menu.Item>
+                    <Menu.Item><Link to="/app/customAnalysis/1_2_1"><Avatar shape="square" size="large" src={img1_2_1} /><span className="menuItemText">基本折线图</span></Link></Menu.Item>
+                    <Menu.Item><Link to="/app/customAnalysis/1_2_2"><Avatar shape="square" size="large" src={img1_2_2} /><span className="menuItemText">平滑折线图</span></Link></Menu.Item>
                     <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E5%8C%BA%E5%9F%9F%E5%9B%BE.png" /><span className="menuItemText">区域图</span></Menu.Item>
                 </SubMenu>
                 <SubMenu title="饼图">

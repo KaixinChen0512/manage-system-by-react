@@ -24,8 +24,6 @@ class page extends Component{
                 },
                 title: {
                     text: '管道分布情况',
-                    // subtext: 'data from PM25.in',
-                    // sublink: 'http://www.pm25.in',
                     left: 'center',
                     textStyle: {
                         color: '#fff'
@@ -63,8 +61,6 @@ class page extends Component{
                 },
                 title: {
                     text: '管道分布情况',
-                    // subtext: 'data from PM25.in',
-                    // sublink: 'http://www.pm25.in',
                     left: 'center',
                     textStyle: {
                         color: '#fff'

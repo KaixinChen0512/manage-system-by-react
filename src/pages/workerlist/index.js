@@ -13,29 +13,15 @@ class workerList extends Component {
     selectedRows:[],
     loading:false
   };
-  componentDidMount = () => {
-    // axios.post('/events',{
-
-    // })
-    // .then((res)=>{
-    //   console.log(res);
-    // })
-    // .catch((error)=>{
-    //   console.log(error);
-    // })
-    fetch('http://localhost:3000/events',{
-      method:"POST"
+  componentDidMount=()=>{
+    axios.post('http://localhost:3000/listData/workerList')
+    .then(function(res){
+        console.log('workerList:',res.data)
     })
-    .then((res)=>{
-      console.log(res.body)
+    .catch(function(err){
+        console.log(err)
     })
-    // axios({
-    //   method: 'post',
-    //   url: 'http://localhost:3000/events',
-    // }).then(function (res) {
-    //   console.log(res);
-    // });
-  };
+}
   //自定义查找功能
   onInputChange = (e) => {
     this.setState({ searchText: e.target.value });

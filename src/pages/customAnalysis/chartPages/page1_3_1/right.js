@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {List,Tabs,Icon,Card,Button,Form,Input,Checkbox,Collapse,Select,Row,Col,Slider,InputNumber,Divider,Modal,Upload,message,Switch} from 'antd';
+import {Tabs,Icon,Card,Button,Form,Input,Collapse,Select,Row,Col,Slider,InputNumber,Modal,Upload,Switch} from 'antd';
 import { Scrollbars} from 'react-custom-scrollbars';
 import './right.css';
 

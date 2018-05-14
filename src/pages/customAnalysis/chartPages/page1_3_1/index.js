@@ -9,39 +9,46 @@ class page1_1_1 extends Component{
         super(props);
         this.state={
             option : {
-                title:{
-                    text:'管道铺设情况一览',
-                    subtext:'数据来源自中国化学工程第十六建设有限公司',
-                    left:'center'
+                title : {
+                    text: '管道工程管理可视化平台访问数据',
+                    subtext: '数据来源自后台管理系统',
+                    x:'center'
                 },
-                xAxis: {
-                    type: 'category',
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                    name:'日期',
-                    axisLabel:{
-                        color:'#000000',
-                        fontSize:'12'
-                    }
-                },
-                yAxis: {
-                    type: 'value',
-                    name:'铺设数量',
-                    axisLabel:{
-                        color:'#000000',
-                        fontSize:'12'
-                    }
-                },
-                series: [{
-                    data: [120, 200, 150, 80, 70, 110, 130],
-                    type: 'line',
-                    areaStyle:{}
-                }
-                ],
                 textStyle:{
                     fontFamily:'Microsoft YaHei'
                 },
                 backgroundColor: '#FFFFFF',
-                
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    data: ['直接访问','GitHub跳转','博客跳转','个人网站跳转','搜索引擎']
+                },
+                series : [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius : '55%',
+                        center: ['50%', '60%'],
+                        data:[
+                            {value:335, name:'直接访问'},
+                            {value:310, name:'GitHub跳转'},
+                            {value:234, name:'博客跳转'},
+                            {value:135, name:'个人网站跳转'},
+                            {value:1548, name:'搜索引擎'}
+                        ],
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
             },
             height:610,
             width:830,

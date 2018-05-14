@@ -14,26 +14,6 @@ const {TextArea} = Input;
 
 class chartForm extends Component{
     state = {
-        // options:{
-        //     xAxis:{
-        //         axisLabel:{
-        //             fontSize:'12',
-        //             color:'#333333'
-        //         }
-        //     },
-        //     yAxis:{
-        //         axisLabel:{
-        //             fontSize:'12',
-        //             color:'#333333'
-        //         }
-        //     },
-        //     textStyle:{
-        //         fontFamily:'Microsoft YaHei'
-        //     },
-        //     backgroundColor:'#FFFFFF' 
-        // },
-        staticDataValue:this.props.option.xAxis.data,
-        
         loading: false,
         //csv弹出框状态
         csvVisible: false,
@@ -248,8 +228,6 @@ class chartForm extends Component{
         this.setState({ fileList });
     }
     render(){
-        const dataX = this.props.option.xAxis.data;
-        const dataY = this.props.option.series[0].data;
         const { getFieldDecorator } = this.props.form;
         //弹出框
         const { csvVisible,apiVisible,txtVisible, databaseVisible,databaseVisible2, loading } = this.state;
@@ -319,102 +297,6 @@ class chartForm extends Component{
                                                     <Input defaultValue={this.props.option.title.subtext} onChange={this.props.changeSubTitle} />
                                                 </FormItem>
                                             </Panel>
-                                            <Panel header="X轴" key="2">
-                                                <FormItem
-                                                labelCol={{ span: 6 }}
-                                                wrapperCol={{ span: 18 }}
-                                                label={(
-                                                    <span>
-                                                        文本颜色
-                                                    </span>
-                                                )}
-                                                >
-                                                    <Input defaultValue={this.props.option.xAxis.axisLabel.color} onChange={this.props.changeXFontColor} />
-                                                </FormItem>
-                                                <FormItem
-                                                labelCol={{ span: 6 }}
-                                                wrapperCol={{ span: 18 }}
-                                                label={(
-                                                    <span>
-                                                        文本字号
-                                                    </span>
-                                                )}
-                                                >
-                                                    <Row>
-                                                        <Col span={12}>
-                                                            <Slider min={0} max={60} onChange={this.props.changeXFontSize} value={this.props.option.xAxis.axisLabel.fontSize}/>
-                                                        </Col>
-                                                        <Col span={4}>
-                                                            <InputNumber
-                                                                min={0}
-                                                                max={60}
-                                                                style={{ marginLeft: 16 }}
-                                                                value={this.props.option.xAxis.axisLabel.fontSize}
-                                                                onChange={this.props.changeXFontSize}
-                                                            />
-                                                        </Col>
-                                                    </Row>
-                                                </FormItem>
-                                                <FormItem
-                                                labelCol={{ span: 6 }}
-                                                wrapperCol={{ span: 18 }}
-                                                label={(
-                                                    <span>
-                                                        坐标轴名称
-                                                    </span>
-                                                )}
-                                                >
-                                                    <Input defaultValue={this.props.option.xAxis.name} onChange={this.props.changeXName} />
-                                                </FormItem>
-                                            </Panel>
-                                            <Panel header="Y轴" key="3">
-                                                <FormItem
-                                                labelCol={{ span: 6 }}
-                                                wrapperCol={{ span: 18 }}
-                                                label={(
-                                                    <span>
-                                                        文本颜色
-                                                    </span>
-                                                )}
-                                                >
-                                                    <Input defaultValue={this.props.option.yAxis.axisLabel.color} onChange={this.props.changeYFontColor} />
-                                                </FormItem>
-                                                <FormItem
-                                                labelCol={{ span: 6 }}
-                                                wrapperCol={{ span: 18 }}
-                                                label={(
-                                                    <span>
-                                                        文本字号
-                                                    </span>
-                                                )}
-                                                >
-                                                    <Row>
-                                                        <Col span={12}>
-                                                            <Slider min={0} max={60} onChange={this.props.changeYFontSize} value={this.props.option.yAxis.axisLabel.fontSize} />
-                                                        </Col>
-                                                        <Col span={4}>
-                                                            <InputNumber
-                                                                min={0}
-                                                                max={60}
-                                                                style={{ marginLeft: 16 }}
-                                                                value={this.props.option.yAxis.axisLabel.fontSize}
-                                                                onChange={this.props.changeYFontSize}
-                                                            />
-                                                        </Col>
-                                                    </Row>
-                                                </FormItem>
-                                                <FormItem
-                                                labelCol={{ span: 6 }}
-                                                wrapperCol={{ span: 18 }}
-                                                label={(
-                                                    <span>
-                                                        坐标轴名称
-                                                    </span>
-                                                )}
-                                                >
-                                                    <Input defaultValue={this.props.option.yAxis.name} onChange={this.props.changeYName} />
-                                                </FormItem>
-                                            </Panel>
                                             <Panel header="图表尺寸" key="4">
                                                 <FormItem
                                                 labelCol={{ span: 6 }}
@@ -422,7 +304,7 @@ class chartForm extends Component{
                                                 label={(
                                                     <span>
                                                         宽度
-                                                </span>
+                                                    </span>
                                                 )}
                                                 >
                                                     <Row>
@@ -499,24 +381,7 @@ class chartForm extends Component{
                                     <FormItem>
                                         <Row>
                                             <span>静态数据：</span>
-                                        </Row>
-                                        <Row>
-                                            <span>
-                                                X轴数据：
-                                            </span>
-                                            <TextArea autosize={{minRows:'6'}} defaultValue={dataX} onChange={this.props.changeDataX}/>
-                                           {/* <Input addonBefore="X轴数据：" defaultValue={dataX} onChange={this.props.changeDataX}/>
-                                            <Input addonBefore="Y轴数据：" defaultValue={dataY} onChange={this.props.changeDataY}/>
-                                            <TextArea autosize={{minRows:'18'}} defaultValue={dataX} onChange={this.props.changeData} />*/}
-                                        </Row>
-                                        <Row>
-                                            <span>
-                                                Y轴数据：
-                                            </span>
-                                            <TextArea autosize={{minRows:'6'}} defaultValue={dataY} onChange={this.props.changeDataY}/>
-                                           {/* <Input addonBefore="X轴数据：" defaultValue={dataX} onChange={this.props.changeDataX}/>
-                                            <Input addonBefore="Y轴数据：" defaultValue={dataY} onChange={this.props.changeDataY}/>
-                                            <TextArea autosize={{minRows:'18'}} defaultValue={dataX} onChange={this.props.changeData} />*/}
+                                            <TextArea autosize={{minRows:'6'}} defaultValue={this.props.option.series[0].data} onChange={this.props.changeDataY}/>
                                         </Row>
                                     </FormItem>
                                 </Scrollbars>

@@ -7,6 +7,8 @@ import img1_1_2 from '../../image/chartImgs/1_1_2.png';
 import img1_2_1 from '../../image/chartImgs/1_2_1.png';
 import img1_2_2 from '../../image/chartImgs/1_2_2.png';
 import img1_2_3 from '../../image/chartImgs/1_2_3.png';
+import img1_3_1 from '../../image/chartImgs/1_3_1.png';
+import img1_3_2 from '../../image/chartImgs/1_3_2.png';
 import img2_1 from '../../image/chartImgs/2_1.png';
 import img2_2 from '../../image/chartImgs/2_2.png';
 import img3_1 from '../../image/chartImgs/3_1.png';
@@ -29,8 +31,8 @@ class Top extends Component{
                     <Menu.Item><Link to="/app/customAnalysis/1_2_3"><Avatar shape="square" size="large" src={img1_2_3} /><span className="menuItemText">基本面积图</span></Link></Menu.Item>
                 </SubMenu>
                 <SubMenu title="饼图">
-                    <Menu.Item><Link to="/app/customAnalysis/1_3_1"><Avatar shape="square" size="large" src="" /><span className="menuItemText">基本饼图</span></Link></Menu.Item>
-                    <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E5%A4%9A%E7%BB%B4%E9%A5%BC%E5%9B%BE.png" /><span className="menuItemText">多维度饼图</span></Menu.Item>
+                    <Menu.Item><Link to="/app/customAnalysis/1_3_1"><Avatar shape="square" size="large" src={img1_3_1} /><span className="menuItemText">基本饼图</span></Link></Menu.Item>
+                    <Menu.Item><Link to="/app/customAnalysis/1_3_2"><Avatar shape="square" size="large" src={img1_3_2} /><span className="menuItemText">嵌套饼图</span></Link></Menu.Item>
                 </SubMenu>
                 <SubMenu title="散点图">
                     <Menu.Item><Avatar shape="square" size="large" src="http://oudaz22af.bkt.clouddn.com/image/PMS/customAnalysis%E5%9F%BA%E6%9C%AC%E6%95%A3%E7%82%B9%E5%9B%BE.png" /><span className="menuItemText">基本散点图</span></Menu.Item>

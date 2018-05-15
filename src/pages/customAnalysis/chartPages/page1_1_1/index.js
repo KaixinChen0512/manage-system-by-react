@@ -1,6 +1,7 @@
 import Middle from './middle.js';
 import Right from './right.js';
 import React,{Component} from 'react';
+import Draggable from 'react-draggable';
 import {Row,Col} from 'antd';
 import papa from 'papaparse';
 
@@ -44,6 +45,13 @@ class page1_1_1 extends Component{
             },
             height:610,
             width:830,
+            activeDrags: 0,
+            deltaPosition: {
+                x: 0, y: 0
+            },
+            controlledPosition: {
+                x: -400, y: 200
+            }
         }
     }
 
@@ -276,17 +284,37 @@ class page1_1_1 extends Component{
         }
     }
 
+    //添加图表拖拽功能
+    onStart = () => {
+        this.setState({activeDrags: ++this.state.activeDrags});
+    };
+    onStop = () => {
+        this.setState({activeDrags: --this.state.activeDrags});
+    };
+    handleDrag = (e, ui) => {
+        const {x, y} = this.state.deltaPosition;
+        this.setState({
+            deltaPosition: {
+                x: x + ui.deltaX,
+                y: y + ui.deltaY,
+            }
+        });
+    };
     render(){
+        const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
+        const {deltaPosition} = this.state;
         return (
             <div>
                 <Row gutter={48}>
-                    <Col span={16}>
-                        <Middle 
-                        option={this.state.option} 
-                        chartHeight={this.state.height} 
-                        chartWidth={this.state.width}
-                        />
-                    </Col>
+                    <Draggable zIndex={100} {...dragHandlers}>
+                        <Col span={16}>
+                            <Middle 
+                            option={this.state.option} 
+                            chartHeight={this.state.height} 
+                            chartWidth={this.state.width}
+                            />
+                        </Col>
+                     </Draggable>
                     <Col span={8}>
                         <Right 
                         option={this.state.option}

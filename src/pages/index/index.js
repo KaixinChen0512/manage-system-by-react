@@ -22,10 +22,12 @@ class index extends Component {
                                     <div className="pull-left mr-m">
                                         <Icon type="file-text" style={{fontSize:32}}/>
                                     </div>
-                                    <div className="clear" style={{padding:'0 0 0 20px'}}>
-                                        <div className="text-muted">项目数量</div>
-                                        <h2>68</h2>
-                                    </div>
+                                    <Link to="/app/projectList">
+                                        <div className="clear" style={{padding:'0 0 0 20px'}} >
+                                            <div className="text-muted" style={{color:'#646464'}}>项目数量</div>
+                                            <h2>68</h2>
+                                        </div>
+                                    </Link>
                                 </div>
                             </Card>
                         </div>
@@ -35,10 +37,12 @@ class index extends Component {
                                     <div className="pull-left mr-m">
                                         <Icon type="cloud" style={{fontSize:32}} />
                                     </div>
-                                    <div className="clear" style={{padding:'0 0 0 20px'}}>
-                                        <div className="text-muted">云端数据</div>
-                                        <h2>1024</h2>
-                                    </div>
+                                    <Link to="/app/workerList">
+                                        <div className="clear" style={{padding:'0 0 0 20px'}}>
+                                            <div className="text-muted" style={{color:'#646464'}}>云端数据</div>
+                                            <h2>1024</h2>
+                                        </div>
+                                    </Link>
                                 </div>
                             </Card>
                         </div>
@@ -50,10 +54,12 @@ class index extends Component {
                                     <div className="pull-left mr-m">
                                         <Icon type="camera" style={{fontSize:32}} />
                                     </div>
-                                    <div className="clear" style={{padding:'0 0 0 20px'}}>
-                                        <div className="text-muted">项目实景</div>
-                                        <h2>866</h2>
-                                    </div>
+                                    <Link to="/app/photos">
+                                        <div className="clear" style={{padding:'0 0 0 20px'}}>
+                                            <div className="text-muted" style={{color:'#646464'}}>项目实景</div>
+                                            <h2>866</h2>
+                                        </div>
+                                    </Link>
                                 </div>
                             </Card>
                         </div>
@@ -63,10 +69,12 @@ class index extends Component {
                                     <div className="pull-left mr-m">
                                         <Icon type="mail" style={{fontSize:32}} />
                                     </div>
-                                    <div className="clear" style={{padding:'0 0 0 20px'}}>
-                                        <div className="text-muted">消息通知</div>
-                                        <h2>96</h2>
-                                    </div>
+                                    <Link to="/app/customAnalysis">
+                                        <div className="clear" style={{padding:'0 0 0 20px'}}>
+                                            <div className="text-muted" style={{color:'#646464'}}>可视化数据</div>
+                                            <h2>96</h2>
+                                        </div>
+                                    </Link>
                                 </div>
                             </Card>
                         </div>
@@ -117,7 +125,9 @@ class index extends Component {
                                             <img src={avatar} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
-                                            <a className="block">陈凯鑫</a>
+                                            <Link to="/app/workerList">
+                                                <a className="block">陈凯鑫</a>
+                                            </Link>
                                             <span className="text-muted">项目已完成！请及时验收！</span>
                                         </div>
                                     </li>
@@ -126,7 +136,9 @@ class index extends Component {
                                             <img src={avatar} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
-                                            <a className="block">王昊</a>
+                                            <Link to="/app/workerList">
+                                                <a className="block">王昊</a>
+                                            </Link>
                                             <span className="text-muted">襄阳市项目第二期已完成！</span>
                                         </div>
                                     </li>
@@ -135,7 +147,9 @@ class index extends Component {
                                             <img src={avatar} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
-                                            <a className="block">罗林溢</a>
+                                            <Link to="/app/workerList">
+                                                <a className="block">罗林溢</a>
+                                            </Link>
                                             <span className="text-muted">黄冈市项目资金情况已上传！</span>
                                         </div>
                                     </li>
@@ -144,7 +158,9 @@ class index extends Component {
                                             <img src={avatar} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
-                                            <a className="block">夏腾</a>
+                                            <Link to="/app/workerList">
+                                                <a className="block">夏腾</a>
+                                            </Link>
                                             <span className="text-muted">鄂州市项目正式启动！</span>
                                         </div>
                                     </li>

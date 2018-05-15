@@ -20,7 +20,6 @@ class chartForm extends Component{
         apiVisible: false,
         //数据库文件弹出框状态
         databaseVisible:false,
-        // databaseVisible2:false,
         //上传CSV文件
         fileList: [{
             uid: -1,

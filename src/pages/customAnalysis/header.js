@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import { Menu, Icon, Layout, Dropdown, Button, Avatar } from 'antd'
+import { Menu, Layout, Dropdown, Avatar } from 'antd'
 import {Link} from 'react-router-dom'
 import './header.css'
 import img1_1_1 from '../../image/chartImgs/1_1_1.png';

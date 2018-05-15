@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Tabs,Icon,Card,Button,Form,Input,Collapse,Select,Row,Col,Slider,InputNumber,Divider,Modal,Upload,Switch} from 'antd';
+import {Tabs,Icon,Card,Button,Form,Input,Collapse,Select,Row,Col,Slider,InputNumber,Modal,Upload,Switch} from 'antd';
 import { Scrollbars} from 'react-custom-scrollbars';
 import './right.css';
 
@@ -20,7 +20,6 @@ class chartForm extends Component{
         apiVisible: false,
         //数据库文件弹出框状态
         databaseVisible:false,
-        // databaseVisible2:false,
         //上传CSV文件
         fileList: [{
             uid: -1,

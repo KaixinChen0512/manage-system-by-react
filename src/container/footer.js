@@ -19,7 +19,7 @@ class Bottom extends Component {
     }
 
     // 组件将要死亡时清除计时器，不清除也可以
-    componentWillUnmount() {
+    componentWillUnmount() { 
         clearInterval(this.interval);
     }
 

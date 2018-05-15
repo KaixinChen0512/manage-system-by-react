@@ -1,16 +1,8 @@
 import React,{Component} from 'react';
-import {List,Tabs,Icon,Card,Button,Form,Input,Checkbox,Collapse,Select,Row,Col,Slider,InputNumber,Divider,Modal,Upload,message,Switch} from 'antd';
-import { Scrollbars} from 'react-custom-scrollbars';
+import {Tabs,Card,Icon,Form} from 'antd';
 import './right.css';
 
 const TabPane = Tabs.TabPane;
-const FormItem = Form.Item;
-const Panel = Collapse.Panel;
-const Option = Select.Option;
-const {TextArea} = Input;
-//拖拽上传
-// const Dragger = Upload.Dragger;
-
 
 class chartForm extends Component{
     state = {

@@ -5,7 +5,6 @@ import {Row,Col} from 'antd';
 import papa from 'papaparse';
 import axios from 'axios';
 import { Button } from 'antd/lib/radio';
-import echarts from 'echarts';
 require('echarts/map/js/china.js');
 
 class page extends Component{

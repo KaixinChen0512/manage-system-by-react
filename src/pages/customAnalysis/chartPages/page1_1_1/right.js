@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {List,Tabs,Icon,Card,Button,Form,Input,Checkbox,Collapse,Select,Row,Col,Slider,InputNumber,Divider,Modal,Upload,message,Switch} from 'antd';
+import {Tabs,Icon,Card,Button,Form,Input,Collapse,Select,Row,Col,Slider,InputNumber,Modal,Upload,Switch} from 'antd';
 import { Scrollbars} from 'react-custom-scrollbars';
 import './right.css';
 
@@ -43,7 +43,6 @@ class chartForm extends Component{
         apiVisible: false,
         //数据库文件弹出框状态
         databaseVisible:false,
-        // databaseVisible2:false,
         //上传CSV文件
         fileList: [{
             uid: -1,
@@ -159,7 +158,6 @@ class chartForm extends Component{
                 break;
             // case "database2":
             //     this.setState({
-            //         databaseVisible2: true,
             //     })
             //     break;
             default:
@@ -208,15 +206,6 @@ class chartForm extends Component{
     databaseHandleCancel = () => {
         this.setState({ databaseVisible: false });
     }
-    // databaseHandleOk2 = () => {
-    //     this.setState({ loading: true });
-    //     setTimeout(() => {
-    //         this.setState({ loading: false, databaseVisible2: false });
-    //     }, 3000);
-    // }
-    // databaseHandleCancel2 = () => {
-    //     this.setState({ databaseVisible2: false });
-    // }
     dataTypeChange =(value) => {
         this.showModal(value);
     }
@@ -252,7 +241,7 @@ class chartForm extends Component{
         const dataY = this.props.option.series[0].data;
         const { getFieldDecorator } = this.props.form;
         //弹出框
-        const { csvVisible,apiVisible,txtVisible, databaseVisible,databaseVisible2, loading } = this.state;
+        const { csvVisible,apiVisible,txtVisible, databaseVisible, loading } = this.state;
         //上传CSV文件
         const props = {
             action: '//jsonplaceholder.typicode.com/posts/',
@@ -676,30 +665,6 @@ class chartForm extends Component{
                         <TextArea autosize={{minRows:8}} defaultValue="SELECT * FROM"/>
                     </Row>
                 </Modal>
-                {/*<Modal
-                visible={databaseVisible2}
-                title="数据库配置信息"
-                onOk={this.databaseHandleOk2}
-                onCancel={this.databaseHandleCancel2}
-                footer={[
-                    <Button key="back4" onClick={this.databaseHandleCancel2}>返回</Button>,
-                    <Button key="submit4" type="primary" loading={loading} onClick={this.databaseHandleOk2}>
-                        确认
-                    </Button>,
-                ]}
-                >
-                    <Row>
-                        <span>URL</span>
-                    </Row>
-                    <Row>
-                        <span>
-                            将回调参数配置到url中, 例: http://api.test?value=:value
-                        </span>
-                    </Row>
-                    <Row>
-                        <TextArea autosize={{minRows:6}}/>
-                    </Row>
-            </Modal>*/}
             </div>
         );
     }

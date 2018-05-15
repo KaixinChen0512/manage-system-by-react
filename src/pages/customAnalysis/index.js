@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
-import {Row, Layout} from 'antd';
-// import { Route } from 'react-router-dom';
-// import {Link} from 'react-router-dom';
+import {Layout} from 'antd';
 import './index.css';
 import Top from './header.js';
-// import Bottom from './footer.js';
 import Contents from './content.js';
-// import LeftSide from './leftSide.js';
-// import RightSide from './rightSide.js';
-// import chart1_1_1 from './chartPages/page1_1_1/index.js';
-// const{Sider} = Layout;
-// const SubMenu = Menu.SubMenu;
 class Container extends Component{
 	
 	// render(){

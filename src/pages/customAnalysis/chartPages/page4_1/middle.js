@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import ReactEcharts from 'echarts-for-react';
-import echarts from 'echarts';
 import './middle.css';
 
 // let base = +new Date(2008, 8, 0);

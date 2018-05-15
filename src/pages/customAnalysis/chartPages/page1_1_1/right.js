@@ -558,6 +558,18 @@ class chartForm extends Component{
                                         >
                                             <Switch checkedChildren="开" unCheckedChildren="关" onChange={this.props.addTextNotice} />
                                         </FormItem>
+                                        <FormItem
+                                        labelCol={{ span: 12 }}
+                                        wrapperCol={{ span: 12 }}
+                                        label={(
+                                            <span style={{marginRight:'35px'}}>
+                                                图表发布、存储
+                                            </span>
+                                        )}
+                                        colon={false}
+                                        >
+                                            <Switch checkedChildren="开" unCheckedChildren="关" onChange={this.props.addTools} />
+                                        </FormItem>
                                     </Panel>
                                     <Panel header="算法" key="2">
                                         <FormItem

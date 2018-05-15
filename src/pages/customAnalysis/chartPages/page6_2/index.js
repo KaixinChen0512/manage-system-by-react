@@ -1,5 +1,6 @@
 import Middle from './middle.js';
 import Right from './right.js';
+import Draggable from 'react-draggable';
 import React,{Component} from 'react';
 import {Row,Col} from 'antd';
 import papa from 'papaparse';
@@ -30,6 +31,13 @@ class page extends Component{
             },
             height: 610,
             width: 830,
+            activeDrags: 0,
+            deltaPosition: {
+                x: 0, y: 0
+            },
+            controlledPosition: {
+                x: -400, y: 200
+            }
         }
     }
 
@@ -438,10 +446,57 @@ class page extends Component{
         }
     }
 
+    //添加工具栏
+    addTools=(flag)=>{
+        if(flag){
+            this.setState({
+                option: Object.assign({},this.state.option,{toolbox: {
+                    show: true,
+                    feature: {
+                        dataZoom: {
+                            yAxisIndex: 'none'
+                        },
+                        dataView: {readOnly: false},
+                        magicType: {type: ['line', 'bar']},
+                        restore: {},
+                        saveAsImage: {}
+                    }
+                }
+                })
+            })
+        }else{
+            this.setState({
+                option: Object.assign({},this.state.option,{toolbox: {
+                    show: false
+                }
+                })
+            })
+        }
+    }
+
+    //添加图表拖拽功能
+    onStart = () => {
+        this.setState({activeDrags: ++this.state.activeDrags});
+    };
+    onStop = () => {
+        this.setState({activeDrags: --this.state.activeDrags});
+    };
+    handleDrag = (e, ui) => {
+        const {x, y} = this.state.deltaPosition;
+        this.setState({
+            deltaPosition: {
+                x: x + ui.deltaX,
+                y: y + ui.deltaY,
+            }
+        });
+    };
     render(){
+        const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
+        const {deltaPosition} = this.state;
         return (
             <div>
                 <Row gutter={48}>
+                <Draggable zIndex={100} {...dragHandlers}>
                     <Col span={16}>
                         <Middle 
                         option={this.state.option} 
@@ -449,6 +504,7 @@ class page extends Component{
                         chartWidth={this.state.width}
                         />
                     </Col>
+                 </Draggable>
                     <Col span={8}>
                         <Right 
                         option={this.state.option}
@@ -470,6 +526,7 @@ class page extends Component{
                         addAxisPointer={this.addAxisPointer.bind(this)}
                         addDataFilter={this.addDataFilter.bind(this)}
                         addTextNotice={this.addTextNotice.bind(this)}
+                        addTools={this.addTools.bind(this)}
                         />
                     </Col> 
                 </Row>

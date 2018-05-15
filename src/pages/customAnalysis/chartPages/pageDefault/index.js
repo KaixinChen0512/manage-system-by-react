@@ -1,5 +1,6 @@
 import Middle from './middle.js';
 import Right from './right.js';
+import Draggable from 'react-draggable';
 import React,{Component} from 'react';
 import {Row,Col} from 'antd';
 

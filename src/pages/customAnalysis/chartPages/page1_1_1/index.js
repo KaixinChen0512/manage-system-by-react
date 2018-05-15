@@ -284,6 +284,34 @@ class page1_1_1 extends Component{
         }
     }
 
+    //添加工具栏
+    addTools=(flag)=>{
+        if(flag){
+            this.setState({
+                option: Object.assign({},this.state.option,{toolbox: {
+                    show: true,
+                    feature: {
+                        dataZoom: {
+                            yAxisIndex: 'none'
+                        },
+                        dataView: {readOnly: false},
+                        magicType: {type: ['line', 'bar']},
+                        restore: {},
+                        saveAsImage: {}
+                    }
+                }
+                })
+            })
+        }else{
+            this.setState({
+                option: Object.assign({},this.state.option,{toolbox: {
+                    show: false
+                }
+                })
+            })
+        }
+    }
+
     //添加图表拖拽功能
     onStart = () => {
         this.setState({activeDrags: ++this.state.activeDrags});
@@ -341,6 +369,7 @@ class page1_1_1 extends Component{
                         //交互部分
                         addAxisPointer={this.addAxisPointer.bind(this)}
                         addTextNotice={this.addTextNotice.bind(this)}
+                        addTools={this.addTools.bind(this)}
                         />
                     </Col>
                 </Row>

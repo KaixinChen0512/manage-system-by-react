@@ -46,6 +46,7 @@ class Top extends Component{
             <Menu>
                 <Menu.Item><Link to="/app/customAnalysis/2_1"><Avatar shape="square" size="large" src={img2_1} /><span className="menuItemText">基本树图</span></Link></Menu.Item>
                 <Menu.Item><Link to="/app/customAnalysis/2_2"><Avatar shape="square" size="large" src={img2_2} /><span className="menuItemText">矩型树图</span></Link></Menu.Item>
+                <Menu.Item><Link to="/app/customAnalysis/2_3"><Avatar shape="square" size="large" src={img2_2} /><span className="menuItemText">FR+树形结构力导向布局</span></Link></Menu.Item>
             </Menu>
         ),
         networkData:(

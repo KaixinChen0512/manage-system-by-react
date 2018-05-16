@@ -1,103 +1,114 @@
-import React,{Component} from 'react';
+import React from 'react';
 import ReactEcharts from 'echarts-for-react';
-import echarts from 'echarts';
 
-let base = +new Date(2008, 8, 0);
-let oneDay = 24 * 3600 * 1000;
-let date = [];
-
-let data = [Math.random() * 300];
-
-for (var i = 1; i < 3650; i++) {
-    var now = new Date(base += oneDay);
-    date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'));
-    data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
+let xAxisData = [];
+let data = [];
+for (let i = 0; i < 50; i++) {
+    xAxisData.push(i);
+    data.push(Math.ceil(Math.random()*70));
 }
 
 const option = {
-    tooltip: {
-        trigger: 'axis',
-        position: function (pt) {
-            return [pt[0], '10%'];
-        }
-    },
     title: {
+        text: '近50天每日管道焊接数量',
         left: 'center',
-        text: '项目总体完成情况',
+        textStyle: {
+            color: '#ccc',
+            fontSize: 18,
+        },
+        padding: 10,
     },
-    toolbox: {
-        feature: {
-            dataZoom: {
-                yAxisIndex: 'none'
-            },
-            restore: {},
-            saveAsImage: {}
+    backgroundColor: '#404040',
+    xAxis: [{
+        show: true,
+        data: xAxisData,
+        axisLabel: {
+            textStyle: {
+                color: '#ccc'
+            }
         }
-    },
-    xAxis: {
-        type: 'category',
-        boundaryGap: false,
-        data: date
+    }, {
+        show: false,
+        data: xAxisData
+    }],
+    tooltip: {},
+    visualMap: {
+        show: false,
+        min: 0,
+        max: 50,
+        dimension: 0,
+        inRange: {
+            color: ['#4a657a', '#308e92', '#b1cfa5', '#f5d69f', '#f5898b', '#ef5055']
+        }
     },
     yAxis: {
-        type: 'value',
-        boundaryGap: [0, '100%']
-    },
-    dataZoom: [{
-        type: 'inside',
-        start: 0,
-        end: 10
-    }, {
-        start: 0,
-        end: 10,
-        handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
-        handleSize: '80%',
-        handleStyle: {
-            color: '#fff',
-            shadowBlur: 3,
-            shadowColor: 'rgba(0, 0, 0, 0.6)',
-            shadowOffsetX: 2,
-            shadowOffsetY: 2
+        axisLine: {
+            show: false
+        },
+        axisLabel: {
+            textStyle: {
+                color: '#ccc'
+            }
+        },
+        splitLine: {
+            show: true,
+            lineStyle: {
+                color: '#08263f'
+            }
+        },
+        axisTick: {
+            show: false
         }
-    }],
+    },
     series: [
         {
-            name:'模拟数据',
-            type:'line',
-            smooth:true,
-            symbol: 'none',
-            sampling: 'average',
-            itemStyle: {
-                normal: {
-                    color: 'rgb(255, 70, 131)'
-                }
-            },
-            areaStyle: {
-                normal: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                        offset: 0,
-                        color: 'rgb(255, 158, 68)'
-                    }, {
-                        offset: 1,
-                        color: 'rgb(255, 70, 131)'
-                    }])
-                }
-            },
-            data: data
+        name: 'Simulate Shadow',
+        type: 'line',
+        data: data,
+        z: 2,
+        showSymbol: false,
+        animationDelay: 0,
+        animationEasing: 'linear',
+        animationDuration: 1200,
+        lineStyle: {
+            normal: {
+                color: 'transparent'
+            }
+        },
+        areaStyle: {
+            normal: {
+                color: '#08263a',
+                shadowBlur: 50,
+                shadowColor: '#000'
+            }
         }
-    ]
-};
-
-class projectProgress extends Component {
-    render() {
-        return (
-            <ReactEcharts
-                option={option}
-                style={{height: '550px', width: '1200px'}}
-                className={'react_for_echarts'}
-            />
-        )
+    }, {
+        name: '完成项目数',
+        type: 'bar',
+        data: data,
+        xAxisIndex: 1,
+        z: 3,
+        itemStyle: {
+            normal: {
+                barBorderRadius: 5
+            }
+        }
+    }],
+    animationEasing: 'elasticOut',
+    animationEasingUpdate: 'elasticOut',
+    animationDelay: function (idx) {
+        return idx * 20;
+    },
+    animationDelayUpdate: function (idx) {
+        return idx * 20;
     }
-}
+};
+const EchartsProjects = () => (
+    <ReactEcharts
+        option={option}
+        style={{height: '550px', width: '1200px%'}}
+        className={'react_for_echarts'}
+    />
+);
 
-export default projectProgress;
+export default EchartsProjects;

@@ -5987,7 +5987,7 @@ class page extends Component{
         return (
             <div>
                 <Row gutter={48}>
-                <Draggable zIndex={100} {...dragHandlers}>
+                {/*<Draggable zIndex={100} {...dragHandlers}>*/}
                     <Col span={16}>
                         <Middle 
                         option={this.state.option} 
@@ -5995,7 +5995,7 @@ class page extends Component{
                         chartWidth={this.state.width}
                         />
                     </Col>
-                 </Draggable>
+                 {/*</Draggable>*/}
                     <Col span={8}>
                         <Right 
                         option={this.state.option}
